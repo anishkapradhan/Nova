@@ -18,6 +18,7 @@ This repository houses the complete product specifications and technical design 
 | :--- | :--- | :--- |
 | 📄 [**Product Requirements Document (PRD.md)**](PRD.md) | Comprehensive functional and pedagogical specifications for the pre-college portal. | • **Fundamentals-Learning Hub** (100% Free OER)<br>• **Competitions & Challenges Radar** (NASA ADC, TARC)<br>• **Citizen Science Research Lab** (Zooniverse, Radio JOVE)<br>• **"Nuclear-Active" Zero-PII Policy** (COPPA/FERPA immune)<br>• **Latest Space News & Minimal Contributor Editor** |
 | 📐 [**System Design Specification (SYSTEM_DESIGN.md)**](SYSTEM_DESIGN.md) | High-performance, distributed, cost-optimized engineering architecture. | • **Phase 0 Zero-COGS Blueprint** ($1.25/mo operating budget)<br>• **Layer-by-Layer Decomposition** (10 isolated architectural layers)<br>• **Multi-Agent NLP Pipeline** with **Eval Framework**, **Golden Dataset**, and **Chain-of-Thought (CoT) Traceability**<br>• **Phase 2 Resiliency & High Availability** (99.99% multi-region failover)<br>• **Client-Side WebAssembly Compute** (Pyodide / $0 server compute) |
+| 🛠️ [**Implementation Blueprint (IMPLEMENTATION_PLAN.md)**](IMPLEMENTATION_PLAN.md) | AI-optimized machine-executable execution blueprint & prompt matrix. | • **Strict Grounding & Pinned Tooling** (Next.js 15, React 19, Tailwind v4)<br>• **Topological Dependency DAG** (Milestone 0 to 9)<br>• **Concrete API Contracts** & Prisma Schemas<br>• **$\le$ 3 Files Atomic Feature Tickets** & Requirements Traceability Matrix |
 
 ---
 
