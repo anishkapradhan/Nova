@@ -8,7 +8,7 @@ export const CANONICAL_RESOURCES: FundamentalResource[] = [
     title: "NASA Beginner's Guide to Aeronautics",
     category: 'Aerodynamics & Fluid Dynamics',
     resourceType: 'Free Online Textbook (OER)',
-    targetUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/bga.html',
+    targetUrl: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/learn-about-aerodynamics/',
     publisherOrSource: 'NASA Glenn Research Center',
     difficultyLevel: 'Beginner (Grades 9-10 / Algebra I)',
     summary:

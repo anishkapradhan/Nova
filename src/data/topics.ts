@@ -94,7 +94,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
     featuredGuide: {
       title: "NASA Beginner's Guide to Aeronautics",
       publisher: 'NASA Glenn Research Center',
-      url: 'https://www.grc.nasa.gov/www/k-12/airplane/bga.html',
+      url: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/learn-about-aerodynamics/',
       summary:
         'A comprehensive, interactive educational portal covering lift, drag, propulsion, and compressible fluid dynamics written for pre-college and collegiate cadets.',
     },
