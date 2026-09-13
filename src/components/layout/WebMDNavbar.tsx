@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import {
   Rocket,
   Search,
@@ -14,30 +17,16 @@ import {
   Trophy,
   ExternalLink,
   BookOpen,
+  ArrowRight,
+  Sparkles,
 } from 'lucide-react';
-
-export interface TopicDropdownItem {
-  name: string;
-  description: string;
-  categoryFilter?: string;
-  searchFilter?: string;
-  isExternal?: boolean;
-  url?: string;
-  badge?: string;
-}
-
-export interface NavTopicMenu {
-  title: string;
-  icon: React.ReactNode;
-  categoryFilter?: string;
-  items: TopicDropdownItem[];
-}
+import { SPACE_TOPICS, TopicDefinition } from '@/data/topics';
 
 interface WebMDNavbarProps {
   cadetHandle: string;
   searchQuery: string;
   onSearchChange: (q: string) => void;
-  onSelectCategory: (category: string) => void;
+  onSelectCategory?: (category: string) => void;
   onOpenAddModal: () => void;
 }
 
@@ -50,6 +39,7 @@ export function WebMDNavbar({
 }: WebMDNavbarProps): React.JSX.Element {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -62,205 +52,50 @@ export function WebMDNavbar({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const topics: NavTopicMenu[] = [
-    {
-      title: 'Aerodynamics & Fluids',
-      icon: <Compass className="w-4 h-4 text-cyan-400" />,
-      categoryFilter: 'Aerodynamics & Fluid Dynamics',
-      items: [
-        {
-          name: "NASA Beginner's Guide to Aeronautics",
-          description: 'Foundational lift, drag, airfoils, and wind-tunnel testing guides.',
-          categoryFilter: 'Aerodynamics & Fluid Dynamics',
-          badge: 'NASA Glenn',
-        },
-        {
-          name: 'NASA FoilSim Airfoil Simulator',
-          description: 'Interactive camber, angle of attack, and pressure distribution sandbox.',
-          categoryFilter: 'Aerodynamics & Fluid Dynamics',
-          badge: 'Interactive Lab',
-        },
-        {
-          name: 'Supersonic Flight & Mach Numbers',
-          description: 'Compressible flow, shockwaves, and sound barrier physics.',
-          categoryFilter: 'Aerodynamics & Fluid Dynamics',
-        },
-        {
-          name: 'Boundary Layers & Reynolds Number',
-          description: 'Laminar to turbulent fluid dynamics transitions.',
-          categoryFilter: 'Aerodynamics & Fluid Dynamics',
-        },
-      ],
-    },
-    {
-      title: 'Astronomy & Planetary',
-      icon: <Atom className="w-4 h-4 text-purple-400" />,
-      categoryFilter: 'Astronomy & Planetary Science',
-      items: [
-        {
-          name: 'OpenStax Astronomy 2e Textbook',
-          description: 'Comprehensive, peer-reviewed solar system and astrophysics text.',
-          categoryFilter: 'Astronomy & Planetary Science',
-          badge: 'Open Textbook',
-        },
-        {
-          name: 'MIT OCW Introduction to Astronomy',
-          description: 'Collegiate lecture series (8.282J) on stellar evolution and orbits.',
-          categoryFilter: 'Astronomy & Planetary Science',
-          badge: 'MIT 8.282J',
-        },
-        {
-          name: 'Keplerian Planetary Orbits',
-          description: 'Elliptical orbits, semi-major axis, and gravitational laws.',
-          categoryFilter: 'Astronomy & Planetary Science',
-        },
-        {
-          name: 'Exoplanet Transit Photometry',
-          description: 'Light curve dips and planetary radius determinations.',
-          categoryFilter: 'Astronomy & Planetary Science',
-        },
-      ],
-    },
-    {
-      title: 'Physics & Mechanics',
-      icon: <Atom className="w-4 h-4 text-emerald-400" />,
-      categoryFilter: 'Physics & Classical Mechanics',
-      items: [
-        {
-          name: 'OpenStax University Physics Vol 1 & 2',
-          description: 'Calculus-based kinematics, dynamics, rotational energy, and gravity.',
-          categoryFilter: 'Physics & Classical Mechanics',
-          badge: 'AP Physics C',
-        },
-        {
-          name: 'HyperPhysics Concept Mind-Map',
-          description: 'Interactive concept map with real-time numeric calculations.',
-          categoryFilter: 'Physics & Classical Mechanics',
-          badge: 'GSU Lab',
-        },
-        {
-          name: "Newton's Laws of Motion & Gravitation",
-          description: 'Fundamental mechanics applied to orbital vehicles.',
-          categoryFilter: 'Physics & Classical Mechanics',
-        },
-        {
-          name: 'Rotational Inertia & Gyroscopic Stability',
-          description: 'Spacecraft reaction wheels and spin stabilization.',
-          categoryFilter: 'Physics & Classical Mechanics',
-        },
-      ],
-    },
-    {
-      title: 'Propulsion & Rocketry',
-      icon: <Flame className="w-4 h-4 text-orange-400" />,
-      categoryFilter: 'Aerospace Engineering & Propulsion',
-      items: [
-        {
-          name: 'NASA Basics of Space Flight',
-          description: 'JPL manual on rocket propulsion, telecommunications, and deep space.',
-          categoryFilter: 'Aerospace Engineering & Propulsion',
-          badge: 'NASA JPL',
-        },
-        {
-          name: 'OpenRocket Flight Simulator Guide',
-          description: 'Full 6-DOF rocket trajectory, stability margin, and motor curves.',
-          categoryFilter: 'Aerospace Engineering & Propulsion',
-          badge: 'TARC Rocketry',
-        },
-        {
-          name: 'Tsiolkovsky Rocket Equation & Δv',
-          description: 'Mass ratio and specific impulse calculations.',
-          categoryFilter: 'Aerospace Engineering & Propulsion',
-        },
-        {
-          name: 'Solid vs Liquid vs Ion Propulsion',
-          description: 'Chemical engines, Hall-effect thrusters, and nuclear thermal.',
-          categoryFilter: 'Aerospace Engineering & Propulsion',
-        },
-      ],
-    },
-    {
-      title: 'Applied Space Math',
-      icon: <Binary className="w-4 h-4 text-sky-400" />,
-      categoryFilter: 'Applied Space Mathematics',
-      items: [
-        {
-          name: "Paul's Online Math Notes",
-          description: 'Calculus I, II, III, vector algebra, and differential equations.',
-          categoryFilter: 'Applied Space Mathematics',
-          badge: 'Lamar Univ',
-        },
-        {
-          name: 'Vector Cross-Products & Torque',
-          description: 'Orbital plane vectors, angular momentum, and state vectors.',
-          categoryFilter: 'Applied Space Mathematics',
-        },
-        {
-          name: 'Differential Equations in Orbital Mechanics',
-          description: 'Two-body problem and numerical trajectory integration.',
-          categoryFilter: 'Applied Space Mathematics',
-        },
-      ],
-    },
-    {
-      title: 'Competitions & Radar',
-      icon: <Trophy className="w-4 h-4 text-amber-400" />,
-      items: [
-        {
-          name: 'The American Rocketry Challenge (TARC)',
-          description: 'Nationwide model rocketry competition for high school teams.',
-          badge: 'Grades 9-12',
-          url: 'https://rocketcontest.org/',
-          isExternal: true,
-        },
-        {
-          name: 'NASA App Development Challenge (ADC)',
-          description: 'Code a 3D visualization app for Artemis Moon missions.',
-          badge: 'NASA Artemis',
-          url: 'https://www.nasa.gov/learning-resources/app-development-challenge/',
-          isExternal: true,
-        },
-        {
-          name: 'High School CubeSat Initiatives',
-          description: 'Guidelines to build, program, and launch 1U CubeSats.',
-          badge: 'CubeSat',
-          url: 'https://www.nasa.gov/cubesat-launch-initiative/',
-          isExternal: true,
-        },
-      ],
-    },
-  ];
+  const getTopicIcon = (iconName: string): React.ReactNode => {
+    switch (iconName) {
+      case 'Compass':
+        return <Compass className="w-4 h-4 text-cyan-400" />;
+      case 'Flame':
+        return <Flame className="w-4 h-4 text-orange-400" />;
+      case 'Atom':
+        return <Atom className="w-4 h-4 text-purple-400" />;
+      case 'Binary':
+        return <Binary className="w-4 h-4 text-sky-400" />;
+      case 'Trophy':
+        return <Trophy className="w-4 h-4 text-amber-400" />;
+      default:
+        return <Sparkles className="w-4 h-4 text-cyan-400" />;
+    }
+  };
 
-  const handleItemClick = (item: TopicDropdownItem): void => {
-    if (item.isExternal && item.url) {
-      window.open(item.url, '_blank', 'noopener,noreferrer');
-    } else if (item.categoryFilter) {
-      onSelectCategory(item.categoryFilter);
-      if (item.searchFilter) {
-        onSearchChange(item.searchFilter);
-      }
+  const handleSubtopicClick = (url?: string, category?: string): void => {
+    if (url && url.startsWith('http')) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else if (category && onSelectCategory) {
+      onSelectCategory(category);
     }
     setOpenDropdown(null);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#060813] border-b border-slate-800 shadow-xl" ref={navRef}>
-      {/* Top Brand & Utility Header (WebMD style top-tier) */}
-      <div className="border-b border-slate-800/80 bg-slate-950/90">
+    <header className="sticky top-0 z-50 shadow-2xl" ref={navRef}>
+      {/* 1. WebMD-Style Top Tier: Deep Navy Header with Brand, Search & Cadet Status */}
+      <div className="bg-[#041126] border-b border-[#0f2e5a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-0.5 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-              <div className="w-full h-full bg-[#060813] rounded-[10px] flex items-center justify-center">
+          {/* Logo & Brand */}
+          <Link href="/" className="flex items-center gap-3 shrink-0 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-400 via-sky-500 to-blue-600 p-0.5 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition">
+              <div className="w-full h-full bg-[#030d1d] rounded-[10px] flex items-center justify-center">
                 <Rocket className="w-5 h-5 text-cyan-400" />
               </div>
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-xl font-black tracking-wider bg-gradient-to-r from-cyan-300 via-sky-100 to-purple-300 bg-clip-text text-transparent">
+                <span className="text-xl font-black tracking-wider text-white group-hover:text-cyan-300 transition">
                   NOVA
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-500/30">
+                <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-blue-900/80 text-cyan-300 border border-cyan-400/40">
                   SpaceMD
                 </span>
               </div>
@@ -268,22 +103,27 @@ export function WebMDNavbar({
                 Pre-College Aerospace & Astronomy Portal
               </p>
             </div>
-          </div>
+          </Link>
 
-          {/* WebMD-style Central Prominent Search Bar */}
+          {/* WebMD-Style Central Prominent Search Bar */}
           <div className="flex-1 max-w-xl mx-2 hidden md:block">
             <div className="relative flex items-center">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Search topics, NASA guides, airfoils, orbits, formulas..."
-                className="w-full pl-10 pr-24 py-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-slate-100 placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition"
+                placeholder="Search conditions, airfoils, orbits, rocket equations, NASA guides..."
+                className="w-full pl-10 pr-24 py-2 bg-[#020b18] border border-[#1b3d6d] rounded-lg text-xs text-slate-100 placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition"
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5" />
               <button
                 type="button"
-                className="absolute right-1 px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded text-xs font-semibold transition"
+                onClick={() => {
+                  if (window.location.pathname !== '/') {
+                    router.push(`/?search=${encodeURIComponent(searchQuery)}`);
+                  }
+                }}
+                className="absolute right-1 px-3 py-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded text-xs font-semibold transition"
               >
                 Search
               </button>
@@ -292,7 +132,7 @@ export function WebMDNavbar({
 
           {/* Right Cadet Badge & Contribute Action */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-xs">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#071d3a] border border-[#1b3d6d] text-xs">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <div className="hidden lg:block text-left">
                 <span className="block text-[10px] text-slate-400 uppercase font-mono leading-none">
@@ -305,7 +145,7 @@ export function WebMDNavbar({
 
             <button
               onClick={onOpenAddModal}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-semibold text-xs transition shadow-md shadow-cyan-500/20"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-xs transition shadow-md shadow-cyan-500/20"
             >
               <Plus className="w-4 h-4" />
               <span className="hidden sm:inline">Add Resource</span>
@@ -314,96 +154,127 @@ export function WebMDNavbar({
         </div>
       </div>
 
-      {/* WebMD-style Mega-Menu Dropdown Tab Bar */}
-      <nav className="border-b border-slate-800 bg-[#080b18]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between overflow-x-auto scrollbar-none">
-          <ul className="flex items-center gap-1 sm:gap-2 text-xs font-medium py-1">
-            {/* "All Topics" Direct Button */}
+      {/* 2. WebMD-Style Signature Dark Blue Horizontal Navigation Bar */}
+      <nav className="bg-[#002855] border-b border-[#003b7a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <ul className="flex items-center justify-start gap-1 overflow-x-auto scrollbar-none py-1 text-xs font-medium">
+            {/* Direct Link to All Topics / Home Directory */}
             <li>
-              <button
+              <Link
+                href="/"
                 onClick={() => {
-                  onSelectCategory('All Disciplines');
+                  if (onSelectCategory) {
+                    onSelectCategory('All Disciplines');
+                  }
                   setOpenDropdown(null);
                 }}
-                className="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-md text-slate-200 hover:text-white hover:bg-[#003774] transition whitespace-nowrap flex items-center gap-1.5"
               >
-                <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
-                <span>All Topics</span>
-              </button>
+                <BookOpen className="w-3.5 h-3.5 text-cyan-300" />
+                <span className="font-semibold">All Topics</span>
+              </Link>
             </li>
 
-            {/* Topic Tabs with Dropdown Menu */}
-            {topics.map((topic) => {
-              const isOpen = openDropdown === topic.title;
+            {/* Horizontal Main Discipline Tabs (Just like WebMD: Conditions, Drugs, etc.) */}
+            {SPACE_TOPICS.map((topic: TopicDefinition) => {
+              const isOpen = openDropdown === topic.slug;
 
               return (
-                <li key={topic.title} className="relative">
-                  <button
-                    onClick={() => setOpenDropdown(isOpen ? null : topic.title)}
-                    onMouseEnter={() => setOpenDropdown(topic.title)}
-                    className={`px-3 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
-                      isOpen
-                        ? 'bg-slate-800 text-cyan-300 shadow-inner'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
-                    }`}
-                  >
-                    {topic.icon}
-                    <span>{topic.title}</span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-cyan-400' : 'text-slate-500'
+                <li key={topic.slug} className="relative">
+                  <div className="flex items-center">
+                    <button
+                      onClick={() => setOpenDropdown(isOpen ? null : topic.slug)}
+                      onMouseEnter={() => setOpenDropdown(topic.slug)}
+                      className={`px-3.5 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-semibold ${
+                        isOpen
+                          ? 'bg-[#003f88] text-white shadow-inner'
+                          : 'text-slate-100 hover:text-white hover:bg-[#003774]'
                       }`}
-                    />
-                  </button>
+                    >
+                      {getTopicIcon(topic.iconName)}
+                      <span>{topic.webmdTabLabel}</span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          isOpen ? 'rotate-180 text-cyan-300' : 'text-blue-300'
+                        }`}
+                      />
+                    </button>
+                  </div>
 
-                  {/* WebMD Dropdown Menu Panel */}
+                  {/* Expanded Sub-Topics Mega Dropdown Panel */}
                   {isOpen && (
                     <div
                       onMouseLeave={() => setOpenDropdown(null)}
-                      className="absolute left-0 top-full mt-1 w-80 sm:w-96 bg-slate-900/95 border border-cyan-500/30 rounded-xl shadow-2xl p-3 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150"
+                      className="absolute left-0 top-full mt-1 w-84 sm:w-[460px] bg-[#071a36]/98 border border-cyan-500/40 rounded-xl shadow-2xl p-4 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
                     >
-                      <div className="pb-2 mb-2 border-b border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 font-mono">
-                          {topic.title} Guides
-                        </span>
-                        {topic.categoryFilter && (
-                          <button
-                            onClick={() => {
-                              onSelectCategory(topic.categoryFilter!);
-                              setOpenDropdown(null);
-                            }}
-                            className="text-[11px] text-slate-400 hover:text-cyan-300 underline"
-                          >
-                            View All &rarr;
-                          </button>
-                        )}
+                      {/* Dropdown Header with Direct Link to Topic Page */}
+                      <div className="pb-2.5 mb-2.5 border-b border-blue-900 flex items-center justify-between">
+                        <div>
+                          <span className="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">
+                            {topic.title} Hub
+                          </span>
+                          <p className="text-[11px] text-slate-400 line-clamp-1">{topic.shortDescription}</p>
+                        </div>
+
+                        <Link
+                          href={`/topic/${topic.slug}`}
+                          onClick={() => setOpenDropdown(null)}
+                          className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-200 px-2.5 py-1 rounded bg-blue-950/80 border border-cyan-500/30 hover:border-cyan-400 transition"
+                        >
+                          <span>Explore Page</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
                       </div>
 
-                      <div className="space-y-1.5">
-                        {topic.items.map((item) => (
+                      {/* Sub-Topics List with Badges & Key Concepts */}
+                      <div className="space-y-2">
+                        {topic.subtopics.map((sub) => (
                           <div
-                            key={item.name}
-                            onClick={() => handleItemClick(item)}
-                            className="p-2.5 rounded-lg hover:bg-slate-800/90 transition cursor-pointer group border border-transparent hover:border-slate-700"
+                            key={sub.id}
+                            onClick={() => handleSubtopicClick(sub.externalUrl, topic.categoryFilter)}
+                            className="p-2.5 rounded-lg hover:bg-[#0d2a55] transition cursor-pointer group border border-transparent hover:border-blue-700"
                           >
                             <div className="flex items-center justify-between gap-2">
                               <span className="font-semibold text-slate-200 group-hover:text-cyan-300 transition text-xs">
-                                {item.name}
+                                {sub.name}
                               </span>
-                              {item.badge && (
-                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/30 shrink-0 font-mono">
-                                  {item.badge}
+                              {sub.badge && (
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-950 text-cyan-400 border border-cyan-500/30 shrink-0 font-mono">
+                                  {sub.badge}
                                 </span>
                               )}
-                              {item.isExternal && (
-                                <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-cyan-400" />
+                              {sub.externalUrl && (
+                                <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-cyan-300" />
                               )}
                             </div>
-                            <p className="text-[11px] text-slate-400 line-clamp-2 mt-0.5 leading-snug">
-                              {item.description}
+                            <p className="text-[11px] text-slate-400 line-clamp-2 mt-1 leading-snug">
+                              {sub.description}
                             </p>
+                            <div className="flex flex-wrap gap-1 mt-1.5">
+                              {sub.keyConcepts.slice(0, 3).map((concept) => (
+                                <span
+                                  key={concept}
+                                  className="text-[9px] px-1.5 py-0.2 bg-[#051326] text-slate-300 rounded font-mono border border-blue-950"
+                                >
+                                  {concept}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         ))}
+                      </div>
+
+                      {/* Dropdown Footer: Full Topic Page Link */}
+                      <div className="pt-3 mt-2 border-t border-blue-900/80 flex items-center justify-between text-[11px]">
+                        <span className="text-slate-400 font-mono">Peer-reviewed academic curriculum</span>
+                        <Link
+                          href={`/topic/${topic.slug}`}
+                          onClick={() => setOpenDropdown(null)}
+                          className="text-cyan-300 hover:text-white font-semibold flex items-center gap-1"
+                        >
+                          <span>Open full {topic.webmdTabLabel} guide</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -413,6 +284,43 @@ export function WebMDNavbar({
           </ul>
         </div>
       </nav>
+
+      {/* 3. Nova Milky Way 1-Inch Stripe Ribbon Running Right Under the Top Bar */}
+      <div className="relative h-11 sm:h-12 w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
+        {/* Background Milky Way Stripe Image */}
+        <Image
+          src="/images/milky_way_header.jpg"
+          alt="Nova Milky Way Cosmic Ribbon"
+          fill
+          priority
+          className="object-cover object-center brightness-90 saturate-125"
+        />
+
+        {/* Gradient Overlays for Readability & Space Feel */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020b18]/90 via-[#071b3d]/40 to-[#020b18]/90" />
+        <div className="absolute inset-0 bg-cyan-950/20 mix-blend-overlay" />
+
+        {/* 1-Inch Ribbon Content & Live Telemetry Ticker */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between text-xs">
+          <div className="flex items-center gap-2 text-white font-mono">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="font-bold tracking-wider uppercase text-[11px] text-cyan-200">
+              Nova AstroSpace Ribbon
+            </span>
+            <span className="hidden md:inline text-slate-300 text-[10px]">
+              • High School to Collegiate Aerospace & Astrophysics Hub
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 text-[10px] font-mono text-cyan-300/90 hidden sm:flex">
+            <span>✦ Artemis II Moon Mission Telemetry</span>
+            <span className="hidden lg:inline">✦ Orbiting ISS: 408 km</span>
+            <span className="px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">
+              100% Free OER
+            </span>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

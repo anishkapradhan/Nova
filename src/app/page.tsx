@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Bookmark,
   ExternalLink,
@@ -10,12 +11,14 @@ import {
   BookOpen,
   CheckCircle2,
   Filter,
+  ArrowRight,
 } from 'lucide-react';
 import { useCadetSession } from '@/lib/session/CadetSessionContext';
 import { CANONICAL_RESOURCES } from '@/app/api/v1/fundamentals/resources/route';
 import { FundamentalResource } from '@/types/fundamentals';
 import { AddResourceModal } from '@/components/fundamentals/AddResourceModal';
 import { WebMDNavbar } from '@/components/layout/WebMDNavbar';
+import { SPACE_TOPICS } from '@/data/topics';
 
 export default function HomePage(): React.JSX.Element {
   const { cadetHandle, bookmarks, toggleBookmark } = useCadetSession();
@@ -269,6 +272,53 @@ export default function HomePage(): React.JSX.Element {
           </div>
         </section>
 
+        {/* WebMD-Style "Explore Disciplines" Hubs: Each With Its Own Dedicated Page */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+            <div>
+              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <span>SpaceMD Discipline Hubs</span>
+              </h2>
+              <p className="text-xs text-slate-400">
+                Explore dedicated subject portals with specialized calculators, formulas, and verified syllabi
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SPACE_TOPICS.map((topic) => (
+              <Link
+                key={topic.slug}
+                href={`/topic/${topic.slug}`}
+                className="bg-[#051329]/80 hover:bg-[#092248] border border-blue-900/80 hover:border-cyan-500/50 rounded-xl p-5 transition space-y-3 group block shadow-md"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold uppercase text-cyan-400 tracking-wider">
+                    {topic.webmdTabLabel}
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-blue-950 text-cyan-300 border border-blue-800 font-mono">
+                    {topic.subtopics.length} Sub-Topics
+                  </span>
+                </div>
+
+                <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition">
+                  {topic.title}
+                </h3>
+
+                <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  {topic.shortDescription}
+                </p>
+
+                <div className="pt-2 border-t border-blue-950 flex items-center justify-between text-xs text-cyan-400 group-hover:text-cyan-200 font-semibold">
+                  <span>Enter Dedicated Hub</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Resources Catalog by Topic */}
         <section className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
@@ -369,10 +419,13 @@ export default function HomePage(): React.JSX.Element {
             <div className="space-y-2">
               <h4 className="font-bold text-white uppercase tracking-wider font-mono">Disciplines</h4>
               <ul className="space-y-1 text-slate-400">
-                <li><button onClick={() => setSelectedCategory('Aerodynamics & Fluid Dynamics')} className="hover:text-cyan-300">Aerodynamics</button></li>
-                <li><button onClick={() => setSelectedCategory('Astronomy & Planetary Science')} className="hover:text-cyan-300">Astronomy</button></li>
-                <li><button onClick={() => setSelectedCategory('Physics & Classical Mechanics')} className="hover:text-cyan-300">Classical Physics</button></li>
-                <li><button onClick={() => setSelectedCategory('Aerospace Engineering & Propulsion')} className="hover:text-cyan-300">Propulsion</button></li>
+                {SPACE_TOPICS.map((t) => (
+                  <li key={t.slug}>
+                    <Link href={`/topic/${t.slug}`} className="hover:text-cyan-300">
+                      {t.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
