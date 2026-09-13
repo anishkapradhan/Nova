@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "package:netlify": "node scripts/package-netlify-drop.js",
     "start": "next start",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint . --no-error-on-unmatched-pattern --max-warnings 0",
