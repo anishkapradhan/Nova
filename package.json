@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "package:netlify": "node scripts/package-netlify-drop.js",
     "start": "next start",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint . --no-error-on-unmatched-pattern --max-warnings 0",
     "lint:fix": "eslint . --fix",
@@ -31,6 +32,7 @@
     "zod": "3.24.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.13",
     "@playwright/test": "1.49.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/jest-dom": "6.6.3",

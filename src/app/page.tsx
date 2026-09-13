@@ -14,7 +14,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { useCadetSession } from '@/lib/session/CadetSessionContext';
-import { CANONICAL_RESOURCES } from '@/app/api/v1/fundamentals/resources/route';
+import { CANONICAL_RESOURCES } from '@/data/resources';
 import { FundamentalResource } from '@/types/fundamentals';
 import { AddResourceModal } from '@/components/fundamentals/AddResourceModal';
 import { WebMDNavbar } from '@/components/layout/WebMDNavbar';

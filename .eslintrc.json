@@ -3,6 +3,15 @@
     "next/core-web-vitals",
     "next/typescript"
   ],
+  "ignorePatterns": [
+    ".next/",
+    "node_modules/",
+    "netlify-drop/",
+    "scripts/",
+    "*.config.*",
+    "dist/",
+    "coverage/"
+  ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/explicit-function-return-type": [
