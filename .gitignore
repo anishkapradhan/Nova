@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Next.js Build Output
+.next/
+out/
+dist/
+build/
+
+# Environment Variables
+.env
+.env*.local
+.env.production
+.env.development
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Python Artifacts
+__pycache__/
+*.pyc
