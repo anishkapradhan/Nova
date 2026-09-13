@@ -1,0 +1,67 @@
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgvector(schema: "public")]
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+enum DisciplineCategory {
+  AERODYNAMICS_FLUID_DYNAMICS
+  ASTRONOMY_PLANETARY_SCIENCE
+  PHYSICS_CLASSICAL_MECHANICS
+  AEROSPACE_PROPULSION
+  APPLIED_SPACE_MATHEMATICS
+}
+
+enum ResourceType {
+  FREE_ONLINE_TEXTBOOK
+  INTERACTIVE_SIMULATION
+  FULL_VIDEO_COURSE
+  STUDY_GUIDE_PDF
+  GUIDED_PROBLEM_SET
+}
+
+enum DifficultyTier {
+  BEGINNER_GRADE_9_10
+  INTERMEDIATE_AP_IB
+  ADVANCED_COLLEGE_BRIDGE
+}
+
+model FundamentalResource {
+  id                      String             @id @default(cuid())
+  slug                    String             @unique
+  title                   String             @db.VarChar(255)
+  category                DisciplineCategory
+  resourceType            ResourceType
+  targetUrl               String             @db.VarChar(1024)
+  publisherOrSource       String             @db.VarChar(255)
+  difficultyTier          DifficultyTier
+  summary                 String             @db.Text
+  prerequisites           String[]
+  curriculumTieIn         String             @db.Text
+  isFreeVerified          Boolean            @default(true)
+  sriScore                Int                @default(85)
+  contributorPseudonym    String             @default("Anonymous_Cadet")
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime           @updatedAt
+
+  // 768-dimensional vector embedding for semantic discovery
+  embedding               Unsupported("vector(768)")?
+
+  @@index([category])
+  @@index([difficultyTier])
+}
+
+// Zero-PII Anonymous Cadet Session Store (No personal info)
+model CadetSession {
+  pseudonymHash           String             @id // SHA-256 of browser ECDSA public key
+  callsign                String             @unique // e.g., Cadet_Orion_42
+  bookmarkedResourceIds   String[]
+  completedLabSlugs       String[]
+  createdAt               DateTime           @default(now())
+  lastActiveAt            DateTime           @updatedAt
+}

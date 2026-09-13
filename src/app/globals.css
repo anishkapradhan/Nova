@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --space-bg: #060813;
+    --space-card: rgba(15, 23, 42, 0.65);
+    --space-card-hover: rgba(22, 33, 62, 0.85);
+    --space-border: rgba(255, 255, 255, 0.08);
+    --space-border-glow: rgba(56, 189, 248, 0.35);
+    --star-cyan: #38bdf8;
+    --nebula-purple: #a855f7;
+    --solar-amber: #fbbf24;
+    --aurora-emerald: #34d399;
+  }
+
+  body {
+    background-color: var(--space-bg);
+    color: #f1f5f9;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent),
+      radial-gradient(circle 900px at 100% 30%, rgba(168, 85, 247, 0.08), transparent),
+      radial-gradient(circle 800px at 0% 70%, rgba(14, 165, 233, 0.06), transparent);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--space-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--space-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  background: var(--space-card-hover);
+  border-color: var(--space-border-glow);
+  box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Custom Cosmic Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060813;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}

@@ -1,0 +1,40 @@
+name: Multi-Agent Evaluation & Regression Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  evals:
+    name: Run Multi-Agent Eval Benchmarks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npm run db:generate
+
+      - name: TypeScript Check
+        run: npm run typecheck
+
+      - name: ESLint Check
+        run: npm run lint
+
+      - name: Run Unit & Integration Tests
+        run: npm test
+
+      - name: Run Golden Benchmark Evaluation Suite
+        run: npx vitest run evals/runners/eval_suite.test.ts
