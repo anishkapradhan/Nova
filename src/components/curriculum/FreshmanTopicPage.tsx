@@ -146,7 +146,7 @@ export function FreshmanTopicPage({ topic }: FreshmanTopicPageProps): React.JSX.
 
         {/* Interactive Sticky Tab Navigation */}
         <div className="sticky top-16 z-30 bg-[#040814]/95 backdrop-blur border-y border-blue-900/80 py-2.5">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
             <button
               onClick={() => setActiveTab('guide')}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition shrink-0 ${

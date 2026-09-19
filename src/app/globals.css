@@ -13,6 +13,18 @@
     --aurora-emerald: #34d399;
   }
 
+  html {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
   body {
     background-color: var(--space-bg);
     color: #f1f5f9;
@@ -23,7 +35,9 @@
       radial-gradient(circle 800px at 0% 70%, rgba(14, 165, 233, 0.06), transparent);
     background-attachment: fixed;
     min-height: 100vh;
-    overflow-x: hidden;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
   }
 }
 
@@ -44,20 +58,32 @@
   transform: translateY(-2px);
 }
 
-/* Custom Cosmic Scrollbars */
+/* Custom Cosmic Scrollbars - Both Horizontal and Vertical */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #060813;
+  background: #040d1e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #1e3a66;
+  border-radius: 5px;
+  border: 2px solid #040d1e;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #0284c7;
+}
+
+::-webkit-scrollbar-corner {
+  background: #040d1e;
+}
+
+/* Firefox standard scrollbars */
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: #1e3a66 #040d1e;
 }

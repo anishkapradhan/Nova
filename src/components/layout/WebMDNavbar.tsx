@@ -158,8 +158,8 @@ export function WebMDNavbar({
 
       {/* 2. WebMD-Style Signature Dark Blue Horizontal Navigation Bar */}
       <nav className="bg-[#002855] border-b border-[#003b7a] relative z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <ul className="flex items-center justify-start gap-1 py-1 text-xs font-medium relative z-50 overflow-visible">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 overflow-x-auto lg:overflow-visible scrollbar-thin">
+          <ul className="flex items-center justify-start gap-1 py-1 text-xs font-medium relative z-50">
             {/* Direct Link to All Topics / Home Directory */}
             <li>
               <Link
@@ -205,7 +205,7 @@ export function WebMDNavbar({
 
               {openDropdown === 'curriculum' && (
                 <div
-                  className="absolute left-0 top-full mt-1 w-88 sm:w-[620px] max-h-[80vh] overflow-y-auto bg-[#040d1e]/98 border border-amber-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-amber-400/40 p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
+                  className="absolute left-0 top-full mt-1 w-[92vw] max-w-[620px] max-h-[80vh] overflow-y-auto bg-[#040d1e]/98 border border-amber-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-amber-400/40 p-3 sm:p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
                 >
                   <div className="pb-2.5 mb-2.5 border-b border-blue-900/80 flex items-center justify-between">
                     <div>
@@ -279,7 +279,7 @@ export function WebMDNavbar({
                   {/* Expanded Sub-Topics Mega Dropdown Panel */}
                   {isOpen && (
                     <div
-                      className="absolute left-0 top-full mt-1 w-84 sm:w-[480px] bg-[#040d1e]/98 border border-cyan-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-cyan-400/40 p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
+                      className="absolute left-0 top-full mt-1 w-[92vw] max-w-[480px] bg-[#040d1e]/98 border border-cyan-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-cyan-400/40 p-3 sm:p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
                     >
                       <div className="pb-2.5 mb-2.5 border-b border-blue-900/80 flex items-center justify-between">
                         <div>
