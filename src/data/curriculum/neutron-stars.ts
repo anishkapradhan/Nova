@@ -1,0 +1,417 @@
+import { CurriculumTopic } from '@/types/curriculum';
+
+export const neutronStarsTopic: CurriculumTopic = {
+  slug: 'neutron-stars',
+  chapterNumber: 21,
+  title: 'Neutron Stars',
+  subtitle: 'Pulsars, Magnetars, The Lighthouse Model, and Millisecond Recycled Spinners',
+  badge: 'Chapter 21 • Extreme Physics',
+  accentColor: 'sky',
+  freshmanSummary:
+    'Imagine taking a star twice as heavy as our Sun and crushing it down until it fits inside the city limits of Manhattan! That is a Neutron Star: the densest solid object in the observable universe. In this chapter, you will discover the mind-bending physics of matter packed at nuclear density (where a teaspoon weighs a billion tons), meet Jocelyn Bell Burnell’s ticking cosmic clocks (Pulsars), explore the lighthouse model, feel the trillion-Gauss magnetic fields of Magnetars, and see how binary stars spin dead pulsars up to 700 rotations every single second!',
+  readingSections: 'Sections 21.1, 21.3 – 21.4, 21.8 – 21.10 (Neutron Star Properties, Pulsar Discovery & Lighthouse Model, Magnetars, Millisecond Pulsars)',
+  deepSkyObjects: [
+    {
+      name: 'Crab Pulsar',
+      designation: 'PSR B0531+21 / in M1',
+      type: 'Young Rotation-Powered Pulsar',
+      constellation: 'Taurus',
+      distanceLightYears: '6,500 light-years',
+      significance:
+        'The pulsing heart of the Crab Nebula, created in the historic supernova of 1054 CE. Spinning 30 times per second, it drives a relativistic wind of positrons and electrons that illuminates the surrounding synchrotron nebula across all wavelengths.',
+      observationTip: 'The Crab Nebula (M1) is easily visible in amateur telescopes; detecting the 30 Hz optical pulse requires high-speed stroboscopic photometers.',
+    },
+    {
+      name: 'PSR J1748-2446ad in Terzan 5',
+      designation: 'PSR J1748-2446ad',
+      type: 'Millisecond Pulsar (Fastest Known)',
+      constellation: 'Sagittarius (in cluster Terzan 5)',
+      distanceLightYears: '18,000 light-years',
+      significance:
+        'The fastest spinning pulsar ever discovered! It spins at an astonishing 716 rotations per second (42,960 RPM), meaning its equator travels at nearly 24% the speed of light.',
+    },
+  ],
+  sections: [
+    {
+      id: 'neutron-star-physics',
+      title: 'Extreme Physics: Packing a Sun into a City',
+      subheading: 'Nuclear density, neutron degeneracy, and the TOV mass limit',
+      laymanExplanation:
+        'During a core-collapse supernova, gravity crushes atoms so fiercely that atomic structure completely collapses. Electrons and protons are forced into each other, converting into neutrons. What is left behind is essentially a single gigantic atomic nucleus 20 kilometers (12 miles) in diameter, weighing 1.4 to 2.1 times our Sun! The density is incomprehensible: ~10¹⁷ kg/m³. If you scooped up a single sugar-cube-sized chunk of neutron star material, it would weigh approximately 1 billion tons on Earth—about the mass of Mount Everest!',
+      realWorldAnalogy:
+        'Think of a typical atom: if the atomic nucleus were the size of a marble in the center of a football stadium, the electrons would be tiny gnats buzzing around the outer nosebleed bleachers. Normal matter is 99.999999999% empty space! A neutron star squeezes all that empty space out, cramming the entire stadium of matter into just the marble!',
+      keyTerms: [
+        {
+          term: 'Neutron Star',
+          definition: 'A compact stellar remnant formed by the core collapse of a massive star, composed almost entirely of closely packed neutrons supported by neutron degeneracy pressure.',
+        },
+        {
+          term: 'Neutron Degeneracy Pressure',
+          definition: 'Quantum mechanical resistance to further compression arising from the Pauli Exclusion Principle applied to neutrons. Supports neutron stars against gravity.',
+        },
+        {
+          term: 'Tolman-Oppenheimer-Volkoff (TOV) Limit',
+          definition: 'The maximum theoretical mass a neutron star can support without collapsing into a black hole: approximately 2.1 to 2.3 solar masses.',
+        },
+      ],
+      mathBreakdown: {
+        name: 'Nuclear Density & Gravitational Acceleration',
+        formula: '\\rho = \\frac{M}{\\frac{4}{3}\\pi R^3} \\approx 10^{17} \\text{ kg/m}^3 \\quad \\text{and} \\quad g = \\frac{G M}{R^2} \\approx 2 \\times 10^{12} \\text{ m/s}^2',
+        variables: 'M = 1.4 M_☉ (2.8 × 10³⁰ kg); R = 10 km (1.0 × 10⁴ m); g = surface gravity (~200 billion times Earth’s gravity!).',
+        walkThrough:
+          'Because surface gravity is 2 × 10¹² m/s², an object dropped from 1 meter above a neutron star would hit the surface in a microsecond at over 7 million km/h!',
+        practiceProblem: {
+          problem: 'If a neutron star has a mass of 2.0 M_☉ and a radius of 11 km, calculate its escape velocity v_esc = √(2GM/R).',
+          solution: 'v_esc = √[ (2 × 6.674 × 10⁻¹¹ × 3.98 × 10³⁰) / 11,000 ] ≈ 2.2 × 10⁸ m/s (~73% the speed of light!).',
+        },
+      },
+    },
+    {
+      id: 'pulsars-lighthouse-model',
+      title: 'Pulsars and the Lighthouse Model',
+      subheading: 'How Jocelyn Bell Burnell discovered nature’s cosmic timekeepers',
+      laymanExplanation:
+        'In 1967, graduate student Jocelyn Bell Burnell noticed regular, rapid radio pulses ticking with razor-sharp precision every 1.337 seconds. At first jokingly nicknamed "LGM-1" (Little Green Men), astrophysicists soon realized this was a rapidly spinning neutron star! When a massive star collapses from 1,000,000 km to 20 km, two things happen: 1) Conservation of angular momentum causes it to spin hundreds of times faster (like a figure skater pulling in their arms). 2) Magnetic flux is compressed, creating trillion-Gauss magnetic fields. Particles accelerated along the magnetic poles blast out narrow twin searchlight beams of radio waves. As the star spins, if the beam sweeps across Earth, we detect a periodic "blip"—just like watching a rotating coastal lighthouse!',
+      realWorldAnalogy:
+        'A coastal lighthouse doesn’t turn its lightbulb on and off; the light stays constantly on while the lamp rotates! You only see a flash when the rotating beam happens to point directly at your eyes. Pulsars do the exact same thing across the cosmos.',
+      keyTerms: [
+        {
+          term: 'Pulsar',
+          definition: 'A magnetized, rotating neutron star that emits focused beams of electromagnetic radiation out of its magnetic poles, observed on Earth as regular periodic pulses.',
+        },
+        {
+          term: 'Lighthouse Model',
+          definition: 'The standard theoretical explanation of pulsars: beams of radiation sweep through space like a lighthouse beacon due to the misalignment between the rotational axis and magnetic axis.',
+        },
+        {
+          term: 'Pulsar Glitch',
+          definition: 'A sudden, minute speed-up in a pulsar’s rotation period, caused by starquakes (crust fracturing) or the unpinning of superfluid neutron vortices in the interior.',
+        },
+      ],
+    },
+    {
+      id: 'magnetars-millisecond-pulsars',
+      title: 'Magnetars and Recycled Millisecond Pulsars',
+      subheading: 'Trillion-Gauss cosmic monsters and stars that spin 700 times per second',
+      laymanExplanation:
+        'Not all neutron stars are identical. Some are born with magnetic fields 1,000 times stronger than typical pulsars—reaching 10¹⁴ to 10¹⁵ Gauss! These are Magnetars. Their magnetic fields are so intense they could wipe your credit card from the Moon, and a single "starquake" on a magnetar can release more energy in a tenth of a second than the Sun produces in 100,000 years! On the other extreme, older pulsars in binary systems can siphon gas off a companion star. Infalling gas lands on the neutron star’s surface with immense tangential momentum, acting like water hitting a waterwheel: it "spins the pulsar up" to hundreds of rotations per second, creating a Millisecond Pulsar!',
+      realWorldAnalogy:
+        'Think of spinning a bicycle wheel: if you push the rim with your hand repeatedly as it spins, you spin it up faster and faster! That is how binary accretion "recycles" old dead pulsars into millisecond speed demons.',
+      keyTerms: [
+        {
+          term: 'Magnetar',
+          definition: 'A type of neutron star with an ultra-strong magnetic field (~10¹⁴ to 10¹⁵ Gauss) that powers high-energy X-ray and gamma-ray flares (Soft Gamma Repeaters).',
+        },
+        {
+          term: 'Millisecond Pulsar (Recycled Pulsar)',
+          definition: 'An old pulsar spun up to rotational periods of 1 to 10 milliseconds (100–700 rotations/second) by the transfer of mass and angular momentum from an accreting binary companion.',
+        },
+        {
+          term: 'Kilonova',
+          definition: 'An astronomical transient produced by the radioactive decay of heavy r-process elements synthesized during the collision of two merging neutron stars.',
+        },
+      ],
+    },
+  ],
+  diagram: {
+    type: 'pulsar-lighthouse',
+    title: 'The Pulsar Lighthouse Model & Magnetic Beams',
+    caption: 'Rotational axis tilted relative to the strong magnetic axis. Relativistic particle jets emit radio/X-ray beams from the magnetic poles, sweeping across the line of sight.',
+  },
+  flashcards: [
+    {
+      id: 'c21-f1',
+      term: 'Neutron Star Diameter & Mass',
+      category: 'Concept',
+      front: 'What are the typical physical dimensions and mass of a neutron star?',
+      back: 'Diameter: ~20 km (~12 miles across, the size of a city). Mass: ~1.4 to 2.1 solar masses.',
+    },
+    {
+      id: 'c21-f2',
+      term: 'Neutron Star Density',
+      category: 'Formula',
+      front: 'How dense is neutron star matter?',
+      back: 'Approximately 10¹⁷ kg/m³ (nuclear density). One cubic centimeter (a sugar cube) weighs approximately 1 billion tons on Earth!',
+    },
+    {
+      id: 'c21-f3',
+      term: 'Neutron Degeneracy Pressure',
+      category: 'Definition',
+      front: 'What force supports a neutron star against complete collapse into a black hole?',
+      back: 'Neutron degeneracy pressure, governed by the Pauli Exclusion Principle applied to neutrons.',
+    },
+    {
+      id: 'c21-f4',
+      term: 'TOV Mass Limit',
+      category: 'Formula',
+      front: 'What is the Tolman-Oppenheimer-Volkoff (TOV) limit and what is its value?',
+      back: 'The maximum mass a neutron star can support against black hole collapse: approximately 2.1 to 2.3 solar masses (2.1–2.3 M_☉).',
+    },
+    {
+      id: 'c21-f5',
+      term: 'Discovery of Pulsars',
+      category: 'Concept',
+      front: 'Who discovered the first pulsar in 1967 and what was its original nickname?',
+      back: 'Jocelyn Bell Burnell (analyzing radio telescope chart records at Cambridge). It was originally dubbed "LGM-1" (Little Green Men 1).',
+    },
+    {
+      id: 'c21-f6',
+      term: 'The Lighthouse Model',
+      category: 'Concept',
+      front: 'Explain the Lighthouse Model of a pulsar.',
+      back: 'The magnetic axis is tilted relative to the spin axis. Radiation beams shoot out from the magnetic poles; as the star rotates, the beam sweeps across our line of sight like a lighthouse.',
+    },
+    {
+      id: 'c21-f7',
+      term: 'Why Pulsars Spin So Fast',
+      category: 'Concept',
+      front: 'Why do newly formed neutron stars rotate so rapidly (dozens of times per second)?',
+      back: 'Conservation of angular momentum (L = I·ω). When a massive star shrinks from millions of kilometers to 20 km, its moment of inertia drops, so rotation speed skyrockets.',
+    },
+    {
+      id: 'c21-f8',
+      term: 'Pulsar Glitch',
+      category: 'Definition',
+      front: 'What is a pulsar glitch?',
+      back: 'A sudden, tiny acceleration in a pulsar’s spin rate caused by starquakes in the solid crystalline crust or the sudden transfer of angular momentum from internal superfluid neutrons.',
+    },
+    {
+      id: 'c21-f9',
+      term: 'Magnetar Definition',
+      category: 'Definition',
+      front: 'What is a Magnetar and how strong is its magnetic field?',
+      back: 'A neutron star with an extreme magnetic field (~10¹⁴ to 10¹⁵ Gauss, or 100 billion Tesla), a thousand times stronger than ordinary pulsars.',
+    },
+    {
+      id: 'c21-f10',
+      term: 'Millisecond Pulsar ("Recycled Pulsar")',
+      category: 'Definition',
+      front: 'How is a Millisecond Pulsar created?',
+      back: 'An old, slowed-down neutron star in a binary system accretes matter from its companion. The infalling gas transfers angular momentum, "spinning it up" to 100–700 rotations/second.',
+    },
+    {
+      id: 'c21-f11',
+      term: 'Fastest Known Pulsar',
+      category: 'DSO',
+      front: 'What is PSR J1748-2446ad and how fast does it rotate?',
+      back: 'A millisecond pulsar in globular cluster Terzan 5 spinning at 716 rotations per second (716 Hz)—meaning its equator travels at 24% the speed of light!',
+    },
+    {
+      id: 'c21-f12',
+      term: 'Crab Pulsar (PSR B0531+21)',
+      category: 'DSO',
+      front: 'What is the spin period of the Crab Pulsar in M1?',
+      back: '33 milliseconds (spinning 30 times per second), born in the historic supernova of 1054 CE.',
+    },
+    {
+      id: 'c21-f13',
+      term: 'Neutron Star Internal Structure',
+      category: 'Concept',
+      front: 'What are the main layers inside a neutron star?',
+      back: 'A thin gaseous atmosphere, a solid crystalline iron-rich outer crust, an inner crust with "nuclear pasta" structures, a superfluid neutron liquid mantle, and an unknown quark-gluon core.',
+    },
+    {
+      id: 'c21-f14',
+      term: 'Kilonova',
+      category: 'Definition',
+      front: 'What is a Kilonova and what cosmic elements does it create?',
+      back: 'The radioactive fireball created when two neutron stars merge, synthesizing massive quantities of heavy r-process elements like gold, platinum, and uranium.',
+    },
+    {
+      id: 'c21-f15',
+      term: 'Gravitational Time Dilation on Neutron Stars',
+      category: 'Concept',
+      front: 'How does a neutron star’s intense surface gravity affect time relative to a distant observer?',
+      back: 'General Relativity dictates that time runs slower on a neutron star’s surface (a clock there would tick about 20–30% slower than a clock in deep space).',
+    },
+    {
+      id: 'c21-f16',
+      term: 'Synchrotron Radiation in Pulsar Nebulae',
+      category: 'Definition',
+      front: 'What produces the eerie glow of the Crab Nebula powered by its central pulsar?',
+      back: 'Synchrotron radiation: relativistic electrons spiraling at near-light speed through the pulsar’s strong magnetic field lines emit polarized continuous light.',
+    },
+  ],
+  quiz: [
+    {
+      id: 'c21-q1',
+      question: 'What is the typical physical diameter of a neutron star?',
+      options: ['20 kilometers (~12 miles)', '6,400 kilometers (size of Earth)', '1,400,000 kilometers (size of the Sun)', '1 Light-Year'],
+      correctIndex: 0,
+      explanation: 'Neutron stars squeeze 1.4 to 2.1 solar masses into a sphere approximately 20 km (12 miles) across—about the size of a city!',
+    },
+    {
+      id: 'c21-q2',
+      question: 'Approximately how much would a single cubic centimeter (a sugar cube) of neutron star matter weigh on Earth?',
+      options: ['100 pounds', '5 tons', '1 billion tons (approx. the mass of Mount Everest)', 'The mass of Jupiter'],
+      correctIndex: 2,
+      explanation: 'At nuclear density (~10¹⁷ kg/m³), one cubic centimeter of neutron star material weighs about 10¹² kg (one billion tons).',
+    },
+    {
+      id: 'c21-q3',
+      question: 'What quantum mechanical principle supports a neutron star against further gravitational collapse?',
+      options: ['Electron degeneracy pressure', 'Neutron degeneracy pressure', 'Thermal radiation pressure', 'Centrifugal repulsion'],
+      correctIndex: 1,
+      explanation: 'Neutron degeneracy pressure, based on the Pauli exclusion principle applied to neutrons, supports the star.',
+    },
+    {
+      id: 'c21-q4',
+      question: 'What is the maximum mass a neutron star can support before collapsing into a black hole (the TOV limit)?',
+      options: ['1.44 Solar Masses', '2.1 to 2.3 Solar Masses', '8.0 Solar Masses', '50 Solar Masses'],
+      correctIndex: 1,
+      explanation: 'The Tolman-Oppenheimer-Volkoff (TOV) limit is approximately 2.1–2.3 M_☉.',
+    },
+    {
+      id: 'c21-q5',
+      question: 'Who discovered the first pulsating radio signal from a neutron star (pulsar) in 1967?',
+      options: ['Edwin Hubble', 'Jocelyn Bell Burnell', 'Albert Einstein', 'Subrahmanyan Chandrasekhar'],
+      correctIndex: 1,
+      explanation: 'Jocelyn Bell Burnell discovered the first pulsar (CP 1919 / LGM-1) as a graduate student at Cambridge University in 1967.',
+    },
+    {
+      id: 'c21-q6',
+      question: 'According to the Lighthouse Model, why do pulsars flash on and off with precise timing?',
+      options: [
+        'The star’s nuclear fusion turns on and off every second',
+        'Radiation beams shot from the magnetic poles sweep across our line of sight as the star rotates',
+        'An eclipsing companion planet blocks the light periodically',
+        'The star physically expands and contracts like a heart',
+      ],
+      correctIndex: 1,
+      explanation: 'The magnetic and rotational axes are misaligned; as the star spins, its narrow magnetic beams sweep through space like a lighthouse beacon.',
+    },
+    {
+      id: 'c21-q7',
+      question: 'Why do newborn neutron stars spin at dozens or hundreds of revolutions per second?',
+      options: [
+        'Conservation of angular momentum as the massive progenitor star’s core collapses from 100,000 km to 10 km',
+        'Friction with dark matter',
+        'Solar flares push the core to spin faster',
+        'Centrifugal engines inside the core',
+      ],
+      correctIndex: 0,
+      explanation: 'Conservation of angular momentum dictates that as the radius collapses by a factor of 10,000, rotational frequency increases dramatically.',
+    },
+    {
+      id: 'c21-q8',
+      question: 'What is a "pulsar glitch"?',
+      options: [
+        'A complete failure of radio telescopes',
+        'A sudden, tiny speed-up in the pulsar’s rotation period due to crust starquakes or superfluid vortex unpinning',
+        'The pulsar permanently turning off',
+        'The pulsar collapsing into a black hole',
+      ],
+      correctIndex: 1,
+      explanation: 'A glitch is a sudden jump in spin frequency, commonly attributed to internal superfluid dynamics and crustal fracturing (starquakes).',
+    },
+    {
+      id: 'c21-q9',
+      question: 'What is a Magnetar?',
+      options: [
+        'A planet with an iron core',
+        'A neutron star with an ultra-strong magnetic field (~10¹⁴ to 10¹⁵ Gauss)',
+        'A star with zero magnetic field',
+        'A magnetic black hole',
+      ],
+      correctIndex: 1,
+      explanation: 'Magnetars are neutron stars possessing magnetic fields up to 1,000 times stronger than typical pulsars (10¹⁴–10¹⁵ Gauss).',
+    },
+    {
+      id: 'c21-q10',
+      question: 'How do "Millisecond Pulsars" attain spin rates of hundreds of rotations per second?',
+      options: [
+        'They are born from the fastest spinning galaxies',
+        'They accrete gas and angular momentum from a companion star in a binary system ("recycling")',
+        'They are propelled by lasers',
+        'They have zero mass',
+      ],
+      correctIndex: 1,
+      explanation: 'In a binary system, infalling matter from a companion star transfers orbital angular momentum to the neutron star, spinning it up into a millisecond pulsar.',
+    },
+    {
+      id: 'c21-q11',
+      question: 'What is the rotational frequency of PSR J1748-2446ad in Terzan 5 (the fastest known pulsar)?',
+      options: ['30 rotations per second', '100 rotations per second', '716 rotations per second', '10,000 rotations per second'],
+      correctIndex: 2,
+      explanation: 'PSR J1748-2446ad spins 716 times per second (716 Hz), with its surface moving at nearly a quarter the speed of light.',
+    },
+    {
+      id: 'c21-q12',
+      question: 'What is the rotation period of the Crab Pulsar at the center of the Crab Nebula (M1)?',
+      options: ['33 milliseconds (~30 times/sec)', '1.33 seconds', '1 hour', '24 hours'],
+      correctIndex: 0,
+      explanation: 'The Crab Pulsar completes one full rotation every 33 milliseconds (~30 rotations per second).',
+    },
+    {
+      id: 'c21-q13',
+      question: 'What is the approximate surface gravity of a typical 1.4 M_☉ neutron star compared to Earth’s surface gravity?',
+      options: ['Twice as strong', '1,000 times stronger', 'Over 100 billion times stronger', 'Zero gravity'],
+      correctIndex: 2,
+      explanation: 'With g = GM/R² ≈ 2 × 10¹² m/s², a neutron star’s surface gravity is roughly 200 billion times stronger than Earth’s.',
+    },
+    {
+      id: 'c21-q14',
+      question: 'What astronomical explosive event is created when two neutron stars spiral together and merge?',
+      options: ['A planetary nebula', 'A kilonova (producing gravitational waves and heavy r-process elements)', 'A white dwarf', 'A solar flare'],
+      correctIndex: 1,
+      explanation: 'A binary neutron star merger produces a kilonova, emitting gravitational waves and forging heavy elements like gold and platinum.',
+    },
+    {
+      id: 'c21-q15',
+      question: 'What type of radiation is emitted by relativistic electrons spiraling around magnetic field lines in pulsar nebulae?',
+      options: ['Blackbody radiation', 'Synchrotron radiation', 'Cherenkov radiation', 'Thermal conduction'],
+      correctIndex: 1,
+      explanation: 'High-energy electrons spiraling around intense magnetic field lines emit non-thermal synchrotron radiation across the spectrum.',
+    },
+    {
+      id: 'c21-q16',
+      question: 'What nuclear state of matter is theorized to exist in the deep inner core of a neutron star?',
+      options: ['Solid iron crystals', 'A superfluid/superconducting soup of neutrons, or deconfined quark-gluon plasma', 'Pure hydrogen gas', 'Molecular water ice'],
+      correctIndex: 1,
+      explanation: 'The central core reaches pressures where neutrons may dissolve into a deconfined sea of up, down, and strange quarks.',
+    },
+    {
+      id: 'c21-q17',
+      question: 'What happens to the escape velocity at the surface of a neutron star?',
+      options: ['It is ~11 km/s', 'It is ~50% to 70% of the speed of light', 'It is greater than the speed of light', 'It is zero'],
+      correctIndex: 1,
+      explanation: 'Surface escape velocities on neutron stars typically reach 150,000 to 220,000 km/s (50% to 73% of the speed of light).',
+    },
+    {
+      id: 'c21-q18',
+      question: 'Why does a pulsar slowly lose rotational energy and spin down over millions of years?',
+      options: [
+        'Friction against space dust',
+        'It radiates away rotational kinetic energy as magnetic dipole radiation and relativistic particle winds',
+        'Its core turns to liquid',
+        'Gravity pulls it backwards',
+      ],
+      correctIndex: 1,
+      explanation: 'Accelerating particles and radiating electromagnetic dipole waves drains the star’s rotational kinetic energy, causing gradual spin-down.',
+    },
+    {
+      id: 'c21-q19',
+      question: 'What is "nuclear pasta" in neutron star crust physics?',
+      options: [
+        'Food eaten by astronauts on the ISS',
+        'Theoretical geometric shapes (gnocchi, spaghetti, lasagna) adopted by atomic nuclei under extreme compression in the inner crust',
+        'A type of dark matter halo',
+        'The outer atmosphere of the Sun',
+      ],
+      correctIndex: 1,
+      explanation: 'In the deep inner crust, competition between nuclear attraction and Coulomb repulsion forces nucleons into pasta-like shapes.',
+    },
+    {
+      id: 'c21-q20',
+      question: 'Which historical event was the first direct confirmation that neutron stars exist in supernova remnants?',
+      options: [
+        'The discovery of the 33-millisecond pulsar inside the Crab Nebula (M1)',
+        'Galileo observing Jupiter’s moons',
+        'The launch of the Hubble Space Telescope',
+        'The Apollo 11 moon landing',
+      ],
+      correctIndex: 0,
+      explanation: 'The discovery of the Crab Pulsar in 1968 definitively proved that neutron stars are formed during core-collapse supernovae.',
+    },
+  ],
+};

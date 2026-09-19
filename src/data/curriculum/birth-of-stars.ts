@@ -1,0 +1,455 @@
+import { CurriculumTopic } from '@/types/curriculum';
+
+export const birthOfStarsTopic: CurriculumTopic = {
+  slug: 'birth-of-stars',
+  chapterNumber: 18,
+  title: 'The Birth of Stars',
+  subtitle: 'From Cold Molecular Clouds and Jeans Collapse to Protostars and the ZAMS',
+  badge: 'Chapter 18 • Star Formation',
+  accentColor: 'rose',
+  freshmanSummary:
+    'Where do stars come from? They are born inside freezing, pitch-black clouds of gas and cosmic dust known as Giant Molecular Clouds. In this chapter, you will follow the dramatic birth of a star: from the initial trigger that destabilizes a cloud (the Jeans criterion), through the dense cocoon of a Bok globule and a growing protostar firing bipolar supersonic jets (Herbig-Haro objects), to violent T Tauri flare-ups, and finally the glorious ignition of hydrogen fusion as the baby star joins the Zero-Age Main Sequence (ZAMS).',
+  readingSections: 'Sections 18.1 – 18.7 (Interstellar Medium, Jeans Instability, Protostars, Hayashi Tracks, Herbig-Haro Objects, ZAMS & Brown Dwarfs)',
+  deepSkyObjects: [
+    {
+      name: 'Cartwheel Galaxy',
+      designation: 'ESO 350-40',
+      type: 'Collisional Ring Galaxy',
+      constellation: 'Sculptor',
+      distanceLightYears: '500 million light-years',
+      significance:
+        'A magnificent ring galaxy created when a smaller companion plunged directly through its center. The collision generated an expanding ripple of compressed gas that sparked the birth of millions of massive, brilliant blue newborn stars and luminous X-ray binary systems.',
+      observationTip: 'Requires high-aperture telescopes or space imagery (Hubble/Webb) to resolve its delicate spokes and blazing outer starburst ring.',
+    },
+    {
+      name: 'Arp 147',
+      designation: 'IC 298',
+      type: 'Interacting Ring Galaxy Pair',
+      constellation: 'Cetus',
+      distanceLightYears: '430 million light-years',
+      significance:
+        'A ring galaxy (right) paired with an elliptical galaxy (left), resembling the number "10". The passage of the elliptical galaxy through the spiral disk produced a gravitational bullseye shockwave, triggering a circular necklace of bright blue newborn starburst clusters.',
+    },
+  ],
+  sections: [
+    {
+      id: 'ism-and-clouds',
+      title: 'The Interstellar Medium and Giant Molecular Clouds',
+      subheading: 'The cold, dusty nurseries where stars are conceived',
+      laymanExplanation:
+        'Space is not empty. The vast space between stars is filled with the Interstellar Medium (ISM)—a mix of 99% gas (mostly hydrogen and helium) and 1% microscopic soot-like dust particles (silicates, iron, carbon). Dust absorbs and scatters blue light more than red light, making background stars look dimmer (interstellar extinction) and redder (interstellar reddening). Stars can only form in the coldest, densest parts of the ISM: Giant Molecular Clouds (GMCs), where temperatures drop to 10–20 Kelvin (-420° F) and hydrogen atoms bond into hydrogen molecules (H₂).',
+      realWorldAnalogy:
+        'Think of interstellar dust like smoke from a campfire or sunset on Earth. When sunlight passes through thick smoke or a long slice of atmosphere, blue light is scattered away in all directions, leaving only the red rays to reach your eyes. That’s why sunsets and stars seen through dust look deep red!',
+      keyTerms: [
+        {
+          term: 'Interstellar Medium (ISM)',
+          definition: 'The gas and dust that pervades the interstellar space between stars in a galaxy (~99% gas by mass, ~1% microscopic dust grains).',
+        },
+        {
+          term: 'Interstellar Reddening & Extinction',
+          definition: 'The preferential scattering and absorption of shorter (bluer) wavelengths of light by dust grains, causing background starlight to appear dimmer and redder.',
+        },
+        {
+          term: 'Giant Molecular Cloud (GMC)',
+          definition: 'An immense, cold (10–30 K), dense interstellar cloud containing hundreds of thousands of solar masses of molecular gas (H₂, CO) where star formation occurs.',
+        },
+        {
+          term: 'Bok Globule',
+          definition: 'A small, isolated, extremely dense dark nebula of gas and dust (a few light-years across) undergoing early gravitational contraction toward forming 1–2 stars.',
+        },
+      ],
+    },
+    {
+      id: 'jeans-instability-protostars',
+      title: 'Gravitational Collapse, Jeans Criterion, and Protostars',
+      subheading: 'When gravity overcomes thermal gas pressure',
+      laymanExplanation:
+        'A gas cloud has two competing forces: internal thermal gas pressure pushing outward (molecules bouncing around) and gravity pulling inward. Sir James Jeans proved that if a cloud region exceeds a critical mass called the Jeans Mass (M_J), its own gravity wins and the cloud collapses! As the fragment shrinks, gravitational potential energy is converted into thermal heat. When the central core becomes dense enough to trap its own infrared radiation, a Protostar is born.',
+      realWorldAnalogy:
+        'Imagine a tug-of-war: on one side is heat (pressure) trying to blow the cloud apart; on the other side is gravity trying to crush it into a tiny ball. If the cloud is cold and dense, the pressure side is weak. Gravity wins the tug-of-war, and the whole cloud caves inward in free-fall!',
+      keyTerms: [
+        {
+          term: 'Jeans Instability / Jeans Mass (M_J)',
+          definition: 'The minimum mass required for a cold gas cloud of a given density and temperature to overcome internal gas pressure and undergo runaway gravitational collapse.',
+        },
+        {
+          term: 'Protostar',
+          definition: 'An early evolutionary stage in star formation: a growing mass of gas undergoing gravitational contraction, radiating heat from converted gravitational energy before core fusion ignites.',
+        },
+        {
+          term: 'Kelvin-Helmholtz Contraction',
+          definition: 'The slow gravitational shrinkage of a protostar that heats its core by converting gravitational potential energy into thermal energy.',
+        },
+      ],
+      mathBreakdown: {
+        name: 'The Jeans Mass Relation',
+        formula: 'M_J \\propto \\left( \\frac{T^3}{\\rho} \\right)^{1/2}',
+        variables: 'M_J = minimum collapse mass; T = gas temperature (Kelvin); ρ = gas density (kg/m³).',
+        walkThrough:
+          'Because M_J scales as T^(3/2) and 1/ρ^(1/2), colder temperatures (low T) and higher densities (high ρ) drastically lower the Jeans mass, allowing small, dense stellar fragments to collapse independently.',
+        practiceProblem: {
+          problem: 'Why do stars form in cold clouds (10 K) rather than hot interstellar gas (10,000 K)?',
+          solution: 'At 10,000 K, thermal gas pressure is enormous (M_J is millions of solar masses). At 10 K, thermal pressure is nearly zero, so gravity easily triggers collapse.',
+        },
+      },
+    },
+    {
+      id: 'pre-ms-and-zams',
+      title: 'From Herbig-Haro Jets to the Zero-Age Main Sequence',
+      subheading: 'Bipolar outflows, T Tauri winds, and the birth of a true star',
+      laymanExplanation:
+        'As matter spirals into a spinning protostar, magnetic fields channel some of the infalling gas into two blazing, supersonic jets blasting out from the poles at 300 km/s! These jets slam into surrounding interstellar gas, producing glowing shockwaves called Herbig-Haro (HH) Objects. The young star eventually clears out its dusty shroud through violent T Tauri winds. When the core finally reaches 10–15 million Kelvin, hydrogen fusion officially ignites! Outward fusion pressure halts further contraction, and the star proudly joins the Zero-Age Main Sequence (ZAMS).',
+      realWorldAnalogy:
+        'Think of a baby chick pecking out of its eggshell: a protostar is trapped inside a dark, opaque shell of dust. Its violent polar jets and stellar winds blow the dust away like cracked eggshells, revealing the shining newborn star to the rest of the universe!',
+      keyTerms: [
+        {
+          term: 'Herbig-Haro (HH) Object',
+          definition: 'Bright, glowing knots of nebulosity formed when narrow supersonic plasma jets from a newborn protostar collide with surrounding interstellar gas clouds.',
+        },
+        {
+          term: 'T Tauri Star',
+          definition: 'A pre-main-sequence variable star exhibiting intense chromospheric activity, violent stellar winds, and strong lithium absorption lines, surrounded by a protoplanetary disk.',
+        },
+        {
+          term: 'Zero-Age Main Sequence (ZAMS)',
+          definition: 'The location on the H-R diagram where a newly formed star settles into stable hydrostatic equilibrium immediately after igniting sustained core hydrogen fusion.',
+        },
+        {
+          term: 'Stellar Mass Limits',
+          definition: 'Lower limit: ~0.08 M_☉ (below which electron degeneracy halts collapse into a Brown Dwarf). Upper limit: ~150–300 M_☉ (above which intense radiation pressure blows the star apart).',
+        },
+      ],
+    },
+  ],
+  diagram: {
+    type: 'star-formation',
+    title: 'The Stages of Star Formation',
+    caption: 'Cold Molecular Cloud → Gravitational Collapse (Bok Globule) → Protostar with Bipolar Jets (Herbig-Haro) → T Tauri Star & Protoplanetary Disk → Zero-Age Main Sequence (ZAMS).',
+  },
+  flashcards: [
+    {
+      id: 'c18-f1',
+      term: 'Giant Molecular Cloud (GMC)',
+      category: 'Definition',
+      front: 'What is a Giant Molecular Cloud (GMC)?',
+      back: 'An immense, dense interstellar cloud composed primarily of cold molecular hydrogen (H₂) and helium, with temperatures around 10–20 K, where stars are born.',
+    },
+    {
+      id: 'c18-f2',
+      term: 'Jeans Instability Criterion',
+      category: 'Concept',
+      front: 'What condition must be satisfied for a cloud fragment to collapse under gravity?',
+      back: 'The fragment’s mass must exceed the Jeans Mass (M > M_J), meaning inward gravitational attraction overcomes outward thermal gas pressure.',
+    },
+    {
+      id: 'c18-f3',
+      term: 'Interstellar Reddening',
+      category: 'Concept',
+      front: 'Why does interstellar dust make background stars appear redder than they really are?',
+      back: 'Dust grains are similar in size to blue light wavelengths, so they scatter short blue wavelengths away while allowing longer red wavelengths to pass through.',
+    },
+    {
+      id: 'c18-f4',
+      term: 'Protostar Definition',
+      category: 'Definition',
+      front: 'What is a protostar and what is its primary energy source?',
+      back: 'An early contracting stage of a star before nuclear fusion begins. Its energy comes entirely from gravitational contraction (Kelvin-Helmholtz contraction).',
+    },
+    {
+      id: 'c18-f5',
+      term: 'Herbig-Haro (HH) Object',
+      category: 'Definition',
+      front: 'What is a Herbig-Haro (HH) object?',
+      back: 'A bright glowing patch of gas created when high-speed bipolar plasma jets emitted by a newborn protostar plow into the surrounding interstellar gas cloud.',
+    },
+    {
+      id: 'c18-f6',
+      term: 'T Tauri Star',
+      category: 'Concept',
+      front: 'What is a T Tauri star and what stage of stellar life does it represent?',
+      back: 'A young, highly variable pre-main-sequence star with powerful stellar winds that blows away its remaining natal dust envelope before settling onto the main sequence.',
+    },
+    {
+      id: 'c18-f7',
+      term: 'Zero-Age Main Sequence (ZAMS)',
+      category: 'Definition',
+      front: 'What does ZAMS stand for and what physical event marks its arrival?',
+      back: 'Zero-Age Main Sequence. It marks the moment a newly formed star ignites stable core hydrogen fusion and achieves hydrostatic equilibrium.',
+    },
+    {
+      id: 'c18-f8',
+      term: 'Minimum Stellar Mass Limit',
+      category: 'Formula',
+      front: 'What is the minimum mass required for a collapsing protostar to become a true star?',
+      back: 'Approximately 0.08 solar masses (about 80 Jupiter masses). Below this threshold, electron degeneracy halts collapse into a Brown Dwarf.',
+    },
+    {
+      id: 'c18-f9',
+      term: 'Maximum Stellar Mass Limit',
+      category: 'Formula',
+      front: 'What is the approximate upper mass limit for stars and what sets it?',
+      back: 'Around 150 to 300 solar masses (the Eddington Limit), above which extreme outward radiation pressure literally blows the star’s outer layers into space.',
+    },
+    {
+      id: 'c18-f10',
+      term: 'Bok Globule',
+      category: 'Definition',
+      front: 'What is a Bok globule?',
+      back: 'A small, isolated, extremely dense dark nebula of cold cosmic dust and gas, often the precursor to a small star system or single protostar.',
+    },
+    {
+      id: 'c18-f11',
+      term: 'Hayashi Track',
+      category: 'Concept',
+      front: 'What is the Hayashi track on the H-R diagram?',
+      back: 'The nearly vertical downward path a fully convective collapsing protostar follows on the H-R diagram as it dims at nearly constant surface temperature.',
+    },
+    {
+      id: 'c18-f12',
+      term: 'Conservation of Angular Momentum in Star Birth',
+      category: 'Concept',
+      front: 'Why does a slowly rotating gas cloud spin faster and flatten into a disk as it collapses?',
+      back: 'Conservation of angular momentum (L = m·v·r). As radius r shrinks, velocity v must increase, and centrifugal forces flatten the cloud into a circumstellar disk.',
+    },
+    {
+      id: 'c18-f13',
+      term: '21-Centimeter Hydrogen Line',
+      category: 'Formula',
+      front: 'How can radio astronomers map cold neutral hydrogen gas throughout the dark ISM?',
+      back: 'By observing the 21-cm radio wavelength (1420 MHz) emitted when the spin of an electron flips relative to the proton in neutral hydrogen atoms.',
+    },
+    {
+      id: 'c18-f14',
+      term: 'Cartwheel Galaxy (ESO 350-40)',
+      category: 'DSO',
+      front: 'What cosmic event formed the Cartwheel Galaxy?',
+      back: 'A direct bullseye collision by a smaller galaxy generated an expanding shockwave of high density, igniting a ring of brilliant young blue starburst clusters.',
+    },
+    {
+      id: 'c18-f15',
+      term: 'Arp 147',
+      category: 'DSO',
+      front: 'What is Arp 147 and why does it have a ring of star formation?',
+      back: 'A pair of interacting galaxies shaped like a "10". A penetrating collision formed an expanding ring of newborn stars in the blue circular component.',
+    },
+    {
+      id: 'c18-f16',
+      term: 'Protoplanetary Disk (Proplyd)',
+      category: 'Definition',
+      front: 'What is a protoplanetary disk?',
+      back: 'A flattened, rotating disk of gas and dust surrounding a newborn star from which planets, moons, and asteroids coalesce.',
+    },
+  ],
+  quiz: [
+    {
+      id: 'c18-q1',
+      question: 'In what kind of interstellar environment do new stars primarily form?',
+      options: [
+        'Hot, diffuse coronal gas clouds (1,000,000 K)',
+        'Cold, dense Giant Molecular Clouds (10–20 K)',
+        'The center of the solar wind',
+        'Inside planetary nebulae',
+      ],
+      correctIndex: 1,
+      explanation: 'Stars require cold temperatures (10–20 K) and high densities so that thermal gas pressure is minimized and gravity can trigger collapse.',
+    },
+    {
+      id: 'c18-q2',
+      question: 'What is the primary constituent of the Interstellar Medium (ISM) by mass?',
+      options: ['Iron and silicon dust', 'Hydrogen and helium gas (~99%)', 'Water vapor', 'Dark matter particles'],
+      correctIndex: 1,
+      explanation: 'The ISM is about 99% gas (roughly 70% hydrogen, 28% helium, and 2% heavier elements) and only about 1% solid dust grains.',
+    },
+    {
+      id: 'c18-q3',
+      question: 'Why do stars viewed through interstellar dust clouds appear redder than their true colors?',
+      options: [
+        'The stars are cooling down rapidly',
+        'Interstellar dust particles scatter short blue wavelengths more efficiently than long red wavelengths',
+        'The stars are all moving away from us at high speed',
+        'Dust reflects red light and absorbs infrared light',
+      ],
+      correctIndex: 1,
+      explanation: 'Interstellar dust grains preferentially scatter shorter blue wavelengths, allowing longer red wavelengths to pass through (interstellar reddening).',
+    },
+    {
+      id: 'c18-q4',
+      question: 'What is the Jeans Mass (M_J)?',
+      options: [
+        'The mass of an electron',
+        'The minimum mass a gas cloud fragment must possess for gravity to overcome thermal pressure and initiate collapse',
+        'The maximum mass of a black hole',
+        'The total mass of the solar system',
+      ],
+      correctIndex: 1,
+      explanation: 'The Jeans mass defines the threshold where gravitational potential energy exceeds internal thermal kinetic energy, triggering collapse.',
+    },
+    {
+      id: 'c18-q5',
+      question: 'What is the primary source of energy that heats a protostar before nuclear fusion begins?',
+      options: ['Uranium fission', 'Gravitational contraction (Kelvin-Helmholtz mechanism)', 'Cosmic ray impacts', 'Magnetic decay'],
+      correctIndex: 1,
+      explanation: 'As a protostar contracts under gravity, gravitational potential energy is converted into kinetic thermal energy, heating the core.',
+    },
+    {
+      id: 'c18-q6',
+      question: 'What are Herbig-Haro (HH) objects?',
+      options: [
+        'Dying red giants blowing off outer atmospheres',
+        'Glowing shockwave nebulae produced by narrow supersonic jets from newborn protostars slamming into surrounding gas',
+        'Old globular clusters orbiting the Milky Way',
+        'Supermassive black holes',
+      ],
+      correctIndex: 1,
+      explanation: 'Herbig-Haro objects are optical emission knots formed by high-speed bipolar plasma jets emerging from protostars.',
+    },
+    {
+      id: 'c18-q7',
+      question: 'What is a T Tauri star?',
+      options: [
+        'A star that has completely exhausted its nuclear fuel',
+        'A violent, highly variable pre-main-sequence star with strong stellar winds clearing its dusty cocoon',
+        'A star that orbits a pulsar',
+        'A star made entirely of pure iron',
+      ],
+      correctIndex: 1,
+      explanation: 'T Tauri stars are young pre-main-sequence stars undergoing vigorous mass loss and stellar winds, approaching the main sequence.',
+    },
+    {
+      id: 'c18-q8',
+      question: 'What milestone marks the exact moment a star joins the Zero-Age Main Sequence (ZAMS)?',
+      options: [
+        'The core collapses into a neutron star',
+        'Stable core hydrogen fusion ignites, achieving hydrostatic equilibrium',
+        'The star loses its planets',
+        'The star cools to 3,000 K',
+      ],
+      correctIndex: 1,
+      explanation: 'ZAMS is the zero-age point when core hydrogen fusion stabilizes and inward gravitational collapse is halted by outward radiation pressure.',
+    },
+    {
+      id: 'c18-q9',
+      question: 'What is the theoretical minimum mass required for a collapsing protostar to ignite sustained hydrogen fusion?',
+      options: ['0.001 Solar Masses (1 Jupiter mass)', '0.08 Solar Masses (~80 Jupiter masses)', '1.0 Solar Mass', '1.44 Solar Masses'],
+      correctIndex: 1,
+      explanation: 'Objects below 0.08 M_☉ (80 M_Jup) cannot reach the 10 million Kelvin core temperature needed for hydrogen fusion and become Brown Dwarfs.',
+    },
+    {
+      id: 'c18-q10',
+      question: 'Why does a collapsing, rotating cloud of gas flatten into a spinning pancake-like circumstellar disk?',
+      options: [
+        'Centrifugal force opposes gravitational collapse perpendicular to the rotational axis while gravity continues unobstructed along the poles',
+        'Magnetic fields repel gas at the equator',
+        'Solar wind blows the gas outward',
+        'Light pressure pushes the gas flat',
+      ],
+      correctIndex: 0,
+      explanation: 'Conservation of angular momentum causes the spinning cloud to flatten into a disk, providing the birthplace for planets.',
+    },
+    {
+      id: 'c18-q11',
+      question: 'What is a Bok globule?',
+      options: [
+        'A small, isolated dark cloud of dense cosmic dust and gas harboring newborn protostars',
+        'A crater on the Moon',
+        'A fragment of comet ice',
+        'A ring of dark matter around a galaxy',
+      ],
+      correctIndex: 0,
+      explanation: 'Bok globules are compact, opaque dark nebulae (often a few light-years across) undergoing early gravitational collapse.',
+    },
+    {
+      id: 'c18-q12',
+      question: 'What prevents stars with masses greater than ~150–300 Solar Masses from forming stably (the Eddington Limit)?',
+      options: [
+        'Lack of hydrogen in the universe',
+        'Extreme outward radiation pressure overwhelms gravity and drives the outer layers off into space',
+        'Core temperatures become too cold for fusion',
+        'Magnetic fields instantly shred the star',
+      ],
+      correctIndex: 1,
+      explanation: 'At the Eddington limit, outward photon radiation pressure exceeds inward gravitational pull, stripping off stellar mass.',
+    },
+    {
+      id: 'c18-q13',
+      question: 'What radio spectral emission line allows astronomers to map cold neutral hydrogen gas through opaque dusty regions of the galaxy?',
+      options: ['The 21-centimeter spin-flip line', 'The Lyman-alpha line', 'The sodium D doublet', 'The iron K-alpha line'],
+      correctIndex: 0,
+      explanation: 'The 21-cm (1420 MHz) line is produced when the electron in a neutral hydrogen atom flips its spin state relative to the proton.',
+    },
+    {
+      id: 'c18-q14',
+      question: 'The stunning Cartwheel Galaxy (ESO 350-40) got its distinctive ring-and-spoke shape from:',
+      options: [
+        'A smaller companion galaxy plunging directly through the center of a spiral galaxy',
+        'A single hypernova explosion at the galactic core',
+        'Two black holes colliding at the speed of light',
+        'Gravitational lensing by dark matter',
+      ],
+      correctIndex: 0,
+      explanation: 'A penetrating bullseye collision by a smaller galaxy sent high-density compression shockwaves outward, forming the starburst ring.',
+    },
+    {
+      id: 'c18-q15',
+      question: 'What is a Protoplanetary Disk (or proplyd)?',
+      options: [
+        'A ring of comets around Pluto',
+        'A flattened rotating disk of dense gas and dust surrounding a newborn star from which planets form',
+        'A debris cloud left over after a supernova',
+        'A dark ring in Saturn’s atmosphere',
+      ],
+      correctIndex: 1,
+      explanation: 'Protoplanetary disks are rotating circumstellar disks feeding the young star and aggregating dust into planetesimals.',
+    },
+    {
+      id: 'c18-q16',
+      question: 'On the H-R diagram, the path a young collapsing protostar follows as its luminosity drops at nearly constant temperature is called:',
+      options: ['The Main Sequence', 'The Hayashi track', 'The Chandrasekhar track', 'The Instability strip'],
+      correctIndex: 1,
+      explanation: 'The Hayashi track is the evolutionary trajectory of a fully convective protostar descending toward the main sequence.',
+    },
+    {
+      id: 'c18-q17',
+      question: 'Why do infant protostars emit primarily infrared radiation rather than visible light?',
+      options: [
+        'They are still too cold to radiate visible light, and thick surrounding dust envelopes absorb visible light and re-radiate it as infrared heat',
+        'They are moving away from Earth at relativistic speeds',
+        'They have no electrons',
+        'Their core is made of liquid helium',
+      ],
+      correctIndex: 0,
+      explanation: 'Protostars have low surface temperatures (~2,000–3,000 K) and are cloaked in dense dust that absorbs visible light and re-emits it in the infrared.',
+    },
+    {
+      id: 'c18-q18',
+      question: 'What element can brown dwarfs fuse briefly in their early lives that true planets cannot?',
+      options: ['Uranium', 'Deuterium (hydrogen-2)', 'Iron-56', 'Carbon-12'],
+      correctIndex: 1,
+      explanation: 'Brown dwarfs with mass > 13 Jupiter masses can briefly fuse deuterium, distinguishing them from ordinary gas giant planets.',
+    },
+    {
+      id: 'c18-q19',
+      question: 'Interacting galaxy pair Arp 147 is composed of which two galaxy types?',
+      options: [
+        'Two giant elliptical galaxies',
+        'A smooth elliptical galaxy and a colliding ring galaxy containing bright young star clusters',
+        'Two irregular dwarf galaxies',
+        'A quasar and a radio galaxy',
+      ],
+      correctIndex: 1,
+      explanation: 'Arp 147 features an elliptical galaxy whose collision through a companion spiral punched out a bright blue starburst ring.',
+    },
+    {
+      id: 'c18-q20',
+      question: 'What happens to the density and temperature of a gas cloud fragment as it contracts into a protostar?',
+      options: [
+        'Both density and temperature increase',
+        'Density increases while temperature drops to absolute zero',
+        'Density decreases while temperature increases',
+        'Both remain completely unchanged',
+      ],
+      correctIndex: 0,
+      explanation: 'Gravitational compression squeezes particles closer together (increasing density) and converts gravitational energy into heat (increasing temperature).',
+    },
+  ],
+};

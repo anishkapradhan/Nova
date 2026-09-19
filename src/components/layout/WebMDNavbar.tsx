@@ -19,8 +19,10 @@ import {
   BookOpen,
   ArrowRight,
   Sparkles,
+  GraduationCap,
 } from 'lucide-react';
 import { SPACE_TOPICS, TopicDefinition } from '@/data/topics';
+import { CURRICULUM_TOPICS } from '@/data/curriculum';
 
 interface WebMDNavbarProps {
   cadetHandle: string;
@@ -112,7 +114,7 @@ export function WebMDNavbar({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Search conditions, airfoils, orbits, rocket equations, NASA guides..."
+                placeholder="Search topics, black holes, Kepler laws, spectra, quizzes..."
                 className="w-full pl-10 pr-24 py-2 bg-[#020b18] border border-[#1b3d6d] rounded-lg text-xs text-slate-100 placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition"
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5" />
@@ -168,14 +170,78 @@ export function WebMDNavbar({
                   }
                   setOpenDropdown(null);
                 }}
-                className="px-3.5 py-2 rounded-md text-slate-200 hover:text-white hover:bg-[#003774] transition whitespace-nowrap flex items-center gap-1.5"
+                className="px-3 py-2 rounded-md text-slate-200 hover:text-white hover:bg-[#003774] transition whitespace-nowrap flex items-center gap-1.5"
               >
                 <BookOpen className="w-3.5 h-3.5 text-cyan-300" />
                 <span className="font-semibold">All Topics</span>
               </Link>
             </li>
 
-            {/* Horizontal Main Discipline Tabs (Just like WebMD: Conditions, Drugs, etc.) */}
+            {/* ASTRONOMY 2026-27 CURRICULUM MEGA DROPDOWN (12 Chapters) */}
+            <li className="relative">
+              <div className="flex items-center">
+                <button
+                  onClick={() => setOpenDropdown(openDropdown === 'curriculum' ? null : 'curriculum')}
+                  onMouseEnter={() => setOpenDropdown('curriculum')}
+                  className={`px-3.5 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-bold ${
+                    openDropdown === 'curriculum'
+                      ? 'bg-[#003f88] text-cyan-300 shadow-inner'
+                      : 'text-amber-300 hover:text-white hover:bg-[#003774]'
+                  }`}
+                >
+                  <GraduationCap className="w-4 h-4 text-amber-400" />
+                  <span>Astronomy Schedule (12 Chapters)</span>
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      openDropdown === 'curriculum' ? 'rotate-180 text-cyan-300' : 'text-amber-300'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {openDropdown === 'curriculum' && (
+                <div
+                  onMouseLeave={() => setOpenDropdown(null)}
+                  className="absolute left-0 top-full mt-1 w-88 sm:w-[600px] max-h-[80vh] overflow-y-auto bg-[#071a36]/98 border border-amber-500/40 rounded-xl shadow-2xl p-4 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
+                >
+                  <div className="pb-2.5 mb-2.5 border-b border-blue-900 flex items-center justify-between">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-amber-300 font-mono">
+                        2026–2027 Presentation Schedule
+                      </span>
+                      <p className="text-[11px] text-slate-400">
+                        12 Comprehensive Freshman Study Guides with 20-Question Quizzes & Flashcards
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {CURRICULUM_TOPICS.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/topic/${c.slug}`}
+                        onClick={() => setOpenDropdown(null)}
+                        className="p-2.5 rounded-lg bg-[#041126] hover:bg-[#0d2a55] border border-blue-900/60 hover:border-cyan-500/40 transition group block"
+                      >
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="font-bold text-cyan-300 group-hover:text-white transition">
+                            Ch {c.chapterNumber}: {c.title}
+                          </span>
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-950 text-amber-400 border border-amber-500/30 font-mono">
+                            20Q Quiz
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-slate-400 line-clamp-1 mt-0.5">
+                          {c.subtitle}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </li>
+
+            {/* Existing Horizontal Main Discipline Tabs */}
             {SPACE_TOPICS.map((topic: TopicDefinition) => {
               const isOpen = openDropdown === topic.slug;
 
@@ -185,7 +251,7 @@ export function WebMDNavbar({
                     <button
                       onClick={() => setOpenDropdown(isOpen ? null : topic.slug)}
                       onMouseEnter={() => setOpenDropdown(topic.slug)}
-                      className={`px-3.5 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-semibold ${
+                      className={`px-3 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-semibold ${
                         isOpen
                           ? 'bg-[#003f88] text-white shadow-inner'
                           : 'text-slate-100 hover:text-white hover:bg-[#003774]'
@@ -207,7 +273,6 @@ export function WebMDNavbar({
                       onMouseLeave={() => setOpenDropdown(null)}
                       className="absolute left-0 top-full mt-1 w-84 sm:w-[460px] bg-[#071a36]/98 border border-cyan-500/40 rounded-xl shadow-2xl p-4 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
                     >
-                      {/* Dropdown Header with Direct Link to Topic Page */}
                       <div className="pb-2.5 mb-2.5 border-b border-blue-900 flex items-center justify-between">
                         <div>
                           <span className="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">
@@ -226,7 +291,6 @@ export function WebMDNavbar({
                         </Link>
                       </div>
 
-                      {/* Sub-Topics List with Badges & Key Concepts */}
                       <div className="space-y-2">
                         {topic.subtopics.map((sub) => (
                           <div
@@ -250,31 +314,8 @@ export function WebMDNavbar({
                             <p className="text-[11px] text-slate-400 line-clamp-2 mt-1 leading-snug">
                               {sub.description}
                             </p>
-                            <div className="flex flex-wrap gap-1 mt-1.5">
-                              {sub.keyConcepts.slice(0, 3).map((concept) => (
-                                <span
-                                  key={concept}
-                                  className="text-[9px] px-1.5 py-0.2 bg-[#051326] text-slate-300 rounded font-mono border border-blue-950"
-                                >
-                                  {concept}
-                                </span>
-                              ))}
-                            </div>
                           </div>
                         ))}
-                      </div>
-
-                      {/* Dropdown Footer: Full Topic Page Link */}
-                      <div className="pt-3 mt-2 border-t border-blue-900/80 flex items-center justify-between text-[11px]">
-                        <span className="text-slate-400 font-mono">Peer-reviewed academic curriculum</span>
-                        <Link
-                          href={`/topic/${topic.slug}`}
-                          onClick={() => setOpenDropdown(null)}
-                          className="text-cyan-300 hover:text-white font-semibold flex items-center gap-1"
-                        >
-                          <span>Open full {topic.webmdTabLabel} guide</span>
-                          <ArrowRight className="w-3 h-3" />
-                        </Link>
                       </div>
                     </div>
                   )}
@@ -287,7 +328,6 @@ export function WebMDNavbar({
 
       {/* 3. Nova Milky Way 1-Inch Stripe Ribbon Running Right Under the Top Bar */}
       <div className="relative h-11 sm:h-12 w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
-        {/* Background Milky Way Stripe Image */}
         <Image
           src="/images/milky_way_header.jpg"
           alt="Nova Milky Way Cosmic Ribbon"
@@ -296,11 +336,9 @@ export function WebMDNavbar({
           className="object-cover object-center brightness-90 saturate-125"
         />
 
-        {/* Gradient Overlays for Readability & Space Feel */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#020b18]/90 via-[#071b3d]/40 to-[#020b18]/90" />
         <div className="absolute inset-0 bg-cyan-950/20 mix-blend-overlay" />
 
-        {/* 1-Inch Ribbon Content & Live Telemetry Ticker */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between text-xs">
           <div className="flex items-center gap-2 text-white font-mono">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
@@ -313,8 +351,8 @@ export function WebMDNavbar({
           </div>
 
           <div className="flex items-center gap-4 text-[10px] font-mono text-cyan-300/90 hidden sm:flex">
-            <span>✦ Artemis II Moon Mission Telemetry</span>
-            <span className="hidden lg:inline">✦ Orbiting ISS: 408 km</span>
+            <span>✦ 2026–27 Presentation Curriculum</span>
+            <span className="hidden lg:inline">✦ 12 Interactive Astronomy Chapters</span>
             <span className="px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">
               100% Free OER
             </span>

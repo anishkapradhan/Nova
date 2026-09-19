@@ -1,0 +1,417 @@
+import { CurriculumTopic } from '@/types/curriculum';
+
+export const stellarEvolutionDeathsOfStarsTopic: CurriculumTopic = {
+  slug: 'stellar-evolution-deaths-of-stars',
+  chapterNumber: 20,
+  title: 'Stellar Evolution: The Deaths of Stars',
+  subtitle: 'Planetary Nebulae, White Dwarfs, The Chandrasekhar Limit, and Core-Collapse Supernovae',
+  badge: 'Chapter 20 • Stellar Death & Remnants',
+  accentColor: 'red',
+  freshmanSummary:
+    'Every star must die, but how it dies depends entirely on one fateful number: its initial birth mass. Low-mass stars like our Sun gently puff off their outer layers into glowing jewel-like Planetary Nebulae, leaving behind an Earth-sized cinder called a White Dwarf. But high-mass stars (> 8 solar masses) suffer a catastrophic fate: they burn through heavier and heavier elements until hitting a dead-end at iron, triggering a core collapse that detonates the entire star in a blinding Supernova explosion, seeding the cosmos with the heavy elements that make up our bodies.',
+  readingSections: 'Sections 20.1 – 20.7 (Planetary Nebulae, White Dwarfs, Chandrasekhar Limit, Novae vs Type Ia, Core-Collapse Supernovae, Iron Catastrophe)',
+  deepSkyObjects: [
+    {
+      name: 'Terzan 5',
+      designation: 'Terzan 5 / GCl 84',
+      type: 'Heavily Obscured Globular Cluster',
+      constellation: 'Sagittarius',
+      distanceLightYears: '19,000 light-years',
+      significance:
+        'A dense globular cluster located in the Milky Way’s galactic bulge. Famous for harboring one of the highest concentrations of millisecond pulsars, exotic low-mass X-ray binaries, and multiple stellar populations spanning distinct supernova enrichment epochs.',
+      observationTip: 'Heavily obscured by interstellar dust in the Milky Way plane; best observed using infrared space telescopes and radio astronomy.',
+    },
+  ],
+  sections: [
+    {
+      id: 'low-mass-death-planetary-nebulae',
+      title: 'The Death of Low-Mass Stars: Planetary Nebulae and White Dwarfs',
+      subheading: 'How stars like our Sun end their lives with gentle beauty',
+      laymanExplanation:
+        'Stars with masses below 8 solar masses (including our Sun) cannot get hot enough in their cores to fuse carbon. At the end of the Asymptotic Giant Branch (AGB), unstable thermal pulses and powerful radiation pressure blow the star’s outer atmospheric layers into space at 20–30 km/s. The exposed, ultra-hot (100,000 K) carbon-oxygen core emits intense ultraviolet radiation that ionizes the expanding gas shell, making it glow like a neon sign. This glowing bubble is called a Planetary Nebula (it has nothing to do with planets—early astronomers thought they looked like Uranus or Neptune in small telescopes!). The leftover core cools over trillions of years as a White Dwarf.',
+      realWorldAnalogy:
+        'Imagine a dandelion puffball: when a gentle gust of wind blows, the fluffy white seeds float away, leaving only the bare stem in the center. The dandelion seeds are the planetary nebula, and the leftover bare stem is the white dwarf!',
+      keyTerms: [
+        {
+          term: 'Planetary Nebula',
+          definition: 'An expanding, glowing shell of ionized gas ejected by an asymptotic giant branch star at the end of its life, excited by ultraviolet radiation from the central white dwarf remnant.',
+        },
+        {
+          term: 'White Dwarf',
+          definition: 'A dense, compact stellar remnant composed of degenerate carbon and oxygen (or helium) with the mass of the Sun squeezed into the volume of the Earth, supported by electron degeneracy pressure.',
+        },
+        {
+          term: 'Chandrasekhar Limit',
+          definition: 'The absolute maximum mass a white dwarf can possess without collapsing under its own gravity: approximately 1.44 solar masses (1.44 M_☉).',
+        },
+      ],
+      mathBreakdown: {
+        name: 'The Chandrasekhar Mass Limit',
+        formula: 'M_{\\text{Ch}} \\approx 1.44 \\, M_\\odot \\approx 2.86 \\times 10^{30} \\text{ kg}',
+        variables: 'M_Ch = Chandrasekhar mass limit; M_☉ = solar mass (1.989 × 10³⁰ kg).',
+        walkThrough:
+          'Subrahmanyan Chandrasekhar calculated in 1930 that as a white dwarf approaches 1.44 M_☉, the degenerate electrons are forced to move at speeds approaching the speed of light (relativistic degeneracy). Relativistic pressure cannot support additional weight, causing catastrophic collapse!',
+        practiceProblem: {
+          problem: 'Can a white dwarf have a mass of 1.2 M_☉? What about 1.8 M_☉?',
+          solution: '1.2 M_☉ is below 1.44 M_☉, so it is completely stable. 1.8 M_☉ exceeds 1.44 M_☉ and cannot exist as a white dwarf—it must collapse into a neutron star or black hole.',
+        },
+      },
+    },
+    {
+      id: 'novae-and-type-ia',
+      title: 'White Dwarfs in Binaries: Novae and Type Ia Supernovae',
+      subheading: 'Surface hydrogen bombs vs. total thermonuclear self-destruction',
+      laymanExplanation:
+        'If a white dwarf has a close companion star, its intense gravity can siphon hydrogen gas off the companion onto its surface. 1) Nova: The stolen hydrogen builds up in a thin, dense layer on the white dwarf’s surface until it suddenly ignites in a runaway hydrogen-fusion explosion. The white dwarf survives unharmed, and the cycle can repeat every few decades or centuries (recurrent novae)! 2) Type Ia Supernova: If so much mass is dumped onto the white dwarf that its total mass reaches the Chandrasekhar limit (1.44 M_☉), the entire carbon-oxygen core ignites at once in a runaway thermonuclear detonation! The white dwarf is completely obliterated, shining with the brilliance of 5 billion suns. Because every Type Ia explodes at the exact same 1.44 M_☉ threshold, they all have the same peak luminosity—making them the premier "standard candles" for measuring the expansion of the universe!',
+      realWorldAnalogy:
+        'A Nova is like lighting a sparkler on top of an anvil: the surface flashes brightly, but the anvil underneath is completely unharmed. A Type Ia Supernova is like replacing the anvil with a giant block of dynamite: the entire thing detonates and shatters into dust!',
+      keyTerms: [
+        {
+          term: 'Nova',
+          definition: 'A thermonuclear explosion on the surface of an accreting white dwarf in a binary system, caused by runaway hydrogen fusion in a degenerate surface layer. The white dwarf survives.',
+        },
+        {
+          term: 'Type Ia Supernova',
+          definition: 'A catastrophic thermonuclear explosion that completely obliterates a carbon-oxygen white dwarf when accretion drives its mass to the 1.44 M_☉ Chandrasekhar limit. Displays no hydrogen lines.',
+        },
+      ],
+    },
+    {
+      id: 'high-mass-death-core-collapse',
+      title: 'High-Mass Star Deaths: The Iron Catastrophe and Type II Supernovae',
+      subheading: 'How the heaviest stars forge the elements of the periodic table and detonate',
+      laymanExplanation:
+        'Stars with masses greater than 8 solar masses have cores hot and dense enough to fuse elements beyond carbon. They develop an "onion-skin" core: an outer shell of hydrogen fusing into helium, an inner shell of helium fusing into carbon, then carbon into neon, neon into oxygen, oxygen into silicon, and finally silicon fusing into Iron-56. Here, the star hits a fatal dead end: Iron is the most tightly bound nucleus in nature. Fusing iron does NOT release energy—it absorbs energy! When the iron core reaches 1.44 M_☉, fusion stops cold. Within a fraction of a second, gravity crushes the core from 5,000 km across down to just 20 km! Inflowing outer layers hit the ultra-dense neutron core, bounce off, and meet a flood of core neutrinos, blowing the star apart in a Type II Core-Collapse Supernova!',
+      realWorldAnalogy:
+        'Nuclear fusion is like burning firewood for warmth: wood gives off heat. But iron is like a bucket of wet sand dumped onto the campfire! Instead of giving off heat, it instantly smothers the fire. Without heat, the entire star caves inward at 25% the speed of light!',
+      keyTerms: [
+        {
+          term: 'Onion-Skin Shell Structure',
+          definition: 'The multi-layered interior of an evolved supergiant star: non-burning hydrogen on the outside, concentric burning shells (H, He, C, Ne, O, Si), and an inert iron core at the center.',
+        },
+        {
+          term: 'Iron Catastrophe (Fe-56 Peak)',
+          definition: 'Iron-56 has the highest nuclear binding energy per nucleon of any element. Fusing iron is endothermic (absorbs energy), depriving the core of outward thermal pressure and triggering instantaneous collapse.',
+        },
+        {
+          term: 'Photodisintegration',
+          definition: 'The breakup of iron nuclei into helium nuclei and neutrons by ultra-high-energy gamma rays during the catastrophic first 0.1 seconds of core collapse.',
+        },
+        {
+          term: 'Type II Supernova',
+          definition: 'A core-collapse supernova produced by the death of a massive star (> 8 M_☉), characterized by prominent hydrogen absorption lines in its spectrum.',
+        },
+        {
+          term: 'Supernova Remnant (SNR)',
+          definition: 'An expanding, shock-heated diffuse nebula of enriched stellar debris traveling outward at thousands of km/s (e.g., the Crab Nebula).',
+        },
+      ],
+    },
+  ],
+  diagram: {
+    type: 'stellar-death',
+    title: 'Stellar Death Pathways: Low-Mass vs. High-Mass Stars',
+    caption: 'Low-mass (< 8 M_☉): Red Giant → Planetary Nebula → White Dwarf (≤ 1.44 M_☉). High-mass (> 8 M_☉): Red Supergiant (Onion-skin Fe core) → Core-Collapse Supernova (Type II) → Neutron Star or Black Hole.',
+  },
+  flashcards: [
+    {
+      id: 'c20-f1',
+      term: 'Planetary Nebula Formation',
+      category: 'Definition',
+      front: 'What creates a Planetary Nebula?',
+      back: 'Thermal pulses on the AGB expel the outer hydrogen/helium envelope of a low-mass star (< 8 M_☉). The exposed hot white dwarf core emits UV light that excites the expanding gas.',
+    },
+    {
+      id: 'c20-f2',
+      term: 'White Dwarf Composition',
+      category: 'Concept',
+      front: 'What is a typical white dwarf primarily composed of and what supports it?',
+      back: 'Degenerate carbon and oxygen nuclei packed into an Earth-sized sphere, supported against gravitational collapse entirely by electron degeneracy pressure.',
+    },
+    {
+      id: 'c20-f3',
+      term: 'Chandrasekhar Limit Value',
+      category: 'Formula',
+      front: 'What is the Chandrasekhar mass limit and what is its numerical value?',
+      back: 'The maximum mass an electron-degenerate white dwarf can support: approximately 1.44 solar masses (1.44 M_☉).',
+    },
+    {
+      id: 'c20-f4',
+      term: 'Nova vs Type Ia Supernova',
+      category: 'Concept',
+      front: 'What is the fundamental difference between a Nova and a Type Ia Supernova?',
+      back: 'A Nova is a surface hydrogen explosion on a white dwarf (the white dwarf survives). A Type Ia Supernova is the total thermonuclear destruction of the white dwarf at 1.44 M_☉.',
+    },
+    {
+      id: 'c20-f5',
+      term: 'Type Ia Supernovae as Standard Candles',
+      category: 'Concept',
+      front: 'Why are Type Ia supernovae ideal "standard candles" for measuring cosmological distances?',
+      back: 'Because all Type Ia supernovae explode at the exact same physical threshold (a carbon-oxygen white dwarf reaching 1.44 M_☉), they all reach nearly identical peak absolute luminosities (M_V ≈ -19.3).',
+    },
+    {
+      id: 'c20-f6',
+      term: 'Mass Threshold for Supernovae',
+      category: 'Formula',
+      front: 'What is the minimum initial birth mass for a star to end its life in a core-collapse supernova?',
+      back: 'Approximately 8 solar masses (8 M_☉). Stars below 8 M_☉ end as white dwarfs.',
+    },
+    {
+      id: 'c20-f7',
+      term: 'Onion-Skin Model Elements',
+      category: 'Concept',
+      front: 'List the burning shells of a massive supergiant from the outside inward to the center.',
+      back: 'Hydrogen → Helium → Carbon → Neon → Oxygen → Silicon → Inert Iron (Fe) Core.',
+    },
+    {
+      id: 'c20-f8',
+      term: 'The Iron Fusion Catastrophe',
+      category: 'Concept',
+      front: 'Why does iron fusion trigger immediate core collapse in a massive star?',
+      back: 'Iron-56 has the highest binding energy per nucleon. Fusing iron absorbs energy (endothermic) instead of releasing it, instantly destroying the thermal pressure supporting the core.',
+    },
+    {
+      id: 'c20-f9',
+      term: 'Photodisintegration',
+      category: 'Definition',
+      front: 'What is photodisintegration during core collapse?',
+      back: 'Extreme gamma-ray photons shatter iron nuclei into helium nuclei and free neutrons, absorbing colossal amounts of thermal energy in under a second.',
+    },
+    {
+      id: 'c20-f10',
+      term: 'Electron Capture / Neutronization',
+      category: 'Concept',
+      front: 'What nuclear reaction creates a neutron core during core collapse?',
+      back: 'Protons and electrons are squeezed together under immense pressure: p + e⁻ → n + ν_e (electron capture), producing a sea of neutrons and blasting out a flood of neutrinos.',
+    },
+    {
+      id: 'c20-f11',
+      term: 'Type II vs Type I Supernova Spectra',
+      category: 'Concept',
+      front: 'How do astronomers distinguish a Type II supernova from a Type I supernova in spectroscopy?',
+      back: 'Type II supernovae show prominent Hydrogen absorption lines (from massive stars retaining hydrogen envelopes). Type I supernovae show NO hydrogen lines.',
+    },
+    {
+      id: 'c20-f12',
+      term: 'Supernova Remnant (SNR)',
+      category: 'Definition',
+      front: 'What is a Supernova Remnant (SNR)?',
+      back: 'An expanding, glowing cloud of gas ejected during a supernova explosion traveling through the ISM at thousands of km/s (e.g., the Crab Nebula, Cassiopeia A).',
+    },
+    {
+      id: 'c20-f13',
+      term: 'Cosmic Nucleosynthesis (r-process)',
+      category: 'Concept',
+      front: 'Where are elements heavier than iron (such as gold, platinum, and uranium) synthesized in the universe?',
+      back: 'Through rapid neutron capture (the r-process) during core-collapse supernovae and binary neutron star mergers (kilonovae).',
+    },
+    {
+      id: 'c20-f14',
+      term: 'Terzan 5',
+      category: 'DSO',
+      front: 'What is Terzan 5 and what does it reveal about stellar populations?',
+      back: 'A heavily obscured globular cluster in the galactic bulge harboring dozens of millisecond pulsars and two distinct stellar populations with different supernova enrichment ages.',
+    },
+    {
+      id: 'c20-f15',
+      term: 'Neutrino Burst in Supernovae',
+      category: 'Concept',
+      front: 'What percentage of a core-collapse supernova’s total energy is carried away by neutrinos?',
+      back: 'Approximately 99% of the total gravitational binding energy (~10⁴⁶ Joules) is carried away by a flood of neutrinos in the first 10 seconds (as observed in SN 1987A).',
+    },
+    {
+      id: 'c20-f16',
+      term: 'Black Dwarf',
+      category: 'Definition',
+      front: 'What is a black dwarf?',
+      back: 'The theoretical cold, dark corpse of a white dwarf that has completely radiated away all its thermal heat. The universe is not yet old enough for any black dwarfs to exist!',
+    },
+  ],
+  quiz: [
+    {
+      id: 'c20-q1',
+      question: 'What is a Planetary Nebula in astronomy?',
+      options: [
+        'A cloud of gas and dust condensing into new planets',
+        'An expanding, glowing shell of gas ejected by an aging low-mass star at the end of its life',
+        'The atmosphere of Jupiter',
+        'A ring of asteroids around a white dwarf',
+      ],
+      correctIndex: 1,
+      explanation: 'A planetary nebula is the outer envelope of an AGB star ejected into space and ionized by the hot central white dwarf core.',
+    },
+    {
+      id: 'c20-q2',
+      question: 'What quantum mechanical pressure supports a white dwarf against gravitational collapse?',
+      options: ['Thermal gas pressure', 'Electron degeneracy pressure', 'Neutron degeneracy pressure', 'Radiation pressure'],
+      correctIndex: 1,
+      explanation: 'Electron degeneracy pressure, arising from the Pauli exclusion principle among tightly packed electrons, supports white dwarfs.',
+    },
+    {
+      id: 'c20-q3',
+      question: 'What is the absolute upper mass limit for any stable white dwarf (the Chandrasekhar Limit)?',
+      options: ['0.08 Solar Masses', '1.0 Solar Mass', '1.44 Solar Masses', '3.0 Solar Masses'],
+      correctIndex: 2,
+      explanation: 'The Chandrasekhar limit is 1.44 M_☉. Above this mass, electron degeneracy is overwhelmed by relativistic collapse.',
+    },
+    {
+      id: 'c20-q4',
+      question: 'A typical white dwarf has the mass of roughly the Sun compressed into a volume the size of:',
+      options: ['A basketball', 'The Earth', 'Jupiter', 'The Moon’s orbit'],
+      correctIndex: 1,
+      explanation: 'White dwarfs compress approximately 0.6–1.0 solar masses into a sphere roughly the volume of planet Earth.',
+    },
+    {
+      id: 'c20-q5',
+      question: 'What is a Nova in a binary star system?',
+      options: [
+        'A runaway thermonuclear hydrogen explosion on the surface of an accreting white dwarf that leaves the star intact',
+        'The total destruction of a white dwarf',
+        'A star colliding with a comet',
+        'The birth of a new neutron star',
+      ],
+      correctIndex: 0,
+      explanation: 'A nova is a surface hydrogen blast on an accreting white dwarf. The underlying white dwarf survives and can erupt repeatedly.',
+    },
+    {
+      id: 'c20-q6',
+      question: 'Why do Type Ia supernovae all produce almost identical peak luminosities (making them standard candles)?',
+      options: [
+        'They are all powered by solar wind',
+        'They are all triggered when an accreting carbon-oxygen white dwarf reaches the exact same mass threshold of 1.44 M_☉',
+        'They all occur at the exact same distance from Earth',
+        'They are created by merging black holes',
+      ],
+      correctIndex: 1,
+      explanation: 'Type Ia supernovae detonate at the 1.44 M_☉ Chandrasekhar threshold, releasing a uniform amount of thermonuclear energy.',
+    },
+    {
+      id: 'c20-q7',
+      question: 'Which spectral feature distinguishes a Type II supernova from a Type Ia supernova?',
+      options: [
+        'Type II spectra exhibit strong hydrogen lines; Type Ia spectra show no hydrogen',
+        'Type II spectra have zero absorption lines',
+        'Type Ia spectra are completely green',
+        'Type II supernovae only emit radio waves',
+      ],
+      correctIndex: 0,
+      explanation: 'Type II supernovae arise from massive stars that still possess outer hydrogen envelopes, while Type Ia originate from hydrogen-depleted white dwarfs.',
+    },
+    {
+      id: 'c20-q8',
+      question: 'What is the minimum initial birth mass a star must have to undergo a core-collapse supernova?',
+      options: ['0.08 M_☉', '1.44 M_☉', '8 M_☉', '50 M_☉'],
+      correctIndex: 2,
+      explanation: 'Stars with birth masses greater than approximately 8 solar masses reach core temperatures hot enough to fuse past carbon to iron.',
+    },
+    {
+      id: 'c20-q9',
+      question: 'Why does iron fusion mark the catastrophic end of nuclear energy generation in a massive star?',
+      options: [
+        'Iron atoms are radioactive',
+        'Iron-56 has the highest nuclear binding energy per nucleon; fusing it absorbs energy rather than releasing it',
+        'Iron is completely transparent to photons',
+        'The core cools to absolute zero immediately',
+      ],
+      correctIndex: 1,
+      explanation: 'Fusing elements heavier than iron is endothermic (consumes energy), instantly robbing the core of outward thermal pressure.',
+    },
+    {
+      id: 'c20-q10',
+      question: 'During core collapse, what happens when ultra-dense protons and electrons are crushed together?',
+      options: [
+        'They fuse into carbon-12',
+        'They combine via electron capture (p + e⁻ → n + ν_e) to form neutrons and emit neutrinos',
+        'They turn into dark matter',
+        'They vanish from the universe',
+      ],
+      correctIndex: 1,
+      explanation: 'Electron capture (neutronization) turns protons and electrons into neutrons, releasing a massive burst of electron neutrinos.',
+    },
+    {
+      id: 'c20-q11',
+      question: 'What percentage of the total gravitational energy of a core-collapse supernova is carried away by neutrinos?',
+      options: ['1%', '10%', '50%', 'Approximately 99%'],
+      correctIndex: 3,
+      explanation: 'About 99% of the supernova’s ~10⁴⁶ Joules of energy escapes as neutrinos in the first ~10 seconds.',
+    },
+    {
+      id: 'c20-q12',
+      question: 'What is photodisintegration during the onset of a core-collapse supernova?',
+      options: [
+        'High-energy gamma-ray photons break heavy iron nuclei apart into helium nuclei and neutrons',
+        'Visible light turning into radio waves',
+        'Electrons decaying into positrons',
+        'The star reflecting light off a nearby nebula',
+      ],
+      correctIndex: 0,
+      explanation: 'Photodisintegration is the thermal endothermic breakdown of iron nuclei by energetic gamma rays, accelerating core collapse.',
+    },
+    {
+      id: 'c20-q13',
+      question: 'What is an expanding, shock-heated shell of gas left behind by a supernova called?',
+      options: ['Planetary nebula', 'Supernova remnant (SNR)', 'Protostellar jet', 'Bok globule'],
+      correctIndex: 1,
+      explanation: 'A supernova remnant (such as the Crab Nebula) is the expanding debris cloud moving through interstellar space.',
+    },
+    {
+      id: 'c20-q14',
+      question: 'What nuclear process produces elements heavier than iron (such as gold, platinum, and uranium) in cosmic explosions?',
+      options: ['The proton-proton chain', 'Rapid neutron capture (r-process)', 'The triple-alpha process', 'Helium flash'],
+      correctIndex: 1,
+      explanation: 'The r-process (rapid neutron capture) in supernovae and kilonovae synthesizes the heaviest elements on the periodic table.',
+    },
+    {
+      id: 'c20-q15',
+      question: 'Globular cluster Terzan 5 is scientifically renowned for containing a high concentration of:',
+      options: ['Planetary systems with Earth-like oceans', 'Exotic millisecond pulsars and X-ray binary systems', 'Active galactic nuclei', 'Protostars forming today'],
+      correctIndex: 1,
+      explanation: 'Terzan 5’s dense stellar core facilitates binary interactions that produce an exceptional population of millisecond pulsars.',
+    },
+    {
+      id: 'c20-q16',
+      question: 'What happens to the radius of a white dwarf as its mass increases toward the Chandrasekhar limit?',
+      options: [
+        'Its radius expands rapidly',
+        'Its radius shrinks smaller and smaller as gravity squeezes degenerate matter tighter',
+        'Its radius stays exactly 1 solar radius',
+        'It turns into a red supergiant',
+      ],
+      correctIndex: 1,
+      explanation: 'More massive white dwarfs are physically smaller because stronger gravity compresses degenerate electrons more tightly (R ∝ M^(-1/3)).',
+    },
+    {
+      id: 'c20-q17',
+      question: 'Why has no "Black Dwarf" ever been observed anywhere in our universe?',
+      options: [
+        'They are invisible to radio telescopes',
+        'White dwarfs take tens to hundreds of billions of years to cool completely, which is longer than the current 13.8-billion-year age of the universe',
+        'All white dwarfs eventually explode as supernovae',
+        'Black dwarfs are swallowed by black holes immediately',
+      ],
+      correctIndex: 1,
+      explanation: 'Because white dwarfs cool extremely slowly, the universe is simply not old enough (13.8 Gyr) for any white dwarf to have cooled into a cold black dwarf.',
+    },
+    {
+      id: 'c20-q18',
+      question: 'What core remnant is left behind if the core of a dying massive star has a mass between 1.44 M_☉ and ~2.5–3.0 M_☉?',
+      options: ['A white dwarf', 'A neutron star', 'A brown dwarf', 'Nothing; it vaporizes completely'],
+      correctIndex: 1,
+      explanation: 'Cores between 1.44 M_☉ and the Tolman-Oppenheimer-Volkoff limit (~2.5–3 M_☉) collapse into a neutron star.',
+    },
+    {
+      id: 'c20-q19',
+      question: 'In the onion-skin model of a pre-supernova supergiant, where is the iron core located?',
+      options: ['At the outermost atmospheric edge', 'Between the helium and carbon shells', 'At the dead center of the star', 'In the convection zone'],
+      correctIndex: 2,
+      explanation: 'The iron core sits at the extreme center of the star, surrounded by progressively lighter burning shells.',
+    },
+    {
+      id: 'c20-q20',
+      question: 'Which historical supernova in the Large Magellanic Cloud (observed in 1987) confirmed modern core-collapse theory via a detected neutrino burst?',
+      options: ['Tycho’s Supernova (1572)', 'Kepler’s Supernova (1604)', 'SN 1987A', 'SN 2014J'],
+      correctIndex: 2,
+      explanation: 'SN 1987A in the LMC confirmed core-collapse models when underground detectors recorded a historic burst of neutrinos hours before optical light was seen.',
+    },
+  ],
+};

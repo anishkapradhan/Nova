@@ -1,0 +1,415 @@
+import { CurriculumTopic } from '@/types/curriculum';
+
+export const gravitationAndPlanetsTopic: CurriculumTopic = {
+  slug: 'gravitation-and-planets',
+  chapterNumber: 4,
+  title: 'Gravitation and the Waltz of Planets',
+  subtitle: 'From Geocentric Myths to Kepler’s Orbits and Newton’s Gravity',
+  badge: 'Chapter 4 • Planetary Dynamics',
+  accentColor: 'emerald',
+  freshmanSummary:
+    'How do planets stay in orbit without engines? In this chapter, we trace the greatest detective story in science. We see how ancient thinkers clung to Earth-centered epicycles, how Johannes Kepler decoded Tycho Brahe’s planetary data into three elegant geometric laws, how Galileo shattered cosmic dogma with his telescope, and how Sir Isaac Newton united falling apples and orbiting planets under one universal equation: Gravity.',
+  readingSections: 'Sections 4.1 – 4.7 (Kepler’s 3 Laws, Galileo’s Discoveries, Newton’s Laws & Gravity, Orbits & Tides)',
+  recordingUrl: 'Chapter 4',
+  deepSkyObjects: [
+    {
+      name: 'Andromeda Galaxy',
+      designation: 'M31 / NGC 224',
+      type: 'Barred Spiral Galaxy',
+      constellation: 'Andromeda',
+      distanceLightYears: '2.537 million light-years',
+      significance:
+        'The largest galaxy in the Local Group. Governed by mutual gravitation with our Milky Way, M31 is rushing toward us at 110 km/s and will merge with the Milky Way in approximately 4.5 billion years to form "Milkomeda."',
+      observationTip: 'Visible to the naked eye under dark skies as an elongated fuzzy smudge near the Great Square of Pegasus.',
+    },
+  ],
+  sections: [
+    {
+      id: 'keplers-laws',
+      title: 'Kepler’s Three Laws of Planetary Motion',
+      subheading: 'How ellipses replaced perfect circular orbits',
+      laymanExplanation:
+        'Before Johannes Kepler, everyone believed celestial orbits had to be perfect circles. But circular orbits could never quite predict where Mars would show up in the night sky. In 1609, Kepler discovered that planets travel along stretched-out ovals called ellipses, with the Sun sitting off-center at one focus. His three laws explain the shape of orbits, why planets speed up as they get closer to the Sun, and why outer planets take vastly longer to complete a year.',
+      realWorldAnalogy:
+        'Think of swinging on a playground swing. When you pump down toward the ground (perihelion), you fly fastest. As you rise up into the air toward the peak (aphelion), you slow down almost to a stop. Planets do the exact same thing in their orbits!',
+      keyTerms: [
+        {
+          term: 'Ellipse',
+          definition: 'A flattened geometric circle with two foci, where the sum of the distances from any point on the curve to the two foci is constant.',
+        },
+        {
+          term: 'Eccentricity (e)',
+          definition: 'A dimensionless number between 0 and 1 indicating how stretched an ellipse is (e = 0 is a perfect circle; higher values are more elongated).',
+        },
+        {
+          term: 'Perihelion',
+          definition: 'The point in a heliocentric orbit where a planet is closest to the Sun and travels at its maximum orbital speed.',
+        },
+        {
+          term: 'Aphelion',
+          definition: 'The point in a heliocentric orbit where a planet is farthest from the Sun and travels at its minimum orbital speed.',
+        },
+        {
+          term: 'Semi-Major Axis (a)',
+          definition: 'Half of the longest diameter of an ellipse; represents the average orbital distance of a planet from the Sun.',
+        },
+      ],
+      mathBreakdown: {
+        name: 'Kepler’s Harmonic Third Law',
+        formula: 'P^2 = a^3',
+        variables: 'P = orbital period in Earth years; a = semi-major axis in Astronomical Units (AU).',
+        walkThrough:
+          'For Mars, the average distance from the Sun is a = 1.524 AU. Calculate its orbital period P: a³ = (1.524)³ ≈ 3.54. Take the square root: P = √(3.54) ≈ 1.88 Earth years (about 687 days)!',
+        practiceProblem: {
+          problem: 'An asteroid orbits the Sun with a semi-major axis of a = 4 AU. What is its orbital period P in Earth years?',
+          solution: 'P² = a³ = 4³ = 64. P = √64 = 8 Earth years.',
+        },
+      },
+    },
+    {
+      id: 'galileo-discoveries',
+      title: 'Galileo’s Telescopic Evidence for Heliocentrism',
+      subheading: 'Four Jovian moons and the phases of Venus',
+      laymanExplanation:
+        'In 1609, Galileo Galilei aimed an improved 20x spyglass at the night sky. He saw mountains and craters on the Moon (proving heavenly bodies are not pristine, divine spheres), sunspots on the Sun, and four tiny companion stars orbiting Jupiter (the Galilean moons: Io, Europa, Ganymede, Callisto). Most decisively, he saw Venus cycle through a full range of phases—from crescent to gibbous—which is geometrically impossible if Venus orbited Earth!',
+      realWorldAnalogy:
+        'Imagine looking at a car driving around a racetrack while you sit in the center of the track vs outside the track. If the car is on the far side of the race track from you, you see its headlights illuminated head-on (full phase). If it were trapped in a small orbit between you and a central floodlight, you could never see a full car illuminated.',
+      keyTerms: [
+        {
+          term: 'Galilean Moons',
+          definition: 'The four largest moons of Jupiter discovered by Galileo in 1610: Io, Europa, Ganymede, and Callisto. Proof that not everything orbits Earth.',
+        },
+        {
+          term: 'Phases of Venus',
+          definition: 'The observed change in Venus’s illuminated face from crescent to gibbous/full, proving that Venus orbits the Sun rather than Earth.',
+        },
+      ],
+    },
+    {
+      id: 'newtons-gravity',
+      title: 'Newton’s Laws of Motion and Universal Gravitation',
+      subheading: 'Why an apple falls and the Moon stays in orbit',
+      laymanExplanation:
+        'Isaac Newton realized that the force pulling an apple toward the ground is the exact same force pulling the Moon into orbit around Earth! Gravity is an invisible attractive force between all masses in the universe. It follows an inverse-square law: if you double the distance between two objects, the gravitational attraction between them becomes four times weaker (2² = 4).',
+      realWorldAnalogy:
+        'Newton’s Cannonball: Imagine a cannon atop a tall mountain firing horizontally. Fire slowly, and the ball curves and hits the ground. Fire faster, and it travels further. Fire at exactly orbital speed (~7.9 km/s for Earth), and the rate at which the ball falls toward Earth exactly matches the rate at which Earth’s surface curves away beneath it! The ball is constantly in free-fall, yet never hits the ground: that is an orbit!',
+      keyTerms: [
+        {
+          term: 'Newton’s Law of Universal Gravitation',
+          definition: 'F = G × (M × m) / r². Every point mass attracts every single other point mass with a force proportional to the product of their masses and inversely proportional to the square of their separation distance.',
+        },
+        {
+          term: 'Gravitational Constant (G)',
+          definition: 'The fundamental physical constant G ≈ 6.6743 × 10⁻¹¹ N·m²/kg².',
+        },
+        {
+          term: 'Escape Velocity',
+          definition: 'The minimum initial speed an unpropelled object must attain to break completely free from the gravitational pull of a celestial body (v_esc = √(2GM/r)). For Earth, it is 11.2 km/s.',
+        },
+        {
+          term: 'Tidal Forces',
+          definition: 'Differential gravitational forces exerted on an extended body because the gravitational pull is stronger on the near side than on the far side.',
+        },
+      ],
+      mathBreakdown: {
+        name: 'Newton’s Inverse-Square Law of Gravity',
+        formula: 'F_g = \\frac{G \\cdot M \\cdot m}{r^2}',
+        variables: 'F_g = gravitational force (Newtons); G = 6.674 × 10⁻¹¹; M, m = masses (kg); r = center-to-center distance (m).',
+        walkThrough:
+          'If the distance r between two planets triples (3×), the force becomes 1 / (3)² = 1/9th as strong. If mass doubles, force doubles.',
+        practiceProblem: {
+          problem: 'If an astronaut weighs 600 N on Earth’s surface, what would they weigh in an orbit located two Earth radii from Earth’s center (r = 2 R_E)?',
+          solution: 'F = 600 N / (2)² = 600 N / 4 = 150 Newtons.',
+        },
+      },
+    },
+  ],
+  diagram: {
+    type: 'kepler-orbits',
+    title: 'Kepler’s Laws & Elliptical Geometry',
+    caption: 'An elliptical orbit with Sun at focus F1. Equal areas swept in equal times (Law 2: perihelion speed > aphelion speed). Semi-major axis a dictates period P (Law 3).',
+  },
+  flashcards: [
+    {
+      id: 'c4-f1',
+      term: 'Kepler’s First Law',
+      category: 'Concept',
+      front: 'What does Kepler’s First Law state about planetary orbits?',
+      back: 'Planets move in elliptical orbits with the Sun located at one of the two foci (not the center).',
+      tip: 'Orbits are ovals, not circles!',
+    },
+    {
+      id: 'c4-f2',
+      term: 'Kepler’s Second Law',
+      category: 'Concept',
+      front: 'What does Kepler’s Second Law (Law of Equal Areas) dictate about orbital speed?',
+      back: 'A line connecting a planet and the Sun sweeps out equal areas in equal intervals of time. Therefore, planets move fastest at perihelion (closest) and slowest at aphelion (farthest).',
+    },
+    {
+      id: 'c4-f3',
+      term: 'Kepler’s Third Law',
+      category: 'Formula',
+      front: 'What is Kepler’s Third Law formula for objects orbiting our Sun?',
+      back: 'P² = a³. P is the orbital period in Earth years, and a is the semi-major axis in Astronomical Units (AU).',
+    },
+    {
+      id: 'c4-f4',
+      term: 'Newton’s Law of Universal Gravitation',
+      category: 'Formula',
+      front: 'State Newton’s Law of Universal Gravitation formula.',
+      back: 'F = G × (M × m) / r². Gravitational force is directly proportional to the product of masses and inversely proportional to the square of the distance between their centers.',
+    },
+    {
+      id: 'c4-f5',
+      term: 'Perihelion vs Aphelion',
+      category: 'Definition',
+      front: 'What is the difference between perihelion and aphelion?',
+      back: 'Perihelion is the closest point to the Sun in an orbit (maximum speed). Aphelion is the farthest point from the Sun (minimum speed).',
+      tip: 'P = Perihelion = Proximity; A = Aphelion = Away.',
+    },
+    {
+      id: 'c4-f6',
+      term: 'Eccentricity (e)',
+      category: 'Definition',
+      front: 'What does orbital eccentricity measure, and what does e = 0 mean?',
+      back: 'Eccentricity measures the degree of flattening of an ellipse. e = 0 corresponds to a perfect circle; 0 < e < 1 is an ellipse; e = 1 is a parabola.',
+    },
+    {
+      id: 'c4-f7',
+      term: 'Newton’s First Law (Inertia)',
+      category: 'Concept',
+      front: 'State Newton’s First Law of Motion.',
+      back: 'An object at rest stays at rest, and an object in motion continues in a straight line at constant speed unless acted upon by a net external force.',
+    },
+    {
+      id: 'c4-f8',
+      term: 'Newton’s Second Law',
+      category: 'Formula',
+      front: 'State Newton’s Second Law of Motion formula.',
+      back: 'F_net = m × a (Force = mass × acceleration). Acceleration is in the direction of the net force.',
+    },
+    {
+      id: 'c4-f9',
+      term: 'Newton’s Third Law',
+      category: 'Concept',
+      front: 'What is Newton’s Third Law of Motion?',
+      back: 'For every action force, there is an equal and opposite reaction force. Forces always occur in matched pairs.',
+    },
+    {
+      id: 'c4-f10',
+      term: 'Galilean Moons',
+      category: 'Concept',
+      front: 'Name the four Galilean moons and explain why their discovery was revolutionary.',
+      back: 'Io, Europa, Ganymede, Callisto. They provided direct visual proof that celestial bodies can orbit a center of mass other than Earth.',
+    },
+    {
+      id: 'c4-f11',
+      term: 'Escape Velocity',
+      category: 'Formula',
+      front: 'What is the formula for escape velocity, and what is Earth’s escape velocity?',
+      back: 'v_esc = √(2GM / r). Earth’s escape velocity is approximately 11.2 km/s (about 25,000 mph).',
+    },
+    {
+      id: 'c4-f12',
+      term: 'Phases of Venus',
+      category: 'Concept',
+      front: 'Why did Galileo’s observation of Venus’s phases disprove the Ptolemaic geocentric model?',
+      back: 'In the geocentric model, Venus stayed between Earth and the Sun, so it could only ever be a crescent. Galileo observed gibbous and full phases, proving Venus orbits the Sun.',
+    },
+    {
+      id: 'c4-f13',
+      term: 'Tidal Force',
+      category: 'Definition',
+      front: 'What causes ocean tides on Earth?',
+      back: 'The gravitational difference (gradient) between the pull of the Moon on the near side of Earth versus the center and far side of Earth.',
+    },
+    {
+      id: 'c4-f14',
+      term: 'Andromeda Galaxy (M31)',
+      category: 'DSO',
+      front: 'What is the relationship between Andromeda Galaxy (M31) and the Milky Way?',
+      back: 'M31 is our closest giant spiral neighbor (2.5 million ly away). Mutual gravitational attraction is pulling us together at 110 km/s for a collision in ~4.5 billion years.',
+    },
+    {
+      id: 'c4-f15',
+      term: 'Weightlessness in Orbit',
+      category: 'Concept',
+      front: 'Why do astronauts feel weightless in orbit around Earth?',
+      back: 'Astronauts are NOT outside of gravity! Earth’s gravity is still ~90% as strong in LEO. They feel weightless because they and their spacecraft are in continuous free-fall together.',
+    },
+    {
+      id: 'c4-f16',
+      term: 'Newton’s Form of Kepler’s Third Law',
+      category: 'Formula',
+      front: 'What is the Newtonian generalized form of Kepler’s Third Law?',
+      back: 'P² = [4π² / G(M₁ + M₂)] × a³. This formula allows astronomers to calculate the masses of stars, planets, and black holes!',
+    },
+  ],
+  quiz: [
+    {
+      id: 'c4-q1',
+      question: 'According to Kepler’s First Law, what is the geometric shape of planetary orbits?',
+      options: ['Perfect circles', 'Ellipses with the Sun at one focus', 'Parabolas with the Sun at the center', 'Epicycles'],
+      correctIndex: 1,
+      explanation: 'Kepler’s First Law states that planetary orbits are ellipses with the Sun located at one focus.',
+    },
+    {
+      id: 'c4-q2',
+      question: 'At which point in its elliptical orbit does a planet travel at its fastest speed?',
+      options: ['Aphelion', 'Perihelion', 'At the minor axis', 'At the empty focus'],
+      correctIndex: 1,
+      explanation: 'Kepler’s Second Law dictates that a planet sweeps equal areas in equal times, moving fastest at perihelion (closest to the Sun).',
+    },
+    {
+      id: 'c4-q3',
+      question: 'If a dwarf planet is discovered with a semi-major axis of a = 9 AU, what is its orbital period P?',
+      options: ['3 years', '9 years', '27 years', '81 years'],
+      correctIndex: 2,
+      explanation: 'Using P² = a³: a³ = 9³ = 729. P = √729 = 27 Earth years.',
+    },
+    {
+      id: 'c4-q4',
+      question: 'If the distance between two orbiting stars is doubled (2×), what happens to the gravitational force between them?',
+      options: ['It is cut in half (1/2)', 'It decreases to one-fourth (1/4)', 'It doubles (2×)', 'It remains unchanged'],
+      correctIndex: 1,
+      explanation: 'Newton’s gravity is an inverse-square law: F ∝ 1/r². If distance doubles, force becomes 1/(2)² = 1/4.',
+    },
+    {
+      id: 'c4-q5',
+      question: 'What crucial observation made by Galileo proved that not all celestial bodies orbit the Earth?',
+      options: ['The rings of Saturn', 'Sunspots on the solar disk', 'Four moons orbiting Jupiter', 'The rotation of Mars'],
+      correctIndex: 2,
+      explanation: 'The discovery of the four Galilean moons orbiting Jupiter proved that celestial objects could orbit a center other than Earth.',
+    },
+    {
+      id: 'c4-q6',
+      question: 'Why did the observed phases of Venus provide lethal evidence against the Ptolemaic geocentric model?',
+      options: [
+        'Ptolemy’s model predicted Venus would show gibbous and full phases, which Galileo never saw',
+        'Ptolemy’s model only allowed crescent phases, but Galileo observed gibbous and full phases',
+        'Venus was never visible to telescopes in Ptolemy’s model',
+        'Galileo saw Venus eclipsed by Earth every month',
+      ],
+      correctIndex: 1,
+      explanation: 'In Ptolemy’s model, Venus remained between Earth and the Sun, making gibbous phases impossible. Galileo’s observation of gibbous phases proved Venus circles the Sun.',
+    },
+    {
+      id: 'c4-q7',
+      question: 'What is the eccentricity of a perfectly circular orbit?',
+      options: ['e = 0', 'e = 0.5', 'e = 1.0', 'e = π'],
+      correctIndex: 0,
+      explanation: 'A circle has zero eccentricity (e = 0). As an ellipse stretches, e increases toward 1.',
+    },
+    {
+      id: 'c4-q8',
+      question: 'What is the minimum speed needed for an unpropelled object to escape Earth’s gravitational field?',
+      options: ['7.9 km/s', '11.2 km/s', '29.8 km/s', '300,000 km/s'],
+      correctIndex: 1,
+      explanation: 'Earth’s escape velocity from the surface is 11.2 km/s (approx. 25,000 mph). 7.9 km/s is circular orbital speed.',
+    },
+    {
+      id: 'c4-q9',
+      question: 'Why do astronauts aboard the International Space Station (ISS) float as if they are weightless?',
+      options: [
+        'There is zero gravity in space at ISS altitude',
+        'The ISS is shielded from Earth’s magnetic field',
+        'The astronauts and the ISS are in continuous free-fall around Earth together',
+        'Centrifugal engines cancel out gravitational pull',
+      ],
+      correctIndex: 2,
+      explanation: 'Earth’s gravity at ISS altitude is still about 90% of surface gravity. Floating occurs because the spacecraft and astronauts are in continuous free-fall.',
+    },
+    {
+      id: 'c4-q10',
+      question: 'If the mass of the Sun were suddenly doubled while Earth’s orbital distance remained constant, the gravitational force on Earth would:',
+      options: ['Be cut in half', 'Double (2×)', 'Quadruple (4×)', 'Remain identical'],
+      correctIndex: 1,
+      explanation: 'F = G M m / r². Force is directly proportional to the mass of the Sun. Doubling M doubles the force F.',
+    },
+    {
+      id: 'c4-q11',
+      question: 'What are ocean tidal bulges primarily caused by?',
+      options: [
+        'The heating of ocean water by the Sun',
+        'The differential gravitational pull of the Moon on opposite sides of Earth',
+        'Earth’s magnetic field interacting with salt water',
+        'Undersea volcanic eruptions',
+      ],
+      correctIndex: 1,
+      explanation: 'Tides arise because the Moon pulls harder on the side of Earth nearest to it than on the center or far side, creating a stretching tidal gradient.',
+    },
+    {
+      id: 'c4-q12',
+      question: 'Which Danish astronomer recorded decades of precise planetary positions that Kepler later used to derive his laws?',
+      options: ['Nicolaus Copernicus', 'Tycho Brahe', 'Johannes Kepler', 'Galileo Galilei'],
+      correctIndex: 1,
+      explanation: 'Tycho Brahe compiled the most precise pre-telescopic observational records of planetary positions in human history.',
+    },
+    {
+      id: 'c4-q13',
+      question: 'What happens to the orbital speed of a planet as it moves from perihelion to aphelion?',
+      options: ['It accelerates', 'It decelerates (slows down)', 'It stays constant', 'It reverses direction'],
+      correctIndex: 1,
+      explanation: 'As a planet climbs outward in the gravitational potential well toward aphelion, gravitational deceleration slows its orbital speed.',
+    },
+    {
+      id: 'c4-q14',
+      question: 'In Newton’s generalized form of Kepler’s Third Law P² = [4π² / G(M₁ + M₂)] a³, what critical physical property can astronomers measure?',
+      options: ['The surface temperature of stars', 'The combined mass of the orbiting system', 'The chemical composition of planets', 'The age of the universe'],
+      correctIndex: 1,
+      explanation: 'Newton’s form reveals that measuring orbital period P and semi-major axis a yields the total mass (M₁ + M₂) of the system.',
+    },
+    {
+      id: 'c4-q15',
+      question: 'The Andromeda Galaxy (M31) is currently moving toward the Milky Way at approximately:',
+      options: ['11 km/s', '110 km/s', '1,100 km/s', 'Speed of light'],
+      correctIndex: 1,
+      explanation: 'Andromeda is moving toward the Milky Way at ~110 km/s due to mutual gravitational attraction.',
+    },
+    {
+      id: 'c4-q16',
+      question: 'Which law states that an object’s acceleration is directly proportional to net force and inversely proportional to mass (F = ma)?',
+      options: ['Kepler’s Second Law', 'Newton’s First Law', 'Newton’s Second Law', 'Newton’s Third Law'],
+      correctIndex: 2,
+      explanation: 'Newton’s Second Law of Motion: F_net = m · a.',
+    },
+    {
+      id: 'c4-q17',
+      question: 'Why did ancient Greek astronomers invent "epicycles" (circles moving along larger circles)?',
+      options: [
+        'To calculate the distance to the Sun',
+        'To explain the occasional apparent backward (retrograde) loop of planets in the sky',
+        'To prove Earth was flat',
+        'To map the zodiac constellations',
+      ],
+      correctIndex: 1,
+      explanation: 'In a geocentric system, apparent retrograde motion could only be explained by imagining planets riding on secondary wheels called epicycles.',
+    },
+    {
+      id: 'c4-q18',
+      question: 'In reality, what causes the apparent retrograde motion of Mars as viewed from Earth?',
+      options: [
+        'Mars stops and reverses its orbital motion around the Sun',
+        'The Sun’s gravitational pull temporarily weakens',
+        'Earth moves faster on an inside track and overtakes Mars',
+        'Mars passes behind Jupiter',
+      ],
+      correctIndex: 2,
+      explanation: 'Because Earth orbits closer to the Sun, it travels faster and laps Mars like a faster racecar on an inside track, creating the optical illusion of Mars drifting backward.',
+    },
+    {
+      id: 'c4-q19',
+      question: 'An orbit with an eccentricity of e = 1.0 is geometrically shaped as a:',
+      options: ['Circle', 'Ellipse', 'Parabola (unbound trajectory)', 'Hyperbola'],
+      correctIndex: 2,
+      explanation: 'e = 0 is a circle, 0 < e < 1 is an ellipse, e = 1 is a parabolic escape trajectory, and e > 1 is a hyperbolic flyby.',
+    },
+    {
+      id: 'c4-q20',
+      question: 'When the Moon and Sun are aligned at new moon or full moon, the resulting highest high tides and lowest low tides are called:',
+      options: ['Neap tides', 'Spring tides', 'Tsunami tides', 'Ebb tides'],
+      correctIndex: 1,
+      explanation: 'Spring tides occur when the gravitational pulls of the Moon and Sun reinforce each other at new and full moons.',
+    },
+  ],
+};

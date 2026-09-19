@@ -1,0 +1,431 @@
+import { CurriculumTopic } from '@/types/curriculum';
+
+export const ourGalaxyTopic: CurriculumTopic = {
+  slug: 'our-galaxy',
+  chapterNumber: 23,
+  title: 'Our Galaxy: The Milky Way',
+  subtitle: 'Galactic Anatomy, 21-cm Radio Mapping, Spiral Density Waves, and Dark Matter',
+  badge: 'Chapter 23 • Galactic Astrophysics',
+  accentColor: 'teal',
+  freshmanSummary:
+    'We live inside an island universe: a magnificent barred spiral galaxy containing over 100 billion stars. But because we are trapped inside the Milky Way’s dusty disk, figuring out what our galaxy looks like was one of astronomy’s greatest puzzles! In this chapter, you will learn how astronomers penetrated the dust using 21-cm radio waves, mapped the spiral arms using the "cosmic traffic jam" theory (Spiral Density Waves), discovered the vast invisible halo of Dark Matter, and peered into the galactic core to track stars orbiting the supermassive black hole Sagittarius A*.',
+  readingSections: 'Sections 23.1 – 23.3 (Milky Way Morphology, 21-cm Radio Mapping, Population I vs II, Spiral Density Waves, Dark Matter Rotation Curves, Sagittarius A*)',
+  deepSkyObjects: [
+    {
+      name: 'Sagittarius A*',
+      designation: 'Sgr A*',
+      type: 'Supermassive Black Hole & Compact Radio Source',
+      constellation: 'Sagittarius',
+      distanceLightYears: '26,700 light-years',
+      significance:
+        'The supermassive black hole at the dynamical center of the Milky Way, with a mass of 4.15 million suns. Stars like S2 orbit it at up to 7,700 km/s (nearly 3% the speed of light). Its shadow was imaged by the Event Horizon Telescope in May 2022.',
+      observationTip: 'Completely hidden in visible light by 30 magnitudes of dust; observed using radio interferometers, millimeter arrays, and adaptive optics infrared telescopes.',
+    },
+    {
+      name: 'Messier 13 (Hercules Globular Cluster)',
+      designation: 'M13 / NGC 6205',
+      type: 'Globular Cluster in Galactic Halo',
+      constellation: 'Hercules',
+      distanceLightYears: '22,200 light-years',
+      significance:
+        'A magnificent halo cluster containing over 300,000 ancient Population II stars packed into a sphere 145 light-years across. Harlow Shapley used clusters like M13 to prove that the Sun is not at the center of the Milky Way.',
+      observationTip: 'Easily visible in binoculars as a hazy glowing ball between the stars Eta and Zeta Herculis.',
+    },
+  ],
+  sections: [
+    {
+      id: 'milky-way-morphology',
+      title: 'Anatomy of the Milky Way: Disk, Bulge, and Halo',
+      subheading: 'Mapping our cosmic city from the inside out',
+      laymanExplanation:
+        'If you could fly a spaceship far above the Milky Way, you would see a giant barred spiral galaxy about 100,000 light-years across. It has three main structural components: 1) The Disk: a flat, spinning pancake ~1,000 light-years thick filled with gas, dust, blue young stars, and spiral arms. Our Sun is located about 26,000 light-years from the center in the Orion Spur. 2) The Central Bulge: a peanut-shaped bar of older yellow-red stars ~10,000 light-years across. 3) The Halo: a vast, spherical outer region containing sparse ancient stars and over 150 Globular Clusters.',
+      realWorldAnalogy:
+        'Think of two fried eggs stuck back-to-back: the puffy yellow yolks in the center form the Central Bulge, the thin flat whites spreading out around them form the Disk, and an invisible beach ball surrounding the entire thing is the Halo!',
+      keyTerms: [
+        {
+          term: 'Galactic Disk',
+          definition: 'The flattened, rotating component of the Milky Way (~100,000 light-years in diameter, ~1,000 ly thick) containing stars, open clusters, gas, dust, and spiral arms.',
+        },
+        {
+          term: 'Galactic Bulge',
+          definition: 'The dense, spheroidal/barred concentration of stars in the central region of the Milky Way (~10,000 light-years across) dominated by older Population II and mixed stars.',
+        },
+        {
+          term: 'Galactic Halo',
+          definition: 'The immense, spherical region surrounding the disk and bulge containing ancient metal-poor stars, globular clusters, and an extensive dark matter envelope.',
+        },
+        {
+          term: 'Interstellar Extinction & Zone of Avoidance',
+          definition: 'The band along the galactic plane where dense dust lanes absorb nearly 100% of optical visible light, completely blinding optical telescopes to what lies behind it.',
+        },
+      ],
+    },
+    {
+      id: 'stellar-populations-radio',
+      title: 'Stellar Populations and 21-cm Radio Mapping',
+      subheading: 'Population I vs II, and peering through dust with radio eyes',
+      laymanExplanation:
+        'In 1944, Walter Baade discovered that stars in the Milky Way fall into two distinct chemical families: 1) Population I stars are young, metal-rich stars (containing elements heavier than helium) that travel in neat circular orbits within the flat disk (our Sun is Pop I). 2) Population II stars are ancient, metal-poor stars (formed early in the universe before supernovas enriched the gas) that plunge on wild, random elliptical orbits throughout the halo and bulge. How did astronomers map the disk through thick dust? Neutral hydrogen atoms emit a 21-cm radio wave when the electron spin flips! Because radio waves pass straight through dust unaffected, 21-cm surveys allowed astronomers to chart the grand spiral arms for the first time.',
+      realWorldAnalogy:
+        'Think of dust like heavy fog: you can’t see headlights through thick fog, but radio signals from your car radio pass right through it without any static! 21-cm radio astronomy is the galactic GPS that cuts through interstellar dust fog.',
+      keyTerms: [
+        {
+          term: 'Population I Stars',
+          definition: 'Younger, metal-rich stars (~1–3% heavy elements) found in the disk and spiral arms that follow orderly, circular orbits around the galactic center (e.g., the Sun).',
+        },
+        {
+          term: 'Population II Stars',
+          definition: 'Old, metal-poor stars (< 0.1% heavy elements) found in the galactic halo and globular clusters that follow randomly inclined, eccentric orbits.',
+        },
+        {
+          term: '21-Centimeter Hydrogen Line',
+          definition: 'Radio radiation (frequency 1420.4 MHz) emitted by neutral interstellar hydrogen when the electron spin flips parallel to antiparallel relative to the proton spin.',
+        },
+      ],
+    },
+    {
+      id: 'spiral-density-waves-dark-matter',
+      title: 'Spiral Density Waves and the Discovery of Dark Matter',
+      subheading: 'Why spiral arms are cosmic traffic jams, and why rotation curves are flat',
+      laymanExplanation:
+        'If spiral arms were rigid collections of stars, the inner stars (which orbit faster) would wind the arms up tightly into a tangled knot in just a few hundred million years (the Winding Problem). Instead, spiral arms are Spiral Density Waves—waves of compressed gravity traveling through the disk, like a traffic jam on a highway! Stars enter the traffic jam, slow down, compress gas clouds into newborn blue stars, and then pass on through. When astronomer Vera Rubin measured how fast stars orbit at the outer edges of galaxies, she expected them to slow down (Keplerian decline: v ∝ 1/√r). Instead, she found that orbital speeds remain completely FLAT! This proved that 85–90% of the Milky Way’s mass is made of an invisible, non-luminous substance: Dark Matter!',
+      realWorldAnalogy:
+        'A spiral density wave is like a slow-moving snowplow on an interstate highway. Cars (stars) catch up to the plow, bunch together in high density behind it, and slowly pass around it. The traffic jam stays in the same pattern even though individual cars are constantly entering and leaving it!',
+      keyTerms: [
+        {
+          term: 'Spiral Density Wave Theory',
+          definition: 'The theory proposing that spiral arms are rotating density shockwaves of higher gravitational compression that trigger star formation as gas clouds pass through them.',
+        },
+        {
+          term: 'Flat Rotation Curve',
+          definition: 'The observational discovery that orbital velocity does not decline with distance from the galactic center, proving the presence of an unseen extended mass distribution.',
+        },
+        {
+          term: 'Dark Matter Halo',
+          definition: 'A gigantic, spherical halo of non-baryonic, non-luminous matter extending out to several times the visible disk diameter, accounting for ~90% of the galaxy’s total mass.',
+        },
+        {
+          term: 'Sagittarius A* (Sgr A*)',
+          definition: 'The 4.15-million-solar-mass supermassive black hole located at the gravitational epicenter of the Milky Way, mapped by the high-speed orbital kinematics of S-stars.',
+        },
+      ],
+      mathBreakdown: {
+        name: 'Galactic Mass from Circular Orbit Velocity',
+        formula: 'M(r) = \\frac{v^2 \\cdot r}{G}',
+        variables: 'M(r) = mass enclosed within radius r; v = orbital velocity (~220 km/s); r = distance from center (~8.0 kpc = 2.47 × 10²⁰ m); G = 6.674 × 10⁻¹¹.',
+        walkThrough:
+          'At the Sun’s orbital distance (r = 8 kpc, v = 220 km/s): M = [(2.2 × 10⁵)² × (2.47 × 10²⁰)] / (6.674 × 10⁻¹¹) ≈ 1.8 × 10⁴¹ kg ≈ 9 × 10¹⁰ Solar Masses enclosed within the Sun’s orbit alone!',
+        practiceProblem: {
+          problem: 'If the orbital speed stays flat at v = 220 km/s all the way out to r = 16 kpc (twice the Sun’s distance), how does the enclosed mass compare?',
+          solution: 'Because M(r) ∝ r when v is constant, doubling the radius doubles the enclosed mass to ~1.8 × 10¹¹ Solar Masses, proving massive dark matter resides in the outer halo.',
+        },
+      },
+    },
+  ],
+  diagram: {
+    type: 'milky-way',
+    title: 'Morphology of the Milky Way: Edge-On & Face-On Views',
+    caption: 'Disk (100,000 ly across), Central Bulge & Bar, Sun located 26,000 ly out in Orion Spur, Spherical Halo with Globular Clusters, enveloped by an immense Dark Matter Halo.',
+  },
+  flashcards: [
+    {
+      id: 'c23-f1',
+      term: 'Milky Way Diameter & Shape',
+      category: 'Concept',
+      front: 'What is the morphological classification and approximate diameter of the Milky Way?',
+      back: 'A Barred Spiral Galaxy (SBb or SBc), approximately 100,000 light-years in diameter with a thin disk ~1,000 light-years thick.',
+    },
+    {
+      id: 'c23-f2',
+      term: 'Sun’s Location in the Galaxy',
+      category: 'Concept',
+      front: 'Where is our Solar System located within the Milky Way?',
+      back: 'In the flat galactic disk, approximately 26,000 to 27,000 light-years (~8 kiloparsecs) from the galactic center, in a minor spiral branch called the Orion-Cygnus Spur.',
+    },
+    {
+      id: 'c23-f3',
+      term: 'Sun’s Galactic Orbital Period',
+      category: 'Formula',
+      front: 'How long does it take the Sun to complete one orbit around the Milky Way ("Galactic Year")?',
+      back: 'Approximately 225 to 250 million Earth years, orbiting at a speed of roughly 220 km/s (~500,000 mph).',
+    },
+    {
+      id: 'c23-f4',
+      term: 'Population I Stars',
+      category: 'Definition',
+      front: 'What are the defining characteristics of Population I stars?',
+      back: 'Young, metal-rich stars (1–3% heavy elements) found in the galactic disk and spiral arms that move in orderly, circular orbits in the plane of the disk.',
+    },
+    {
+      id: 'c23-f5',
+      term: 'Population II Stars',
+      category: 'Definition',
+      front: 'What are the defining characteristics of Population II stars?',
+      back: 'Old, metal-poor stars (< 0.1% heavy elements) found in globular clusters, the galactic halo, and bulge, moving on randomly oriented, plunging eccentric orbits.',
+    },
+    {
+      id: 'c23-f6',
+      term: '21-Centimeter Radio Line Mechanism',
+      category: 'Formula',
+      front: 'What physical transition produces the 21-cm hydrogen radio emission line?',
+      back: 'The hyperfine transition (spin-flip) of the electron in neutral hydrogen (H I) from a parallel spin state to an antiparallel spin state relative to the proton.',
+    },
+    {
+      id: 'c23-f7',
+      term: 'The Winding Problem',
+      category: 'Concept',
+      front: 'What was the galactic "Winding Problem"?',
+      back: 'If spiral arms were rigid material features, differential galactic rotation would wind them up tightly into indistinct rings in just a few orbits (~500 Myr).',
+    },
+    {
+      id: 'c23-f8',
+      term: 'Spiral Density Wave Theory',
+      category: 'Concept',
+      front: 'How does Spiral Density Wave theory solve the winding problem?',
+      back: 'Spiral arms are not material objects; they are rotating gravitational compression waves (traffic jams) that gas clouds and stars pass through.',
+    },
+    {
+      id: 'c23-f9',
+      term: 'Flat Rotation Curve Discovery',
+      category: 'Concept',
+      front: 'What does a flat galactic rotation curve demonstrate?',
+      back: 'Stars in the outer disk orbit just as fast as stars in the inner disk (v ≈ constant), proving that mass continues to increase outward in an invisible Dark Matter Halo.',
+    },
+    {
+      id: 'c23-f10',
+      term: 'Dark Matter Halo Fraction',
+      category: 'Formula',
+      front: 'What fraction of the Milky Way’s total mass is composed of Dark Matter?',
+      back: 'Approximately 85% to 90% of the galaxy’s total gravitational mass is dark matter.',
+    },
+    {
+      id: 'c23-f11',
+      term: 'Sagittarius A* Mass',
+      category: 'DSO',
+      front: 'What is Sagittarius A* and what is its measured mass?',
+      back: 'The supermassive black hole at the center of the Milky Way, with a mass of 4.15 million solar masses (4.15 × 10⁶ M_☉).',
+    },
+    {
+      id: 'c23-f12',
+      term: 'Star S2 Orbit',
+      category: 'DSO',
+      front: 'Why was star S2 crucial for proving the existence of Sagittarius A*?',
+      back: 'Astronomers tracked star S2 completing a full 16-year elliptical orbit around an invisible point, coming within 17 light-hours of Sgr A* at 7,700 km/s, confirming 4 million suns of mass.',
+    },
+    {
+      id: 'c23-f13',
+      term: 'Harlow Shapley’s Discovery',
+      category: 'Concept',
+      front: 'How did Harlow Shapley determine the true size of the Milky Way and our place in it?',
+      back: 'By mapping the 3D distribution of globular clusters using RR Lyrae variable stars, proving that the clusters center on Sagittarius, not Earth!',
+    },
+    {
+      id: 'c23-f14',
+      term: 'Zone of Avoidance',
+      category: 'Definition',
+      front: 'What is the Zone of Avoidance in extragalactic astronomy?',
+      back: 'The ~20° wide band across the sky where thick interstellar dust lanes in the Milky Way’s disk obscure our optical view of distant background galaxies.',
+    },
+    {
+      id: 'c23-f15',
+      term: 'Messier 13 (M13)',
+      category: 'DSO',
+      front: 'What kind of object is Messier 13 and where does it reside?',
+      back: 'A classic globular cluster in the constellation Hercules containing ~300,000 ancient Population II stars orbiting in the Milky Way’s galactic halo.',
+    },
+    {
+      id: 'c23-f16',
+      term: 'Enclosed Mass Formula',
+      category: 'Formula',
+      front: 'State the formula for calculating enclosed galactic mass M(r) from orbital speed v.',
+      back: 'M(r) = (v² × r) / G. When v is constant, enclosed mass M(r) grows linearly with radius r.',
+    },
+  ],
+  quiz: [
+    {
+      id: 'c23-q1',
+      question: 'What is the morphological classification of our Milky Way Galaxy?',
+      options: ['Giant Elliptical galaxy (E0)', 'Barred Spiral galaxy (SBb/SBc)', 'Irregular dwarf galaxy', 'Lenticular galaxy (S0)'],
+      correctIndex: 1,
+      explanation: 'The Milky Way is classified as a barred spiral galaxy with a central stellar bar and prominent spiral arms.',
+    },
+    {
+      id: 'c23-q2',
+      question: 'Approximately how far is our Solar System from the center of the Milky Way?',
+      options: ['500 light-years', '8,000 light-years', '26,000 to 27,000 light-years (~8 kpc)', '100,000 light-years'],
+      correctIndex: 2,
+      explanation: 'The Sun is situated in the Orion Spur approximately 26,000 to 27,000 light-years (8 kpc) from the galactic core.',
+    },
+    {
+      id: 'c23-q3',
+      question: 'How long does it take our Solar System to complete one full orbit around the Milky Way ("Galactic Year")?',
+      options: ['365 days', '1 million years', '225 to 250 million years', '4.5 billion years'],
+      correctIndex: 2,
+      explanation: 'Orbiting at ~220 km/s, the Sun takes approximately 225–250 million Earth years to complete one revolution.',
+    },
+    {
+      id: 'c23-q4',
+      question: 'How did Harlow Shapley prove that the Sun is NOT at the center of the Milky Way?',
+      options: [
+        'By flying a spacecraft out of the galaxy',
+        'By plotting the 3D distribution of Globular Clusters and discovering they center around Sagittarius',
+        'By measuring the redshift of the Moon',
+        'By observing sunspots with Galileo’s telescope',
+      ],
+      correctIndex: 1,
+      explanation: 'Shapley used RR Lyrae variables to map globular clusters, discovering they form a spherical swarm centered on Sagittarius, 26,000 ly away.',
+    },
+    {
+      id: 'c23-q5',
+      question: 'Which of the following describes Population I stars in the Milky Way?',
+      options: [
+        'Ancient, metal-poor stars on plunging halo orbits',
+        'Young, metal-rich stars moving in orderly circular orbits within the flat galactic disk',
+        'Dead stars inside black holes',
+        'Stars found only in the core of Sagittarius A*',
+      ],
+      correctIndex: 1,
+      explanation: 'Population I stars (like our Sun) are younger, enriched with heavy elements (~1–3%), and orbit neatly in the disk.',
+    },
+    {
+      id: 'c23-q6',
+      question: 'Where are ancient Population II stars predominantly found in the Milky Way?',
+      options: ['In the thin disk and spiral arms', 'In the spherical Galactic Halo and Globular Clusters', 'Only in the Orion Nebula', 'Floating inside our solar system'],
+      correctIndex: 1,
+      explanation: 'Population II stars are ancient, metal-poor stars found in globular clusters, the galactic halo, and the central bulge.',
+    },
+    {
+      id: 'c23-q7',
+      question: 'What radio wavelength allows astronomers to map cold neutral hydrogen gas across the entire Milky Way, cutting right through dust?',
+      options: ['3-millimeter wave', '21-centimeter line (1420 MHz)', '1-meter wave', '656.3-nanometer line'],
+      correctIndex: 1,
+      explanation: 'The 21-cm line penetrates interstellar dust clouds without absorption, enabling the first complete maps of the Milky Way’s spiral arms.',
+    },
+    {
+      id: 'c23-q8',
+      question: 'What physical mechanism generates the 21-centimeter radio photon in a neutral hydrogen atom?',
+      options: [
+        'An electron jumping from n=2 to n=1',
+        'The spin of the electron flipping from parallel to antiparallel relative to the proton spin (hyperfine transition)',
+        'Nuclear fusion in the core',
+        'A proton decaying into a positron',
+      ],
+      correctIndex: 1,
+      explanation: 'The 21-cm emission line arises from the quantum hyperfine spin-flip of the electron in neutral hydrogen.',
+    },
+    {
+      id: 'c23-q9',
+      question: 'According to Spiral Density Wave Theory, what are galactic spiral arms?',
+      options: [
+        'Rigid spokes of permanent stars rotating like a solid wheel',
+        'Moving gravitational compression waves (cosmic traffic jams) that compress gas into new stars as clouds pass through',
+        'Streams of smoke emitted by black holes',
+        'Optical illusions caused by Earth’s atmosphere',
+      ],
+      correctIndex: 1,
+      explanation: 'Spiral arms are density waves: regions of higher gravitational density where gas clouds pile up, triggering intense star formation.',
+    },
+    {
+      id: 'c23-q10',
+      question: 'If the Milky Way’s mass were concentrated entirely in its luminous stars and central bulge, what should happen to orbital speed v in the outer disk (Keplerian decline)?',
+      options: ['v should increase linearly (v ∝ r)', 'v should decrease with distance (v ∝ 1 / √r)', 'v should drop to zero instantly', 'v should oscillate between red and blue'],
+      correctIndex: 1,
+      explanation: 'Just like planets in the Solar System, orbital speed should decrease with distance (v ∝ 1/√r) if mass were centrally concentrated.',
+    },
+    {
+      id: 'c23-q11',
+      question: 'What does the observed "Flat Rotation Curve" of the Milky Way actually show?',
+      options: [
+        'Stars in the outer disk orbit just as fast (~220 km/s) as stars closer to the center',
+        'Stars in the outer disk orbit at the speed of light',
+        'The outer disk is completely stationary',
+        'The galaxy is shrinking rapidly',
+      ],
+      correctIndex: 0,
+      explanation: 'Orbital velocity remains flat (~220 km/s) out to tens of thousands of light-years, revealing an immense unseen mass distribution.',
+    },
+    {
+      id: 'c23-q12',
+      question: 'What invisible component accounts for roughly 85% to 90% of the Milky Way’s total gravitational mass?',
+      options: ['Interstellar gas clouds', 'White dwarf stars', 'A massive Dark Matter Halo', 'Asteroids and comets'],
+      correctIndex: 2,
+      explanation: 'Flat rotation curves demonstrate that ~90% of the galaxy’s mass resides in an extended, non-luminous Dark Matter Halo.',
+    },
+    {
+      id: 'c23-q13',
+      question: 'What is the mass of the supermassive black hole Sagittarius A* located at the center of the Milky Way?',
+      options: ['10 Solar Masses', '1,000 Solar Masses', '4.15 million Solar Masses', '1 trillion Solar Masses'],
+      correctIndex: 2,
+      explanation: 'Tracking the orbits of central S-stars proved that Sagittarius A* contains 4.15 × 10⁶ solar masses packed into a tiny volume.',
+    },
+    {
+      id: 'c23-q14',
+      question: 'What is the "Zone of Avoidance"?',
+      options: [
+        'The region inside the event horizon of Sgr A*',
+        'The band of sky along the galactic plane where dense dust blocks our optical view of distant galaxies',
+        'The space between spiral arms',
+        'The region where planets cannot form',
+      ],
+      correctIndex: 1,
+      explanation: 'The Zone of Avoidance is the ~20° wide stripe along the Milky Way disk where interstellar dust obscures extragalactic observations in visible light.',
+    },
+    {
+      id: 'c23-q15',
+      question: 'What is the diameter of the Milky Way’s visible stellar disk?',
+      options: ['1,000 light-years', '10,000 light-years', 'Approximately 100,000 light-years', '2.5 million light-years'],
+      correctIndex: 2,
+      explanation: 'The visible stellar disk of the Milky Way spans approximately 100,000 light-years across.',
+    },
+    {
+      id: 'c23-q16',
+      question: 'What famous halo globular cluster in the constellation Hercules contains over 300,000 ancient stars?',
+      options: ['Messier 13 (M13)', 'The Pleiades (M45)', 'The Crab Nebula (M1)', 'The Orion Nebula (M42)'],
+      correctIndex: 0,
+      explanation: 'Messier 13 (the Great Hercules Cluster) is a classic globular cluster located in the galactic halo.',
+    },
+    {
+      id: 'c23-q17',
+      question: 'What type of telescope was required to image the shadow of Sagittarius A* in 2022?',
+      options: [
+        'A single 4-inch backyard optical refractor',
+        'The Event Horizon Telescope (a worldwide network of synchronized millimeter-wavelength radio dishes)',
+        'An underwater neutrino detector',
+        'An orbiting ultraviolet satellite',
+      ],
+      correctIndex: 1,
+      explanation: 'The Event Horizon Telescope (EHT) used very-long-baseline interferometry (VLBI) at millimeter radio wavelengths to image Sgr A*.',
+    },
+    {
+      id: 'c23-q18',
+      question: 'Why are open star clusters (like the Pleiades) found only in the galactic disk rather than in the halo?',
+      options: [
+        'The halo is too hot for open clusters',
+        'Open clusters are young star groups born from dense cold gas clouds, which exist only in the disk',
+        'Open clusters are pushed into the disk by black holes',
+        'Open clusters orbit at the speed of light',
+      ],
+      correctIndex: 1,
+      explanation: 'Open clusters are young (millions to hundreds of millions of years old) and form exclusively in the gas-rich galactic disk.',
+    },
+    {
+      id: 'c23-q19',
+      question: 'What causes the central bulge of the Milky Way to look like a peanut or boxy X-shape when viewed in infrared light?',
+      options: [
+        'A central bar of stars seen edge-on with buckled stellar orbits',
+        'Two black holes pushing stars sideways',
+        'A collision with the Andromeda galaxy that finished yesterday',
+        'Giant mirrors floating in the bulge',
+      ],
+      correctIndex: 0,
+      explanation: 'The Milky Way is a barred spiral; dynamical buckling of stellar orbits within the rotating bar gives the bulge a boxy, peanut-like cross-section.',
+    },
+    {
+      id: 'c23-q20',
+      question: 'If the Sun completes one galactic orbit in 230 million years at radius r = 8 kpc, what simple equation allows us to estimate the mass enclosed within our orbit?',
+      options: ['M = v² · r / G', 'M = G · c² / r', 'M = 4π R³ / 3', 'M = P² · a³'],
+      correctIndex: 0,
+      explanation: 'Equating gravitational force to centripetal acceleration (G M m / r² = m v² / r) yields M(r) = v² · r / G.',
+    },
+  ],
+};

@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   Filter,
   ArrowRight,
+  GraduationCap,
 } from 'lucide-react';
 import { useCadetSession } from '@/lib/session/CadetSessionContext';
 import { CANONICAL_RESOURCES } from '@/data/resources';
@@ -19,6 +20,7 @@ import { FundamentalResource } from '@/types/fundamentals';
 import { AddResourceModal } from '@/components/fundamentals/AddResourceModal';
 import { WebMDNavbar } from '@/components/layout/WebMDNavbar';
 import { SPACE_TOPICS } from '@/data/topics';
+import { CURRICULUM_TOPICS } from '@/data/curriculum';
 
 export default function HomePage(): React.JSX.Element {
   const { cadetHandle, bookmarks, toggleBookmark } = useCadetSession();
@@ -269,6 +271,66 @@ export default function HomePage(): React.JSX.Element {
               />
               <span className="text-[10px] text-slate-500">Engine nozzle efficiency</span>
             </div>
+          </div>
+        </section>
+
+        {/* 2026–2027 Presentation Schedule: 12 Freshman Astronomy Chapters */}
+        <section className="space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-blue-900/80">
+            <div>
+              <div className="flex items-center gap-2 text-amber-400 font-mono text-xs uppercase font-bold tracking-wider mb-1">
+                <GraduationCap className="w-4 h-4 text-amber-400" />
+                <span>2026–2027 Academic Schedule</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-white">
+                Astronomy & Astrophysics Freshman Curriculum (12 Chapters)
+              </h2>
+              <p className="text-xs text-slate-300">
+                Detailed guides in layman terms, custom vector diagrams, flippable flashcard tiles, and 20-question mastery quizzes
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CURRICULUM_TOPICS.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/topic/${c.slug}`}
+                className="bg-[#051329]/90 hover:bg-[#082247] border border-blue-900/80 hover:border-amber-400/50 rounded-2xl p-5 transition space-y-3 group block shadow-xl"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wide">
+                    Chapter {c.chapterNumber}
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-blue-950 text-cyan-300 border border-blue-800 font-mono">
+                      {c.flashcards.length} Cards
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800 font-mono font-bold">
+                      20Q Quiz
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition">
+                    {c.title}
+                  </h3>
+                  <p className="text-xs text-cyan-200/70 font-mono mt-0.5 line-clamp-1">
+                    {c.subtitle}
+                  </p>
+                </div>
+
+                <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  {c.freshmanSummary}
+                </p>
+
+                <div className="pt-2.5 border-t border-blue-950/80 flex items-center justify-between text-xs text-amber-400 group-hover:text-amber-300 font-semibold font-mono">
+                  <span>Start Chapter Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 
