@@ -41,7 +41,7 @@ export function FreshmanTopicPage({ topic }: FreshmanTopicPageProps): React.JSX.
   const nextTopic = currentIdx < CURRICULUM_TOPICS.length - 1 ? CURRICULUM_TOPICS[currentIdx + 1] : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#040814] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen flex flex-col bg-[#040814] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 w-full min-w-full">
       {/* 1. Signature WebMD Navbar */}
       <WebMDNavbar
         cadetHandle={cadetHandle}
@@ -51,7 +51,7 @@ export function FreshmanTopicPage({ topic }: FreshmanTopicPageProps): React.JSX.
       />
 
       {/* 2. Editorial Trust Ribbon */}
-      <div className="border-b border-blue-950/80 bg-[#020b18] py-2 text-xs">
+      <div className="border-b border-blue-950/80 bg-[#020b18] py-2 text-xs w-full min-w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-2 text-slate-400 font-mono text-[11px]">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -430,7 +430,7 @@ export function FreshmanTopicPage({ topic }: FreshmanTopicPageProps): React.JSX.
       </main>
 
       {/* Structured Footer */}
-      <footer className="border-t border-blue-900 bg-[#020a16] text-slate-400 text-xs py-10 mt-12">
+      <footer className="border-t border-blue-900 bg-[#020a16] text-slate-400 text-xs py-10 mt-12 w-full min-w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>

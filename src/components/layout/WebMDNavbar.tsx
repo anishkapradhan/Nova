@@ -81,9 +81,9 @@ export function WebMDNavbar({
   };
 
   return (
-    <header className="sticky top-0 z-[100] shadow-2xl" ref={navRef}>
+    <header className="sticky top-0 z-[100] shadow-2xl w-full min-w-full" ref={navRef}>
       {/* 1. WebMD-Style Top Tier: Deep Navy Header with Brand, Search & Cadet Status */}
-      <div className="bg-[#041126] border-b border-[#0f2e5a]">
+      <div className="bg-[#041126] border-b border-[#0f2e5a] w-full min-w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
           {/* Logo & Brand */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
@@ -157,7 +157,7 @@ export function WebMDNavbar({
       </div>
 
       {/* 2. WebMD-Style Signature Dark Blue Horizontal Navigation Bar */}
-      <nav className="bg-[#002855] border-b border-[#003b7a] relative z-50">
+      <nav className="bg-[#002855] border-b border-[#003b7a] relative z-50 w-full min-w-full">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 overflow-x-auto lg:overflow-visible scrollbar-thin">
           <ul className="flex items-center justify-start gap-1 py-1 text-xs font-medium relative z-50">
             {/* Direct Link to All Topics / Home Directory */}
@@ -194,7 +194,7 @@ export function WebMDNavbar({
                   }`}
                 >
                   <GraduationCap className="w-4 h-4 text-amber-400" />
-                  <span>Astronomy Schedule (12 Chapters)</span>
+                  <span>Astronomy</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
                       openDropdown === 'curriculum' ? 'rotate-180 text-cyan-300' : 'text-amber-300'
@@ -335,7 +335,7 @@ export function WebMDNavbar({
       </nav>
 
       {/* 3. Nova Milky Way 1-Inch Stripe Ribbon Running Right Under the Top Bar */}
-      <div className="relative z-0 h-11 sm:h-12 w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
+      <div className="relative z-0 h-11 sm:h-12 w-full min-w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
         <Image
           src="/images/milky_way_header.jpg"
           alt="Nova Milky Way Cosmic Ribbon"

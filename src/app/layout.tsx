@@ -15,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }): React.JSX.Element {
   return (
-    <html lang="en">
-      <body className="antialiased bg-[#0b0d17] text-[#f0f2f5]">
+    <html lang="en" className="bg-[#040814] text-[#f0f2f5] min-w-full">
+      <body className="antialiased bg-[#040814] text-[#f0f2f5] min-h-screen min-w-full">
         <CadetSessionProvider>{children}</CadetSessionProvider>
       </body>
     </html>

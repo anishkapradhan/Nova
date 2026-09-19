@@ -16,6 +16,8 @@
   html {
     box-sizing: border-box;
     width: 100%;
+    min-width: 100%;
+    background-color: #040814;
     overflow-x: auto;
     overflow-y: auto;
     scroll-behavior: smooth;
@@ -26,16 +28,18 @@
   }
 
   body {
-    background-color: var(--space-bg);
+    background-color: #040814;
     color: #f1f5f9;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     background-image: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent),
+      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(56, 189, 248, 0.15), transparent),
       radial-gradient(circle 900px at 100% 30%, rgba(168, 85, 247, 0.08), transparent),
-      radial-gradient(circle 800px at 0% 70%, rgba(14, 165, 233, 0.06), transparent);
+      radial-gradient(circle 800px at 0% 70%, rgba(14, 165, 233, 0.06), transparent),
+      linear-gradient(to bottom, #040814 0%, #060e22 50%, #020611 100%);
     background-attachment: fixed;
     min-height: 100vh;
     width: 100%;
+    min-width: 100%;
     overflow-x: auto;
     overflow-y: auto;
   }

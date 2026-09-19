@@ -168,7 +168,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
   {
     slug: 'astronomy',
     title: 'Astronomy & Planetary Science',
-    webmdTabLabel: 'Astronomy & Planets',
+    webmdTabLabel: 'Planets',
     shortDescription: 'Stellar evolution, Hertzsprung-Russell diagrams, and exoplanetary transit photometry.',
     fullOverview:
       'Astronomy investigates the origin, evolution, physics, and chemistry of celestial objects outside Earth atmosphere. High school and pre-college students explore stellar nucleosynthesis, black holes, galactic structures, and planetary geology while utilizing real light-curve photometry data from missions like Kepler and TESS.',
