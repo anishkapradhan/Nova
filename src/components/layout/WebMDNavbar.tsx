@@ -81,7 +81,7 @@ export function WebMDNavbar({
   };
 
   return (
-    <header className="sticky top-0 z-50 shadow-2xl" ref={navRef}>
+    <header className="sticky top-0 z-[100] shadow-2xl" ref={navRef}>
       {/* 1. WebMD-Style Top Tier: Deep Navy Header with Brand, Search & Cadet Status */}
       <div className="bg-[#041126] border-b border-[#0f2e5a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -157,9 +157,9 @@ export function WebMDNavbar({
       </div>
 
       {/* 2. WebMD-Style Signature Dark Blue Horizontal Navigation Bar */}
-      <nav className="bg-[#002855] border-b border-[#003b7a]">
+      <nav className="bg-[#002855] border-b border-[#003b7a] relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <ul className="flex items-center justify-start gap-1 overflow-x-auto scrollbar-none py-1 text-xs font-medium">
+          <ul className="flex items-center justify-start gap-1 py-1 text-xs font-medium relative z-50 overflow-visible">
             {/* Direct Link to All Topics / Home Directory */}
             <li>
               <Link
@@ -178,11 +178,15 @@ export function WebMDNavbar({
             </li>
 
             {/* ASTRONOMY 2026-27 CURRICULUM MEGA DROPDOWN (12 Chapters) */}
-            <li className="relative">
+            <li
+              className="relative group z-50"
+              onMouseEnter={() => setOpenDropdown('curriculum')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
               <div className="flex items-center">
                 <button
+                  type="button"
                   onClick={() => setOpenDropdown(openDropdown === 'curriculum' ? null : 'curriculum')}
-                  onMouseEnter={() => setOpenDropdown('curriculum')}
                   className={`px-3.5 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-bold ${
                     openDropdown === 'curriculum'
                       ? 'bg-[#003f88] text-cyan-300 shadow-inner'
@@ -201,15 +205,15 @@ export function WebMDNavbar({
 
               {openDropdown === 'curriculum' && (
                 <div
-                  onMouseLeave={() => setOpenDropdown(null)}
-                  className="absolute left-0 top-full mt-1 w-88 sm:w-[600px] max-h-[80vh] overflow-y-auto bg-[#071a36]/98 border border-amber-500/40 rounded-xl shadow-2xl p-4 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
+                  className="absolute left-0 top-full mt-1 w-88 sm:w-[620px] max-h-[80vh] overflow-y-auto bg-[#040d1e]/98 border border-amber-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-amber-400/40 p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
                 >
-                  <div className="pb-2.5 mb-2.5 border-b border-blue-900 flex items-center justify-between">
+                  <div className="pb-2.5 mb-2.5 border-b border-blue-900/80 flex items-center justify-between">
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-amber-300 font-mono">
+                      <span className="text-xs font-bold uppercase tracking-wider text-amber-300 font-mono flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                         2026–2027 Presentation Schedule
                       </span>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-[11px] text-slate-300 mt-0.5">
                         12 Comprehensive Freshman Study Guides with 20-Question Quizzes & Flashcards
                       </p>
                     </div>
@@ -221,17 +225,17 @@ export function WebMDNavbar({
                         key={c.slug}
                         href={`/topic/${c.slug}`}
                         onClick={() => setOpenDropdown(null)}
-                        className="p-2.5 rounded-lg bg-[#041126] hover:bg-[#0d2a55] border border-blue-900/60 hover:border-cyan-500/40 transition group block"
+                        className="p-2.5 rounded-lg bg-[#071730] hover:bg-[#0f2c58] border border-blue-800/60 hover:border-cyan-400 transition group block shadow-sm"
                       >
                         <div className="flex items-center justify-between text-[11px]">
                           <span className="font-bold text-cyan-300 group-hover:text-white transition">
                             Ch {c.chapterNumber}: {c.title}
                           </span>
-                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-950 text-amber-400 border border-amber-500/30 font-mono">
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-950 text-amber-400 border border-amber-500/40 font-mono font-semibold">
                             20Q Quiz
                           </span>
                         </div>
-                        <p className="text-[10px] text-slate-400 line-clamp-1 mt-0.5">
+                        <p className="text-[10px] text-slate-300 line-clamp-1 mt-1">
                           {c.subtitle}
                         </p>
                       </Link>
@@ -246,11 +250,16 @@ export function WebMDNavbar({
               const isOpen = openDropdown === topic.slug;
 
               return (
-                <li key={topic.slug} className="relative">
+                <li
+                  key={topic.slug}
+                  className="relative group z-50"
+                  onMouseEnter={() => setOpenDropdown(topic.slug)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <div className="flex items-center">
                     <button
+                      type="button"
                       onClick={() => setOpenDropdown(isOpen ? null : topic.slug)}
-                      onMouseEnter={() => setOpenDropdown(topic.slug)}
                       className={`px-3 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-semibold ${
                         isOpen
                           ? 'bg-[#003f88] text-white shadow-inner'
@@ -270,21 +279,20 @@ export function WebMDNavbar({
                   {/* Expanded Sub-Topics Mega Dropdown Panel */}
                   {isOpen && (
                     <div
-                      onMouseLeave={() => setOpenDropdown(null)}
-                      className="absolute left-0 top-full mt-1 w-84 sm:w-[460px] bg-[#071a36]/98 border border-cyan-500/40 rounded-xl shadow-2xl p-4 z-50 backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
+                      className="absolute left-0 top-full mt-1 w-84 sm:w-[480px] bg-[#040d1e]/98 border border-cyan-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-cyan-400/40 p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
                     >
-                      <div className="pb-2.5 mb-2.5 border-b border-blue-900 flex items-center justify-between">
+                      <div className="pb-2.5 mb-2.5 border-b border-blue-900/80 flex items-center justify-between">
                         <div>
                           <span className="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">
                             {topic.title} Hub
                           </span>
-                          <p className="text-[11px] text-slate-400 line-clamp-1">{topic.shortDescription}</p>
+                          <p className="text-[11px] text-slate-300 line-clamp-1">{topic.shortDescription}</p>
                         </div>
 
                         <Link
                           href={`/topic/${topic.slug}`}
                           onClick={() => setOpenDropdown(null)}
-                          className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 hover:text-cyan-200 px-2.5 py-1 rounded bg-blue-950/80 border border-cyan-500/30 hover:border-cyan-400 transition"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-cyan-300 hover:text-white px-2.5 py-1 rounded bg-blue-900/90 border border-cyan-500/50 hover:border-cyan-300 transition shadow-sm"
                         >
                           <span>Explore Page</span>
                           <ArrowRight className="w-3 h-3" />
@@ -296,14 +304,14 @@ export function WebMDNavbar({
                           <div
                             key={sub.id}
                             onClick={() => handleSubtopicClick(sub.externalUrl, topic.categoryFilter)}
-                            className="p-2.5 rounded-lg hover:bg-[#0d2a55] transition cursor-pointer group border border-transparent hover:border-blue-700"
+                            className="p-2.5 rounded-lg bg-[#071730]/60 hover:bg-[#0f2c58] transition cursor-pointer group border border-blue-900/50 hover:border-cyan-400"
                           >
                             <div className="flex items-center justify-between gap-2">
-                              <span className="font-semibold text-slate-200 group-hover:text-cyan-300 transition text-xs">
+                              <span className="font-semibold text-slate-200 group-hover:text-cyan-200 transition text-xs">
                                 {sub.name}
                               </span>
                               {sub.badge && (
-                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-950 text-cyan-400 border border-cyan-500/30 shrink-0 font-mono">
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-950 text-cyan-400 border border-cyan-500/40 shrink-0 font-mono">
                                   {sub.badge}
                                 </span>
                               )}
@@ -311,7 +319,7 @@ export function WebMDNavbar({
                                 <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-cyan-300" />
                               )}
                             </div>
-                            <p className="text-[11px] text-slate-400 line-clamp-2 mt-1 leading-snug">
+                            <p className="text-[11px] text-slate-300 line-clamp-2 mt-1 leading-snug">
                               {sub.description}
                             </p>
                           </div>
@@ -327,19 +335,19 @@ export function WebMDNavbar({
       </nav>
 
       {/* 3. Nova Milky Way 1-Inch Stripe Ribbon Running Right Under the Top Bar */}
-      <div className="relative h-11 sm:h-12 w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
+      <div className="relative z-0 h-11 sm:h-12 w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
         <Image
           src="/images/milky_way_header.jpg"
           alt="Nova Milky Way Cosmic Ribbon"
           fill
           priority
-          className="object-cover object-center brightness-90 saturate-125"
+          className="object-cover object-center brightness-90 saturate-125 pointer-events-none"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020b18]/90 via-[#071b3d]/40 to-[#020b18]/90" />
-        <div className="absolute inset-0 bg-cyan-950/20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020b18]/90 via-[#071b3d]/40 to-[#020b18]/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-cyan-950/20 mix-blend-overlay pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between text-xs">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between text-xs pointer-events-none">
           <div className="flex items-center gap-2 text-white font-mono">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="font-bold tracking-wider uppercase text-[11px] text-cyan-200">
