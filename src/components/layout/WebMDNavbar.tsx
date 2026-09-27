@@ -20,9 +20,11 @@ import {
   ArrowRight,
   Sparkles,
   GraduationCap,
+  Dna,
 } from 'lucide-react';
 import { SPACE_TOPICS, TopicDefinition } from '@/data/topics';
 import { CURRICULUM_TOPICS } from '@/data/curriculum';
+import { DESIGNER_GENES_TOPICS } from '@/data/designer-genes';
 
 interface WebMDNavbarProps {
   cadetHandle: string;
@@ -237,6 +239,74 @@ export function WebMDNavbar({
                         </div>
                         <p className="text-[10px] text-slate-300 line-clamp-1 mt-1">
                           {c.subtitle}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </li>
+
+            {/* DESIGNER GENES 2026-27 SCIENCE OLYMPIAD MEGA DROPDOWN (8 Topics) */}
+            <li
+              className="relative group z-50"
+              onMouseEnter={() => setOpenDropdown('designer-genes')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <div className="flex items-center">
+                <button
+                  type="button"
+                  onClick={() => setOpenDropdown(openDropdown === 'designer-genes' ? null : 'designer-genes')}
+                  className={`px-3.5 py-2 rounded-md transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer font-bold ${
+                    openDropdown === 'designer-genes'
+                      ? 'bg-[#003f88] text-emerald-300 shadow-inner'
+                      : 'text-emerald-300 hover:text-white hover:bg-[#003774]'
+                  }`}
+                >
+                  <Dna className="w-4 h-4 text-emerald-400" />
+                  <span>Designer Genes</span>
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      openDropdown === 'designer-genes' ? 'rotate-180 text-emerald-300' : 'text-emerald-300'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {openDropdown === 'designer-genes' && (
+                <div
+                  className="absolute left-0 top-full mt-1 w-[92vw] max-w-[640px] max-h-[80vh] overflow-y-auto bg-[#031520]/98 border border-emerald-500/60 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] ring-1 ring-emerald-400/40 p-3 sm:p-4 z-[9999] pointer-events-auto backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150 text-slate-100"
+                >
+                  <div className="pb-2.5 mb-2.5 border-b border-emerald-900/80 flex items-center justify-between">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-emerald-300 font-mono flex items-center gap-1.5">
+                        <Dna className="w-3.5 h-3.5 text-emerald-400" />
+                        Science Olympiad Designer Genes
+                      </span>
+                      <p className="text-[11px] text-slate-300 mt-0.5">
+                        8 Freshman Study Guides with 20-Question Quizzes & 3D Flip Flashcards
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {DESIGNER_GENES_TOPICS.map((g) => (
+                      <Link
+                        key={g.slug}
+                        href={`/designer-genes/${g.slug}`}
+                        onClick={() => setOpenDropdown(null)}
+                        className="p-2.5 rounded-lg bg-[#041c27] hover:bg-[#072c3d] border border-emerald-800/60 hover:border-emerald-400 transition group block shadow-sm"
+                      >
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="font-bold text-emerald-300 group-hover:text-white transition">
+                            Topic {g.topicNumber}: {g.title}
+                          </span>
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 font-mono font-semibold">
+                            20Q Quiz
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-slate-300 line-clamp-1 mt-1">
+                          {g.subtitle}
                         </p>
                       </Link>
                     ))}

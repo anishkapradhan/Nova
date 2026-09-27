@@ -13,6 +13,7 @@ import {
   Filter,
   ArrowRight,
   GraduationCap,
+  Dna,
 } from 'lucide-react';
 import { useCadetSession } from '@/lib/session/CadetSessionContext';
 import { CANONICAL_RESOURCES } from '@/data/resources';
@@ -21,6 +22,7 @@ import { AddResourceModal } from '@/components/fundamentals/AddResourceModal';
 import { WebMDNavbar } from '@/components/layout/WebMDNavbar';
 import { SPACE_TOPICS } from '@/data/topics';
 import { CURRICULUM_TOPICS } from '@/data/curriculum';
+import { DESIGNER_GENES_TOPICS } from '@/data/designer-genes';
 
 export default function HomePage(): React.JSX.Element {
   const { cadetHandle, bookmarks, toggleBookmark } = useCadetSession();
@@ -327,6 +329,66 @@ export default function HomePage(): React.JSX.Element {
 
                 <div className="pt-2.5 border-t border-blue-950/80 flex items-center justify-between text-xs text-amber-400 group-hover:text-amber-300 font-semibold font-mono">
                   <span>Start Chapter Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Science Olympiad Designer Genes Curriculum (8 Topics) */}
+        <section className="space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-emerald-900/80">
+            <div>
+              <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase font-bold tracking-wider mb-1">
+                <Dna className="w-4 h-4 text-emerald-400" />
+                <span>Science Olympiad 2026–2027 Division C</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-white">
+                Designer Genes High School Freshman Curriculum (8 Topics)
+              </h2>
+              <p className="text-xs text-slate-300">
+                Foundational study guides from presentation decks, custom vector schematics, 3D flip card tiles, and 20-question diagnostic quizzes
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {DESIGNER_GENES_TOPICS.map((g) => (
+              <Link
+                key={g.slug}
+                href={`/designer-genes/${g.slug}`}
+                className="bg-[#031520]/90 hover:bg-[#062436] border border-emerald-900/80 hover:border-emerald-400/50 rounded-2xl p-5 transition space-y-3 group block shadow-xl"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wide">
+                    Topic 0{g.topicNumber}
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-mono">
+                      {g.flashcards.length} Cards
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700 font-mono font-bold">
+                      20Q Quiz
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 transition line-clamp-1">
+                    {g.title}
+                  </h3>
+                  <p className="text-[11px] text-emerald-200/70 font-mono mt-0.5 line-clamp-1">
+                    {g.subtitle}
+                  </p>
+                </div>
+
+                <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  {g.freshmanSummary}
+                </p>
+
+                <div className="pt-2.5 border-t border-emerald-950/80 flex items-center justify-between text-xs text-emerald-400 group-hover:text-emerald-300 font-semibold font-mono">
+                  <span>Explore Topic Guide</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>

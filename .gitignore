@@ -38,3 +38,6 @@ __pycache__/
 netlify-drop/
 *.zip
 
+# Scratch data
+scratch/
+
