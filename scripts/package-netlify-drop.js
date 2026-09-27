@@ -42,14 +42,32 @@ if (fs.existsSync(topicSrcDir)) {
   for (const file of files) {
     if (file.endsWith('.html')) {
       const slug = file.replace('.html', '');
-      // Copy both as topic/<slug>.html and topic/<slug>/index.html for clean URLs
       fs.copyFileSync(path.join(topicSrcDir, file), path.join(topicDestDir, file));
       const subFolder = path.join(topicDestDir, slug);
       fs.mkdirSync(subFolder, { recursive: true });
       fs.copyFileSync(path.join(topicSrcDir, file), path.join(subFolder, 'index.html'));
     }
   }
-  console.log('✓ Copied topic pages (aerodynamics, propulsion, astronomy, physics, math, competitions)');
+  console.log('✓ Copied topic pages (astronomy, aerodynamics, propulsion, physics, math, competitions)');
+}
+
+// 3b. Copy designer-genes HTML pages
+const genesSrcDir = path.join(serverAppDir, 'designer-genes');
+if (fs.existsSync(genesSrcDir)) {
+  const genesDestDir = path.join(dropDir, 'designer-genes');
+  fs.mkdirSync(genesDestDir, { recursive: true });
+
+  const files = fs.readdirSync(genesSrcDir);
+  for (const file of files) {
+    if (file.endsWith('.html')) {
+      const slug = file.replace('.html', '');
+      fs.copyFileSync(path.join(genesSrcDir, file), path.join(genesDestDir, file));
+      const subFolder = path.join(genesDestDir, slug);
+      fs.mkdirSync(subFolder, { recursive: true });
+      fs.copyFileSync(path.join(genesSrcDir, file), path.join(subFolder, 'index.html'));
+    }
+  }
+  console.log('✓ Copied designer-genes pages (8 presentation topics)');
 }
 
 // 4. Copy _next/static folder
@@ -70,13 +88,9 @@ if (fs.existsSync(publicDir)) {
 // 6. Create Netlify _redirects file
 const redirectsContent = `
 # Netlify Redirects & SPA Fallback
-/topic/aerodynamics    /topic/aerodynamics/index.html   200
-/topic/propulsion      /topic/propulsion/index.html     200
-/topic/astronomy       /topic/astronomy/index.html      200
-/topic/physics         /topic/physics/index.html        200
-/topic/applied-math    /topic/applied-math/index.html   200
-/topic/competitions    /topic/competitions/index.html   200
-/*                     /index.html                      200
+/designer-genes/*   /designer-genes/:splat/index.html   200
+/topic/*            /topic/:splat/index.html            200
+/*                  /index.html                         200
 `;
 fs.writeFileSync(path.join(dropDir, '_redirects'), redirectsContent.trim());
 console.log('✓ Generated Netlify _redirects configuration');
