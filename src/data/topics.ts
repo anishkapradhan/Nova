@@ -15,7 +15,7 @@ export interface TopicDefinition {
   fullOverview: string;
   categoryFilter: string;
   accentColor: string; // for UI accents
-  iconName: 'Compass' | 'Atom' | 'Flame' | 'Binary' | 'Trophy' | 'Sparkles';
+  iconName: 'Compass' | 'Atom' | 'Flame' | 'Binary' | 'Trophy' | 'Sparkles' | 'Satellite' | 'Globe';
   subtopics: Subtopic[];
   keyFormulas: {
     name: string;
@@ -431,6 +431,75 @@ export const SPACE_TOPICS: TopicDefinition[] = [
       url: 'https://rocketcontest.org/',
       summary:
         'Official rules, aerospace safety codes, motor specifications, and engineering team workbook for nationwide competition.',
+    },
+  },
+  {
+    slug: 'remote-sensing',
+    title: 'Remote Sensing & Earth Observation',
+    webmdTabLabel: 'Remote Sensing',
+    shortDescription: 'Electromagnetic radiation physics, orbital mechanics, Landsat/Sentinel sensor fleets, and spectral indices (NDVI/NDWI/NBR).',
+    fullOverview:
+      'Remote Sensing is the science of acquiring physical and environmental data about Earth’s surface, oceans, and atmosphere from satellite sensors and airborne platforms without making direct physical contact. Central to Science Olympiad Division C and aerospace engineering, this discipline covers radiation laws (Planck, Wien, Stefan-Boltzmann), atmospheric scattering windows, Sun-synchronous vs. geostationary orbits, passive multispectral radiometry vs. active SAR radar and LiDAR, and digital image processing including false-color composites and vegetation indices.',
+    categoryFilter: 'Remote Sensing & Earth Science',
+    accentColor: 'teal',
+    iconName: 'Satellite',
+    subtopics: [
+      {
+        id: 'em-radiation-physics',
+        name: 'Electromagnetic Radiation Physics & Atmospheric Windows',
+        description: 'Planck blackbody radiation curves, Wien’s displacement law, Stefan-Boltzmann emission, Rayleigh/Mie scattering, and atmospheric transmission windows.',
+        badge: 'Physics & EM Spectrum',
+        externalUrl: 'https://science.nasa.gov/learn/basics-of-space-flight/chapter-4-planetary-geology-and-geophysics/',
+        keyConcepts: ['Wien’s Law (λ_max = b/T)', 'Stefan-Boltzmann (E = σT⁴)', 'Rayleigh vs. Mie Scattering', 'Atmospheric Transmission Windows'],
+      },
+      {
+        id: 'orbits-and-sensors',
+        name: 'Satellite Orbits, Resolutions & Active vs. Passive Sensors',
+        description: 'Geostationary (GEO) vs. Sun-Synchronous Polar LEO, spatial, spectral, radiometric, and temporal resolution matrix, and Synthetic Aperture Radar (SAR).',
+        badge: 'Sensor Architecture',
+        externalUrl: 'https://earthobservatory.nasa.gov/features/OrbitsCatalog',
+        keyConcepts: ['Sun-Synchronous Orbit (SSO)', 'Geostationary (GEO ~35,786 km)', 'Active Radar (SAR) & LiDAR', '4 Resolutions Tradeoff'],
+      },
+      {
+        id: 'satellite-fleets',
+        name: 'Earth Observing Fleets: Landsat, Sentinel & Terra/Aqua',
+        description: 'USGS/NASA Landsat 8/9 (OLI/TIRS), ESA Copernicus Sentinel-1/2/3/5P, NASA EOS Terra/Aqua (MODIS 36 bands), and ICESat-2 photon-counting LiDAR.',
+        badge: 'NASA & ESA Fleets',
+        externalUrl: 'https://landsat.gsfc.nasa.gov/',
+        keyConcepts: ['Landsat 8/9 OLI & TIRS (30m)', 'Sentinel-2 MSI 13 Bands (10m)', 'MODIS 250m-1km Bands', 'ICESat-2 ATLAS LiDAR'],
+      },
+      {
+        id: 'spectral-indices',
+        name: 'Digital Image Interpretation, False Color & Spectral Indices',
+        description: 'Normalized Difference Vegetation Index (NDVI), NDWI water index, Normalized Burn Ratio (NBR), and standard false-color NIR composites.',
+        badge: 'Spectral Mathematics',
+        externalUrl: 'https://earthobservatory.nasa.gov/features/MeasuringVegetation',
+        keyConcepts: ['NDVI = (NIR - Red)/(NIR + Red)', 'Standard False Color (NIR-R-G)', 'Water Index (NDWI)', 'Burn Severity (NBR)'],
+      },
+    ],
+    keyFormulas: [
+      {
+        name: 'Normalized Difference Vegetation Index (NDVI)',
+        formula: 'NDVI = (NIR - Red) / (NIR + Red)',
+        explanation: 'Ranges from -1.0 to +1.0. Healthy photosynthetic vegetation exhibits high NDVI (> 0.6) because chlorophyll absorbs red light while spongy mesophyll strongly reflects near-infrared (NIR).',
+      },
+      {
+        name: 'Wien’s Displacement Law',
+        formula: 'λ_max = 2.898 × 10⁻³ m·K / T',
+        explanation: 'Calculates the peak emission wavelength of blackbody radiation: the Sun (T ≈ 5778 K) peaks in visible light (~0.5 μm), while Earth (T ≈ 288 K) peaks in thermal infrared (~10 μm).',
+      },
+      {
+        name: 'Stefan-Boltzmann Radiation Law',
+        formula: 'E = ε · σ · T⁴  (where σ = 5.670 × 10⁻⁸ W/m²·K⁴)',
+        explanation: 'Relates total radiant energy emitted per unit surface area of a blackbody to the fourth power of thermodynamic absolute temperature.',
+      },
+    ],
+    featuredGuide: {
+      title: 'NASA Earth Observatory: Remote Sensing & Spectral Indices Guide',
+      publisher: 'NASA Goddard Space Flight Center',
+      url: 'https://earthobservatory.nasa.gov/features/MeasuringVegetation',
+      summary:
+        'Foundational primer on how Earth-orbiting satellites measure photosynthetic activity, track deforestation, map wildfire burn severity, and monitor global climate shifts.',
     },
   },
 ];

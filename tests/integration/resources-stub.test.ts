@@ -1,16 +1,17 @@
 import { describe, it, expect } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET } from '@/app/api/v1/fundamentals/resources/route';
+import { CANONICAL_RESOURCES } from '@/data/resources';
 
 describe('GET /api/v1/fundamentals/resources', () => {
-  it('should return all 9 canonical resources without filters', async () => {
+  it('should return all canonical resources without filters', async () => {
     const req = new NextRequest('http://localhost:3000/api/v1/fundamentals/resources');
     const res = await GET(req);
     expect(res.status).toBe(200);
 
     const body = await res.json();
     expect(body.success).toBe(true);
-    expect(body.data).toHaveLength(9);
+    expect(body.data).toHaveLength(CANONICAL_RESOURCES.length);
   });
 
   it('should filter resources by category', async () => {

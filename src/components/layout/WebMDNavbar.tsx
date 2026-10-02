@@ -21,6 +21,8 @@ import {
   Sparkles,
   GraduationCap,
   Dna,
+  Satellite,
+  Globe,
 } from 'lucide-react';
 import { SPACE_TOPICS, TopicDefinition } from '@/data/topics';
 import { CURRICULUM_TOPICS } from '@/data/curriculum';
@@ -68,6 +70,10 @@ export function WebMDNavbar({
         return <Binary className="w-4 h-4 text-sky-400" />;
       case 'Trophy':
         return <Trophy className="w-4 h-4 text-amber-400" />;
+      case 'Satellite':
+        return <Satellite className="w-4 h-4 text-teal-400" />;
+      case 'Globe':
+        return <Globe className="w-4 h-4 text-emerald-400" />;
       default:
         return <Sparkles className="w-4 h-4 text-cyan-400" />;
     }

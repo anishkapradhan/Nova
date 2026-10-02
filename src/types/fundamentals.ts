@@ -4,6 +4,8 @@ export const DISCIPLINE_CATEGORIES = [
   'Physics & Classical Mechanics',
   'Aerospace Engineering & Propulsion',
   'Applied Space Mathematics',
+  'Remote Sensing & Earth Science',
+  'Designer Genes & Molecular Genetics',
 ] as const;
 
 export type DisciplineCategory = (typeof DISCIPLINE_CATEGORIES)[number];

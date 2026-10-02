@@ -15,6 +15,8 @@ import {
   Sparkles,
   Calculator,
   ChevronRight,
+  Satellite,
+  Globe,
 } from 'lucide-react';
 import { SPACE_TOPICS, TopicDefinition } from '@/data/topics';
 import { useCadetSession } from '@/lib/session/CadetSessionContext';
@@ -87,6 +89,13 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
     return ((cpCm - cgCm) / bodyDiameterCm).toFixed(2);
   }, [cpCm, cgCm, bodyDiameterCm]);
 
+  // 7. Remote Sensing NDVI
+  const [nirReflectance, setNirReflectance] = useState<number>(0.58);
+  const [redReflectance, setRedReflectance] = useState<number>(0.07);
+  const calculatedNdvi = useMemo(() => {
+    return ((nirReflectance - redReflectance) / (nirReflectance + redReflectance)).toFixed(3);
+  }, [nirReflectance, redReflectance]);
+
   // Filtered resources for this topic
   const topicResources = useMemo(() => {
     return resources.filter((r) => {
@@ -117,6 +126,10 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
         return <Binary className="w-6 h-6 text-sky-400" />;
       case 'Trophy':
         return <Trophy className="w-6 h-6 text-amber-400" />;
+      case 'Satellite':
+        return <Satellite className="w-6 h-6 text-teal-400" />;
+      case 'Globe':
+        return <Globe className="w-6 h-6 text-emerald-400" />;
       default:
         return <Sparkles className="w-6 h-6 text-cyan-400" />;
     }
@@ -290,6 +303,7 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
                 {topic.slug === 'physics' && 'Celestial Gravitational Escape Velocity Calculator'}
                 {topic.slug === 'applied-math' && "Kepler's 3rd Law Orbital Period Calculator"}
                 {topic.slug === 'competitions' && 'TARC Model Rocket Static Stability Margin Calculator'}
+                {topic.slug === 'remote-sensing' && 'Normalized Difference Vegetation Index (NDVI) Calculator'}
               </h2>
             </div>
 
@@ -305,6 +319,7 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
                 {topic.slug === 'physics' && `${escapeVelocityKms} km/s`}
                 {topic.slug === 'applied-math' && `${orbitalPeriodYears} yrs`}
                 {topic.slug === 'competitions' && `${stabilityCalibers} cal`}
+                {topic.slug === 'remote-sensing' && (Number(calculatedNdvi) > 0 ? `+${calculatedNdvi}` : calculatedNdvi)}
               </div>
               <span className="text-[10px] font-bold text-emerald-400">
                 {topic.slug === 'aerodynamics' && '✓ Subsonic Airfoil Equilibrium'}
@@ -317,6 +332,12 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
                   (Number(stabilityCalibers) >= 1.0 && Number(stabilityCalibers) <= 2.5
                     ? '✓ Stable Rocket Flight Margin'
                     : '⚠ Outside 1-2.5 Caliber Window')}
+                {topic.slug === 'remote-sensing' &&
+                  (Number(calculatedNdvi) > 0.6
+                    ? '🌿 Dense Healthy Forest Canopy'
+                    : Number(calculatedNdvi) > 0.1
+                    ? '🌾 Moderate Flora / Grassland'
+                    : '💧 Open Water / Soil')}
               </span>
             </div>
           </div>
@@ -572,6 +593,48 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
                   className="w-full accent-amber-400 cursor-pointer"
                 />
                 <span className="text-[10px] text-slate-500">Rocket airframe caliber</span>
+              </div>
+            </div>
+          )}
+
+          {topic.slug === 'remote-sensing' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2 bg-[#020b18]/70 p-4 rounded-xl border border-blue-900">
+                <div className="flex justify-between text-xs">
+                  <span className="text-slate-300">Near-Infrared Reflectance (NIR)</span>
+                  <span className="font-mono text-emerald-400 font-bold">{(nirReflectance * 100).toFixed(0)}% ({nirReflectance})</span>
+                </div>
+                <input
+                  type="range"
+                  min={0.01}
+                  max={0.9}
+                  step={0.01}
+                  value={nirReflectance}
+                  onChange={(e) => setNirReflectance(Number(e.target.value))}
+                  className="w-full accent-emerald-400 cursor-pointer"
+                />
+                <span className="text-[10px] text-slate-500">
+                  Mesophyll cellular light scattering (high in healthy foliage, near zero in water)
+                </span>
+              </div>
+
+              <div className="space-y-2 bg-[#020b18]/70 p-4 rounded-xl border border-blue-900">
+                <div className="flex justify-between text-xs">
+                  <span className="text-slate-300">Red Band Reflectance (Red)</span>
+                  <span className="font-mono text-rose-400 font-bold">{(redReflectance * 100).toFixed(0)}% ({redReflectance})</span>
+                </div>
+                <input
+                  type="range"
+                  min={0.01}
+                  max={0.9}
+                  step={0.01}
+                  value={redReflectance}
+                  onChange={(e) => setRedReflectance(Number(e.target.value))}
+                  className="w-full accent-rose-400 cursor-pointer"
+                />
+                <span className="text-[10px] text-slate-500">
+                  Chlorophyll photosynthesis absorption (~5% in healthy leaves, 30%+ in bare dirt)
+                </span>
               </div>
             </div>
           )}

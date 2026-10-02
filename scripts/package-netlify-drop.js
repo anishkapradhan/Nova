@@ -70,6 +70,16 @@ if (fs.existsSync(genesSrcDir)) {
   console.log('✓ Copied designer-genes pages (8 presentation topics)');
 }
 
+// 3c. Copy remote-sensing HTML page
+const remoteSensingFile = path.join(serverAppDir, 'remote-sensing.html');
+if (fs.existsSync(remoteSensingFile)) {
+  const remoteDestDir = path.join(dropDir, 'remote-sensing');
+  fs.mkdirSync(remoteDestDir, { recursive: true });
+  fs.copyFileSync(remoteSensingFile, path.join(dropDir, 'remote-sensing.html'));
+  fs.copyFileSync(remoteSensingFile, path.join(remoteDestDir, 'index.html'));
+  console.log('✓ Copied remote-sensing standalone page');
+}
+
 // 4. Copy _next/static folder
 const staticSrc = path.join(rootDir, '.next', 'static');
 const staticDest = path.join(dropDir, '_next', 'static');
@@ -88,6 +98,8 @@ if (fs.existsSync(publicDir)) {
 // 6. Create Netlify _redirects file
 const redirectsContent = `
 # Netlify Redirects & SPA Fallback
+/remote-sensing     /remote-sensing/index.html          200
+/remote-sensing/*   /remote-sensing/index.html          200
 /designer-genes/*   /designer-genes/:splat/index.html   200
 /topic/*            /topic/:splat/index.html            200
 /*                  /index.html                         200
