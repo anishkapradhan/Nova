@@ -1,11 +1,11 @@
 [build]
   command = "npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+  ESLINT_USE_FLAT_CONFIG = "false"
+  DATABASE_URL = "postgresql://mock:mock@localhost:5432/mock?sslmode=disable"
 
 [[headers]]
   for = "/*"
