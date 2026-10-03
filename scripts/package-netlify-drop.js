@@ -98,11 +98,13 @@ if (fs.existsSync(publicDir)) {
 // 6. Create Netlify _redirects file
 const redirectsContent = `
 # Netlify Redirects & SPA Fallback
-/remote-sensing     /remote-sensing/index.html          200
-/remote-sensing/*   /remote-sensing/index.html          200
-/designer-genes/*   /designer-genes/:splat/index.html   200
-/topic/*            /topic/:splat/index.html            200
-/*                  /index.html                         200
+/remote-sensing                      /remote-sensing/index.html                             200
+/remote-sensing/*                    /remote-sensing/index.html                             200
+/designer-genes/biotech-techniques   /designer-genes/biotechnology-techniques/index.html    200
+/designer-genes/*                    /designer-genes/:splat/index.html                      200
+/topic/math                          /topic/applied-math/index.html                         200
+/topic/*                             /topic/:splat/index.html                               200
+/*                                   /index.html                                            200
 `;
 fs.writeFileSync(path.join(dropDir, '_redirects'), redirectsContent.trim());
 console.log('✓ Generated Netlify _redirects configuration');
