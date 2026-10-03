@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+  command = "npm run build && npm run package:netlify"
+  publish = "netlify-drop"
 
 [build.environment]
   NODE_VERSION = "20"
