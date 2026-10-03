@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
   ESLINT_USE_FLAT_CONFIG = "false"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
   DATABASE_URL = "postgresql://mock:mock@localhost:5432/mock?sslmode=disable"
 
 [[headers]]
