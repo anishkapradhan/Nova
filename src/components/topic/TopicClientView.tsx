@@ -829,6 +829,16 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
               <ul className="space-y-1 text-slate-400">
                 <li>
                   <a
+                    href="https://anishkapradhan.github.io/Nova/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-cyan-300"
+                  >
+                    Live GitHub Pages
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="https://github.com/anishkapradhan/Nova"
                     target="_blank"
                     rel="noreferrer"

@@ -575,6 +575,7 @@ export default function HomePage(): React.JSX.Element {
             <div className="space-y-2">
               <h4 className="font-bold text-white uppercase tracking-wider font-mono">Community</h4>
               <ul className="space-y-1 text-slate-400">
+                <li><a href="https://anishkapradhan.github.io/Nova/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">Live GitHub Pages</a></li>
                 <li><a href="https://github.com/anishkapradhan/Nova" target="_blank" rel="noreferrer" className="hover:text-cyan-300">GitHub Repository</a></li>
                 <li><button onClick={() => setIsModalOpen(true)} className="hover:text-cyan-300">Submit Study Guide</button></li>
                 <li><a href="/api/v1/health" target="_blank" className="hover:text-cyan-300">API Health Diagnostics</a></li>
