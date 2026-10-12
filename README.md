@@ -1,10 +1,19 @@
 # Nova: AstroSpace Hub Ecosystem
 > **Bridging Pre-College Students into Observational Astronomy, Computational Astrophysics, and Aerospace Engineering.**
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Website-0284c7?logo=github&style=flat-square)](https://anishkapradhan.github.io/Nova/)
+[![Deploy Status](https://img.shields.io/github/actions/workflow/status/anishkapradhan/Nova/deploy-pages.yml?branch=main&label=Pages%20Deployment&style=flat-square)](https://github.com/anishkapradhan/Nova/actions/workflows/deploy-pages.yml)
+[![Evaluation Gate](https://img.shields.io/github/actions/workflow/status/anishkapradhan/Nova/eval-regression.yml?branch=main&label=Eval%20Gate&style=flat-square)](https://github.com/anishkapradhan/Nova/actions/workflows/eval-regression.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+
+🌐 **Live Website:** [https://anishkapradhan.github.io/Nova/](https://anishkapradhan.github.io/Nova/)
+
 ---
 
 ## 🌌 Overview
 **Nova (AstroSpace Hub)** is an open-source, pre-college platform designed to bridge high school students (Grades 9–12), educators, parent mentors, and amateur enthusiasts into collegiate space science and aerospace engineering.
+
+> 🚀 **Explore the Live Portal:** Visit [https://anishkapradhan.github.io/Nova/](https://anishkapradhan.github.io/Nova/) to explore the freshman astronomy curriculum, Science Olympiad remote sensing portal, interactive simulations, flashcard decks, and practice exams.
 
 The platform eliminates the barrier between simplistic consumer space media and intimidating graduate-level toolkits by providing structured academic pathways, hands-on simulation sandboxes, national competition guides, and curated open educational resources (OER).
 
@@ -33,6 +42,42 @@ This repository houses the complete product specifications and technical design 
 8. **Layer 8: Authentication & Security** (Zero-PII Cryptographic ECDSA P-256 Tokens + GitHub 2FA OAuth)
 9. **Layer 9: Publishing Pipeline & Git Collaboration** (Octokit PR Bridge, GitHub Actions CI/CD)
 10. **Layer 10: Observability & Telemetry** (Privacy-preserving cookieless telemetry, synthetic health probes)
+
+---
+
+## 🚀 Development & Deployment
+
+### Quick Start
+```bash
+# Clone the repository
+git clone https://github.com/anishkapradhan/Nova.git
+cd Nova
+
+# Install dependencies and generate Prisma client
+npm install
+
+# Run locally in development mode
+npm run dev
+# Visit http://localhost:3000
+```
+
+### Testing & Validation
+```bash
+# Run unit & integration test suites
+npm test
+
+# Run TypeScript typecheck
+npm run typecheck
+
+# Run ESLint checks
+npm run lint
+```
+
+### GitHub Pages Build
+```bash
+# Compile and package for GitHub Pages static distribution (./gh-pages)
+npm run build:gh-pages
+```
 
 ---
 
