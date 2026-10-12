@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { REMOTE_SENSING_TOPIC } from '@/data/remote-sensing';
-import { getTopicBySlug, SPACE_TOPICS } from '@/data/topics';
+import { getTopicBySlug } from '@/data/topics';
 
 describe('Remote Sensing Curriculum & Data Integrity Suite', () => {
   const topic = REMOTE_SENSING_TOPIC;

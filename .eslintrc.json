@@ -7,6 +7,7 @@
     ".next/",
     "node_modules/",
     "netlify-drop/",
+    "gh-pages/",
     "scripts/",
     "*.config.*",
     "dist/",
