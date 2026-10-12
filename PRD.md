@@ -495,8 +495,8 @@ The section launches with an initial suite of vetted, authoritative resources:
 
 | Resource Title | Core Category | Type | Provider / Source | Difficulty Level | Validated URL |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **NASA Beginner's Guide to Aeronautics** | Aerodynamics | Interactive Webpage & Guides | NASA Glenn Research Center | Beginner to Intermediate | `https://www.grc.nasa.gov/www/k-12/airplane/bga.html` |
-| **NASA FoilSim Interactive Airfoil Simulator** | Aerodynamics | Browser Simulation Tool | NASA Glenn Educational Labs | Beginner | `https://www.grc.nasa.gov/www/k-12/airplane/foil3.html` |
+| **NASA Beginner's Guide to Aeronautics** | Aerodynamics | Interactive Webpage & Guides | NASA Glenn Research Center | Beginner to Intermediate | `https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/learn-about-aerodynamics/` |
+| **NASA FoilSim Interactive Airfoil Simulator** | Aerodynamics | Browser Simulation Tool | NASA Glenn Educational Labs | Beginner | `https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/foilsimstudent/` |
 | **OpenStax Astronomy 2e** | Astronomy | Peer-Reviewed Open Textbook | OpenStax / Rice University | Beginner to Intermediate | `https://openstax.org/details/books/astronomy-2e` |
 | **MIT OCW Introduction to Astronomy** | Astronomy | Courseware & Lecture Notes | MIT OpenCourseWare (8.282J) | Intermediate | `https://ocw.mit.edu/courses/8-282j-introduction-to-astronomy-spring-2006/` |
 | **OpenStax University Physics Vol 1 & 2** | Physics | Peer-Reviewed Open Textbook | OpenStax / Rice University | Intermediate (AP Physics C) | `https://openstax.org/details/books/university-physics-volume-1` |

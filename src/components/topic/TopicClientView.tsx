@@ -787,7 +787,7 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
               <h4 className="font-bold text-white uppercase tracking-wider font-mono">Space Competitions</h4>
               <ul className="space-y-1 text-slate-400">
                 <li>
-                  <a href="https://rocketcontest.org/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
+                  <a href="https://www.rocketrychallenge.org/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
                     TARC Rocketry
                   </a>
                 </li>
@@ -803,7 +803,7 @@ export function TopicClientView({ topic }: TopicClientViewProps): React.JSX.Elem
                 </li>
                 <li>
                   <a
-                    href="https://www.nasa.gov/cubesat-launch-initiative/"
+                    href="https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-cyan-300"

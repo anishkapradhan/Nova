@@ -22,7 +22,7 @@ export const CANONICAL_RESOURCES: FundamentalResource[] = [
     title: 'NASA FoilSim Interactive Airfoil Simulator',
     category: 'Aerodynamics & Fluid Dynamics',
     resourceType: 'Interactive Simulation / Webtool',
-    targetUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/foil3.html',
+    targetUrl: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/foilsimstudent/',
     publisherOrSource: 'NASA Glenn Educational Labs',
     difficultyLevel: 'Beginner (Grades 9-10 / Algebra I)',
     summary:
@@ -86,7 +86,7 @@ export const CANONICAL_RESOURCES: FundamentalResource[] = [
     title: 'HyperPhysics Mechanics & Astrophysics',
     category: 'Physics & Classical Mechanics',
     resourceType: 'Interactive Simulation / Webtool',
-    targetUrl: 'https://hyperphysics.phy-astr.gsu.edu/hbase/hframe.html',
+    targetUrl: 'http://hyperphysics.phy-astr.gsu.edu/hbase/hframe.html',
     publisherOrSource: 'Georgia State University',
     difficultyLevel: 'Beginner (Grades 9-10 / Algebra I)',
     summary:
@@ -150,7 +150,7 @@ export const CANONICAL_RESOURCES: FundamentalResource[] = [
     title: 'NASA Earth Observatory: Measuring Vegetation & NDVI Guide',
     category: 'Remote Sensing & Earth Science',
     resourceType: 'Free Online Textbook (OER)',
-    targetUrl: 'https://earthobservatory.nasa.gov/features/MeasuringVegetation',
+    targetUrl: 'https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi/',
     publisherOrSource: 'NASA Earth Observatory',
     difficultyLevel: 'Beginner (Grades 9-10 / Algebra I)',
     summary:
@@ -166,7 +166,7 @@ export const CANONICAL_RESOURCES: FundamentalResource[] = [
     title: 'NASA ARSET Fundamentals of Remote Sensing',
     category: 'Remote Sensing & Earth Science',
     resourceType: 'Full Video Course / Lecture Series',
-    targetUrl: 'https://appliedsciences.nasa.gov/what-we-do/capacity-building/arset',
+    targetUrl: 'https://science.nasa.gov/earth-science/earth-action/',
     publisherOrSource: 'NASA Applied Remote Sensing Training (ARSET)',
     difficultyLevel: 'Intermediate (Grades 11-12 / AP Physics & Calc)',
     summary:

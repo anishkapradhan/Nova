@@ -47,7 +47,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Airfoils, Camber & Circulation Theory',
         description: 'Kutta-Joukowski theorem, Bernoulli pressure differential, and angle of attack stall limits.',
         badge: 'NASA Glenn',
-        externalUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/foil3.html',
+        externalUrl: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/foilsimstudent/',
         keyConcepts: ['Camber & Chord Line', 'Kutta Condition', 'Stall Angle', 'Pressure Coefficient Cp'],
       },
       {
@@ -55,7 +55,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Supersonic Flow & Oblique Shockwaves',
         description: 'Mach angles, normal vs oblique shockwaves, expansion fans, and aerodynamic wave drag.',
         badge: 'Transonic / Mach',
-        externalUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/mach.html',
+        externalUrl: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/speed-of-sound-interactive/',
         keyConcepts: ['Mach Number M = v/a', 'Prandtl-Meyer Expansion', 'Wave Drag', 'Thermal Choking'],
       },
       {
@@ -63,7 +63,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Boundary Layers & Reynolds Numbers',
         description: 'Laminar-to-turbulent shear stress transitions and skin-friction drag on flight surfaces.',
         badge: 'Fluid Dynamics',
-        externalUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/boundlay.html',
+        externalUrl: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/boundary-layer/',
         keyConcepts: ['Reynolds Number Re', 'Laminar Flow', 'Turbulent Separation', 'Blasius Solution'],
       },
       {
@@ -122,7 +122,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'De Laval Supersonic Nozzle Dynamics',
         description: 'Converging-diverging throat geometries, sonic choking, underexpanded vs overexpanded exhaust.',
         badge: 'NASA JPL',
-        externalUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/nozzleh.html',
+        externalUrl: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/nozzle/',
         keyConcepts: ['Choked Flow (M=1)', 'Expansion Ratio Ae/At', 'Flow Separation', 'Altitude Adaptation'],
       },
       {
@@ -380,7 +380,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'The American Rocketry Challenge (TARC)',
         description: 'Premier national high school rocketry contest: hit exact altitude & flight duration with egg payload.',
         badge: 'Grades 9-12',
-        externalUrl: 'https://rocketcontest.org/',
+        externalUrl: 'https://www.rocketrychallenge.org/',
         keyConcepts: ['OpenRocket Trajectory Modeling', 'Altimeter Instrumentation', 'Parachute Sizing', 'Stability Margin'],
       },
       {
@@ -396,7 +396,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'NASA CubeSat Launch Initiative (CSLI)',
         description: 'High school and university guidelines to build, test, and launch miniature 1U CubeSat satellites.',
         badge: 'Satellite Design',
-        externalUrl: 'https://www.nasa.gov/cubesat-launch-initiative/',
+        externalUrl: 'https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative/',
         keyConcepts: ['1U Standard (10cm³)', 'Power Budget & Solar Panels', 'Vibration Qualification', 'Ground Station Radio'],
       },
       {
@@ -428,7 +428,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
     featuredGuide: {
       title: 'The American Rocketry Challenge (TARC) Handbook',
       publisher: 'Aerospace Industries Association (AIA)',
-      url: 'https://rocketcontest.org/',
+      url: 'https://www.rocketrychallenge.org/',
       summary:
         'Official rules, aerospace safety codes, motor specifications, and engineering team workbook for nationwide competition.',
     },
@@ -449,7 +449,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Electromagnetic Radiation Physics & Atmospheric Windows',
         description: 'Planck blackbody radiation curves, Wien’s displacement law, Stefan-Boltzmann emission, Rayleigh/Mie scattering, and atmospheric transmission windows.',
         badge: 'Physics & EM Spectrum',
-        externalUrl: 'https://science.nasa.gov/learn/basics-of-space-flight/chapter-4-planetary-geology-and-geophysics/',
+        externalUrl: 'https://science.nasa.gov/learn/basics-of-space-flight/chapter4-1/',
         keyConcepts: ['Wien’s Law (λ_max = b/T)', 'Stefan-Boltzmann (E = σT⁴)', 'Rayleigh vs. Mie Scattering', 'Atmospheric Transmission Windows'],
       },
       {
@@ -457,7 +457,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Satellite Orbits, Resolutions & Active vs. Passive Sensors',
         description: 'Geostationary (GEO) vs. Sun-Synchronous Polar LEO, spatial, spectral, radiometric, and temporal resolution matrix, and Synthetic Aperture Radar (SAR).',
         badge: 'Sensor Architecture',
-        externalUrl: 'https://earthobservatory.nasa.gov/features/OrbitsCatalog',
+        externalUrl: 'https://science.nasa.gov/earth/earth-observatory/catalog-of-earth-satellite-orbits/',
         keyConcepts: ['Sun-Synchronous Orbit (SSO)', 'Geostationary (GEO ~35,786 km)', 'Active Radar (SAR) & LiDAR', '4 Resolutions Tradeoff'],
       },
       {
@@ -465,7 +465,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Earth Observing Fleets: Landsat, Sentinel & Terra/Aqua',
         description: 'USGS/NASA Landsat 8/9 (OLI/TIRS), ESA Copernicus Sentinel-1/2/3/5P, NASA EOS Terra/Aqua (MODIS 36 bands), and ICESat-2 photon-counting LiDAR.',
         badge: 'NASA & ESA Fleets',
-        externalUrl: 'https://landsat.gsfc.nasa.gov/',
+        externalUrl: 'https://science.nasa.gov/mission/landsat/',
         keyConcepts: ['Landsat 8/9 OLI & TIRS (30m)', 'Sentinel-2 MSI 13 Bands (10m)', 'MODIS 250m-1km Bands', 'ICESat-2 ATLAS LiDAR'],
       },
       {
@@ -473,7 +473,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
         name: 'Digital Image Interpretation, False Color & Spectral Indices',
         description: 'Normalized Difference Vegetation Index (NDVI), NDWI water index, Normalized Burn Ratio (NBR), and standard false-color NIR composites.',
         badge: 'Spectral Mathematics',
-        externalUrl: 'https://earthobservatory.nasa.gov/features/MeasuringVegetation',
+        externalUrl: 'https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi/',
         keyConcepts: ['NDVI = (NIR - Red)/(NIR + Red)', 'Standard False Color (NIR-R-G)', 'Water Index (NDWI)', 'Burn Severity (NBR)'],
       },
     ],
@@ -497,7 +497,7 @@ export const SPACE_TOPICS: TopicDefinition[] = [
     featuredGuide: {
       title: 'NASA Earth Observatory: Remote Sensing & Spectral Indices Guide',
       publisher: 'NASA Goddard Space Flight Center',
-      url: 'https://earthobservatory.nasa.gov/features/MeasuringVegetation',
+      url: 'https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi/',
       summary:
         'Foundational primer on how Earth-orbiting satellites measure photosynthetic activity, track deforestation, map wildfire burn severity, and monitor global climate shifts.',
     },

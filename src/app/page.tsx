@@ -556,9 +556,9 @@ export default function HomePage(): React.JSX.Element {
             <div className="space-y-2">
               <h4 className="font-bold text-white uppercase tracking-wider font-mono">Space Competitions</h4>
               <ul className="space-y-1 text-slate-400">
-                <li><a href="https://rocketcontest.org/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">TARC Rocketry</a></li>
+                <li><a href="https://www.rocketrychallenge.org/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">TARC Rocketry</a></li>
                 <li><a href="https://www.nasa.gov/learning-resources/app-development-challenge/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">NASA App Challenge</a></li>
-                <li><a href="https://www.nasa.gov/cubesat-launch-initiative/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">CubeSat Initiative</a></li>
+                <li><a href="https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative/" target="_blank" rel="noreferrer" className="hover:text-cyan-300">CubeSat Initiative</a></li>
               </ul>
             </div>
 

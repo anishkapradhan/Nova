@@ -128,7 +128,7 @@ export function RemoteSensingPage({ topic }: RemoteSensingPageProps): React.JSX.
                 Measuring Vegetation & Wildfire Scars
               </p>
               <a
-                href="https://earthobservatory.nasa.gov/features/MeasuringVegetation"
+                href="https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-xs font-semibold transition"

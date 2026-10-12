@@ -10,7 +10,7 @@ export const natureOfStarsTopic: CurriculumTopic = {
   freshmanSummary:
     'Look at the night sky: some stars look red, some blue, some diamond-bright, some barely visible. How do we know how far away they are, how hot they burn, or how massive they are? In this pivotal chapter, you will master the astronomer’s ultimate map: the Hertzsprung-Russell (H-R) Diagram. You will calculate cosmic distances using stellar parallax and the distance modulus, decode spectral classifications (OBAFGKM), and weigh stars in binary orbits.',
   readingSections: 'Sections 17.1 – 17.8 (Parallax, Magnitudes, Spectral Types OBAFGKM, H-R Diagram, Luminosity Classes, Binary Masses)',
-  recordingUrl: 'https://youtu.be/u-UwHUVwbXQ',
+  recordingUrl: 'https://www.youtube.com/watch?v=u-UwHUVwbXQ',
   deepSkyObjects: [
     {
       name: 'Antennae Galaxies',
