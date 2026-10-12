@@ -34,8 +34,9 @@ Thumbs.db
 __pycache__/
 *.pyc
 
-# Netlify Drop bundles
+# Netlify & GitHub Pages output
 netlify-drop/
+gh-pages/
 *.zip
 
 # Scratch data

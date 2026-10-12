@@ -413,7 +413,7 @@ export function WebMDNavbar({
       {/* 3. Nova Milky Way 1-Inch Stripe Ribbon Running Right Under the Top Bar */}
       <div className="relative z-0 h-11 sm:h-12 w-full min-w-full overflow-hidden border-b border-cyan-500/30 shadow-md">
         <Image
-          src="/images/milky_way_header.jpg"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/milky_way_header.jpg`}
           alt="Nova Milky Way Cosmic Ribbon"
           fill
           priority

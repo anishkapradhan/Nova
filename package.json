@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "prisma generate && next build",
+    "build:gh-pages": "prisma generate && next build && node scripts/package-gh-pages.js",
     "postinstall": "prisma generate",
     "package:netlify": "node scripts/package-netlify-drop.js",
     "start": "next start",

@@ -101,7 +101,7 @@ export default function HomePage(): React.JSX.Element {
           <article className="lg:col-span-8 glass-panel rounded-2xl overflow-hidden flex flex-col justify-between group relative border border-slate-800 hover:border-cyan-500/40">
             <div className="relative h-64 sm:h-80 w-full overflow-hidden">
               <Image
-                src="/images/milky_way_header.jpg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/milky_way_header.jpg`}
                 alt="Milky Way over Observatory"
                 fill
                 priority
